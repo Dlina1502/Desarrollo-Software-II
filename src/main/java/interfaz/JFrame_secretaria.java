@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -23,6 +24,8 @@ public class JFrame_secretaria extends javax.swing.JFrame {
     public JFrame_secretaria() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(this.MAXIMIZED_BOTH); 
+        jPanel7.setLayout(new BorderLayout());
         jPanel7.add(gestionUsuario);
     }
 

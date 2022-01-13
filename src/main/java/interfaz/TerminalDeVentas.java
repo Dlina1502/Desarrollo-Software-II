@@ -21,7 +21,7 @@ public class TerminalDeVentas extends javax.swing.JPanel {
     
     Funciones funciones = new Funciones();
     public TerminalDeVentas() {
-        initComponents();        
+        initComponents();   
         jComboBox15.removeAllItems();
         funciones.consultar_seguro_combo(jComboBox15);
         jComboBox1.removeAllItems();

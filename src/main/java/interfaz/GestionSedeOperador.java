@@ -19,6 +19,7 @@ public class GestionSedeOperador extends javax.swing.JPanel {
     
     public GestionSedeOperador() {
         initComponents();
+        
     }
 
     /**
@@ -43,7 +44,7 @@ public class GestionSedeOperador extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setBackground(new java.awt.Color(206, 57, 57));
         jTabbedPane1.setAutoscrolls(true);
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(597, 690));
 
@@ -57,8 +58,6 @@ public class GestionSedeOperador extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Consultar por ciudad:");
 
-        jSeparator71.setBackground(new java.awt.Color(0, 0, 0));
-
         jTextField43.setForeground(new java.awt.Color(153, 153, 153));
         jTextField43.setText("Ciudad de la sede");
         jTextField43.setBorder(null);
@@ -71,8 +70,6 @@ public class GestionSedeOperador extends javax.swing.JPanel {
                 jTextField43MouseExited(evt);
             }
         });
-
-        jSeparator72.setBackground(new java.awt.Color(0, 0, 0));
 
         jButton11.setText("IR");
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
