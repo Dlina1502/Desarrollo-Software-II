@@ -23,7 +23,7 @@ public class JFrame_gerente extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(this.MAXIMIZED_BOTH); 
-        jPanel7.setLayout(new BorderLayout());
+        
         jPanel7.add(gestionUsuario);
     }
 
@@ -118,7 +118,8 @@ public class JFrame_gerente extends javax.swing.JFrame {
                 .addContainerGap(352, Short.MAX_VALUE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel7.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
