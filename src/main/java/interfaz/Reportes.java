@@ -32,6 +32,7 @@ public class Reportes extends javax.swing.JPanel {
      */
     public Reportes() {
         initComponents();
+        jPanel7.setVisible(false);
         //inicializa con las sedes
     }
 
@@ -59,6 +60,12 @@ public class Reportes extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -142,7 +149,7 @@ public class Reportes extends javax.swing.JPanel {
         jPanel12.setPreferredSize(new java.awt.Dimension(105, 50));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Repote del año");
+        jLabel10.setText("Reporte del año");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -183,13 +190,13 @@ public class Reportes extends javax.swing.JPanel {
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel6.setBackground(new java.awt.Color(253, 173, 87));
+        jPanel6.setBackground(new java.awt.Color(230, 98, 31));
 
-        jLabel5.setFont(new java.awt.Font("Samanata", 3, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("Reportes por Fechas");
 
-        jLabel6.setFont(new java.awt.Font("Samanata", 3, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("y Periodos");
 
@@ -199,12 +206,12 @@ public class Reportes extends javax.swing.JPanel {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(29, 29, 29))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +221,59 @@ public class Reportes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jLabel4.setText("From:");
+
+        jLabel7.setText("To:");
+
+        jDateChooser1.setPreferredSize(new java.awt.Dimension(132, 25));
+
+        jDateChooser2.setPreferredSize(new java.awt.Dimension(132, 25));
+
+        jButton6.setText("Aplicar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton6)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -226,6 +286,7 @@ public class Reportes extends javax.swing.JPanel {
             .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
             .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +302,9 @@ public class Reportes extends javax.swing.JPanel {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel1, java.awt.BorderLayout.WEST);
@@ -371,7 +434,7 @@ public class Reportes extends javax.swing.JPanel {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel2, java.awt.BorderLayout.LINE_END);
@@ -479,21 +542,23 @@ public class Reportes extends javax.swing.JPanel {
 
     private void jLabel2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseReleased
         // TODO add your handling code here:
-        jPanel3.setBackground(Color.BLUE);
+        jPanel3.setBackground(new java.awt.Color(249, 152, 103));
         jPanel5.setBackground(new java.awt.Color(247, 247, 247));
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel7.setVisible(false);
         repaint();
     }//GEN-LAST:event_jLabel2MouseReleased
 
     private void jLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseReleased
         // TODO add your handling code here:
         jPanel3.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel5.setBackground(Color.BLUE);
+        jPanel5.setBackground(new java.awt.Color(249, 152, 103));
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel7.setVisible(false);
         repaint();
     }//GEN-LAST:event_jLabel3MouseReleased
 
@@ -501,9 +566,10 @@ public class Reportes extends javax.swing.JPanel {
         // TODO add your handling code here:
         jPanel3.setBackground(new java.awt.Color(247, 247, 247));
         jPanel5.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel11.setBackground(Color.BLUE);
+        jPanel11.setBackground(new java.awt.Color(249, 152, 103));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel7.setVisible(false);
         repaint();
     }//GEN-LAST:event_jLabel9MouseReleased
 
@@ -512,8 +578,9 @@ public class Reportes extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(247, 247, 247));
         jPanel5.setBackground(new java.awt.Color(247, 247, 247));
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel12.setBackground(Color.BLUE);
+        jPanel12.setBackground(new java.awt.Color(249, 152, 103));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel7.setVisible(false);
         repaint();
     }//GEN-LAST:event_jLabel10MouseReleased
 
@@ -523,9 +590,14 @@ public class Reportes extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(247, 247, 247));
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel13.setBackground(Color.BLUE);
+        jPanel13.setBackground(new java.awt.Color(249, 152, 103));
+        jPanel7.setVisible(true);
         repaint();
     }//GEN-LAST:event_jLabel11MouseReleased
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -534,13 +606,18 @@ public class Reportes extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
@@ -551,6 +628,7 @@ public class Reportes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
