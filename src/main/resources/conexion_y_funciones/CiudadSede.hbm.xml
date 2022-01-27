@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/01/2022 11:28:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.CiudadSede" table="ciudad_sede" schema="public" optimistic-lock="version">
+        <id name="idCiudad" type="int">
+            <column name="id_ciudad" />
+            <generator class="assigned" />
+        </id>
+        <property name="departamento" type="string">
+            <column name="departamento" not-null="true" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="ciudad" not-null="true" />
+        </property>
+        <set name="sedeses" table="sedes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ciudad" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.Sedes" />
+        </set>
+        <set name="destinatarios" table="destinatario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ciudad" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.Destinatario" />
+        </set>
+        <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ciudad" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.Cliente" />
+        </set>
+    </class>
+</hibernate-mapping>

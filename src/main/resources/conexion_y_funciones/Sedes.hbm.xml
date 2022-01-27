@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/01/2022 11:28:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.Sedes" table="sedes" schema="public" optimistic-lock="version">
+        <id name="idSede" type="int">
+            <column name="id_sede" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ciudadSede" class="conexion_y_funciones.CiudadSede" fetch="select">
+            <column name="id_ciudad" not-null="true" />
+        </many-to-one>
+        <property name="barrio" type="string">
+            <column name="barrio" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" not-null="true" />
+        </property>
+        <set name="informacionEmpleadoses" table="informacion_empleados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_sede" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.InformacionEmpleados" />
+        </set>
+        <set name="facturases" table="facturas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_sede" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.Facturas" />
+        </set>
+    </class>
+</hibernate-mapping>

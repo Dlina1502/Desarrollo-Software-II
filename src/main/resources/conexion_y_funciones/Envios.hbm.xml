@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/01/2022 11:28:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.Envios" table="envios" schema="public" optimistic-lock="version">
+        <id name="idEnvio" type="int">
+            <column name="id_envio" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="conexion_y_funciones.Cliente" fetch="select">
+            <column name="id_cliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="destinatario" class="conexion_y_funciones.Destinatario" fetch="select">
+            <column name="id_destinatario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="seguro" class="conexion_y_funciones.Seguro" fetch="select">
+            <column name="id_seguro" not-null="true" />
+        </many-to-one>
+        <property name="valorPaquete" type="int">
+            <column name="valor_paquete" not-null="true" />
+        </property>
+        <property name="fechaEnvio" type="date">
+            <column name="fecha_envio" length="13" not-null="true" />
+        </property>
+        <property name="descripcionMercancia" type="string">
+            <column name="descripcion_mercancia" not-null="true" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <set name="facturases" table="facturas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_envio" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.Facturas" />
+        </set>
+    </class>
+</hibernate-mapping>

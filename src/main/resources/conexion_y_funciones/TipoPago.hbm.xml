@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/01/2022 11:28:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.TipoPago" table="tipo_pago" schema="public" optimistic-lock="version">
+        <id name="idTipoPago" type="int">
+            <column name="id_tipo_pago" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipoPago" type="string">
+            <column name="tipo_pago" not-null="true" />
+        </property>
+        <set name="facturases" table="facturas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tipo_pago" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.Facturas" />
+        </set>
+    </class>
+</hibernate-mapping>

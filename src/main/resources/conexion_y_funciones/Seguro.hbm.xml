@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/01/2022 11:28:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.Seguro" table="seguro" schema="public" optimistic-lock="version">
+        <id name="idSeguro" type="int">
+            <column name="id_seguro" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipoSeguro" type="string">
+            <column name="tipo_seguro" not-null="true" />
+        </property>
+        <property name="valorSeguro" type="int">
+            <column name="valor_seguro" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" not-null="true" />
+        </property>
+        <set name="envioses" table="envios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_seguro" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.Envios" />
+        </set>
+    </class>
+</hibernate-mapping>
