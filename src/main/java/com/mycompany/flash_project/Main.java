@@ -48,10 +48,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException, URISyntaxException {
-        /*new JFrame_inicio().setVisible(true);
+        new JFrame_inicio().setVisible(true);
         new JFrame_gerente().setVisible(true);
         new JFrame_operador().setVisible(true);
-        new JFrame_secretaria().setVisible(true);*/
+        new JFrame_secretaria().setVisible(true);
         
         
         SessionFactory factory = HibernateUtil.buildSessionFactory();
