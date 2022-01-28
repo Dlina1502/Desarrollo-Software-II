@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/01/2022 11:28:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.RolEmpleados" table="rol_empleados" schema="public" optimistic-lock="version">
+        <id name="idTipoEmpleado" type="int">
+            <column name="id_tipo_empleado" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipoEmpleado" type="string">
+            <column name="tipo_empleado" not-null="true" />
+        </property>
+        <set name="informacionEmpleadoses" table="informacion_empleados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tipo_empleado" not-null="true" />
+            </key>
+            <one-to-many class="conexion_y_funciones.InformacionEmpleados" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/01/2022 11:28:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.Facturas" table="facturas" schema="public" optimistic-lock="version">
+        <id name="idFactura" type="int">
+            <column name="id_factura" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="envios" class="conexion_y_funciones.Envios" fetch="select">
+            <column name="id_envio" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sedes" class="conexion_y_funciones.Sedes" fetch="select">
+            <column name="id_sede" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoPago" class="conexion_y_funciones.TipoPago" fetch="select">
+            <column name="id_tipo_pago" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" not-null="true" />
+        </property>
+        <property name="total" type="int">
+            <column name="total" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
