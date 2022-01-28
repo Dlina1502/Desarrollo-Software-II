@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -21,6 +22,8 @@ public class JFrame_gerente extends javax.swing.JFrame {
     public JFrame_gerente() { 
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(this.MAXIMIZED_BOTH); 
+        
         jPanel7.add(gestionUsuario);
     }
 
@@ -115,7 +118,8 @@ public class JFrame_gerente extends javax.swing.JFrame {
                 .addContainerGap(352, Short.MAX_VALUE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel7.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

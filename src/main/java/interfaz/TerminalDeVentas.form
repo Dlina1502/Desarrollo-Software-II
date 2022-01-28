@@ -146,9 +146,9 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jSeparator80" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox15" alignment="0" pref="172" max="32767" attributes="0"/>
+                                      <Component id="jComboBox15" alignment="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="jTextField48" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jSeparator73" alignment="0" pref="172" max="32767" attributes="0"/>
+                                      <Component id="jSeparator73" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jSeparator81" max="32767" attributes="0"/>
                                   </Group>
@@ -284,11 +284,6 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JSeparator" name="jSeparator71">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="0" type="rgb"/>
-                    </Property>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
@@ -577,11 +572,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator80">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="0" type="rgb"/>
-                    </Property>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
@@ -648,11 +638,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator81">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="0" type="rgb"/>
-                    </Property>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox2">
                   <Properties>

@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -24,7 +25,10 @@ public class JFrame_operador extends javax.swing.JFrame {
     public JFrame_operador() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(this.MAXIMIZED_BOTH); 
+        jPanel7.setLayout(new BorderLayout());
         jPanel7.add(gestionUsuario);
+        
     }
 
     /**
@@ -44,7 +48,7 @@ public class JFrame_operador extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("GERENTE");
+        setTitle("Operador");
         setLocation(new java.awt.Point(0, 0));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
@@ -118,7 +122,9 @@ public class JFrame_operador extends javax.swing.JFrame {
                 .addContainerGap(302, Short.MAX_VALUE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(171, 119, 134));
+        jPanel7.setToolTipText("");
+        jPanel7.setName(""); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
