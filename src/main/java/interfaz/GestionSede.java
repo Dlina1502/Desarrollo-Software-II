@@ -14,10 +14,10 @@ import java.awt.Color;
     import javax.swing.JOptionPane;
     import javax.swing.table.DefaultTableModel;
 
-public class GestionSedeGerente extends javax.swing.JPanel {
+public class GestionSede extends javax.swing.JPanel {
 
     Funciones funciones = new Funciones();
-    public GestionSedeGerente() {
+    public GestionSede() {
         initComponents();
         jComboBox13.removeAllItems();
         jComboBox14.removeAllItems();
