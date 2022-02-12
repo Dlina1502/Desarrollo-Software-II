@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package interfaz.InterfacesGestionSede;
 
     import conexion_y_funciones.Funciones;
 import java.awt.Color;
@@ -14,10 +14,10 @@ import java.awt.Color;
     import javax.swing.JOptionPane;
     import javax.swing.table.DefaultTableModel;
 
-public class GestionSede extends javax.swing.JPanel {
+public class GestionSedeTemporal extends javax.swing.JPanel {
 
     Funciones funciones = new Funciones();
-    public GestionSede() {
+    public GestionSedeTemporal() {
         initComponents();
         jComboBox13.removeAllItems();
         jComboBox14.removeAllItems();
@@ -97,8 +97,6 @@ public class GestionSede extends javax.swing.JPanel {
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/iconoSede.png"))); // NOI18N
 
-        jSeparator61.setBackground(new java.awt.Color(0, 0, 0));
-
         jTextField37.setForeground(new java.awt.Color(153, 153, 153));
         jTextField37.setText("Ciudad");
         jTextField37.setBorder(null);
@@ -112,8 +110,6 @@ public class GestionSede extends javax.swing.JPanel {
             }
         });
 
-        jSeparator62.setBackground(new java.awt.Color(0, 0, 0));
-
         jTextField38.setForeground(new java.awt.Color(153, 153, 153));
         jTextField38.setText("Barrio");
         jTextField38.setBorder(null);
@@ -126,8 +122,6 @@ public class GestionSede extends javax.swing.JPanel {
                 jTextField38MouseExited(evt);
             }
         });
-
-        jSeparator63.setBackground(new java.awt.Color(0, 0, 0));
 
         jTextField39.setForeground(new java.awt.Color(153, 153, 153));
         jTextField39.setText("Número de teléfono");
@@ -159,8 +153,6 @@ public class GestionSede extends javax.swing.JPanel {
                 jTextField40jTextField4ActionPerformed(evt);
             }
         });
-
-        jSeparator64.setBackground(new java.awt.Color(0, 0, 0));
 
         jButton10.setText("REGISTRAR");
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -250,8 +242,6 @@ public class GestionSede extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Consultar por ciudad:");
 
-        jSeparator71.setBackground(new java.awt.Color(0, 0, 0));
-
         jTextField43.setForeground(new java.awt.Color(153, 153, 153));
         jTextField43.setText("Ciudad de la sede");
         jTextField43.setBorder(null);
@@ -264,8 +254,6 @@ public class GestionSede extends javax.swing.JPanel {
                 jTextField43MouseExited(evt);
             }
         });
-
-        jSeparator72.setBackground(new java.awt.Color(0, 0, 0));
 
         jButton11.setText("IR");
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -285,8 +273,6 @@ public class GestionSede extends javax.swing.JPanel {
                 jButton12MouseClicked(evt);
             }
         });
-
-        jSeparator83.setBackground(new java.awt.Color(0, 0, 0));
 
         jTextField51.setForeground(new java.awt.Color(153, 153, 153));
         jTextField51.setText("Barrio de la sede ");
@@ -406,8 +392,6 @@ public class GestionSede extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("eliminar de la base de datos:");
 
-        jSeparator73.setBackground(new java.awt.Color(0, 0, 0));
-
         jButton13.setText("ELIMINAR");
         jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -422,8 +406,6 @@ public class GestionSede extends javax.swing.JPanel {
                 jComboBox13MouseClicked(evt);
             }
         });
-
-        jSeparator66.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -495,8 +477,6 @@ public class GestionSede extends javax.swing.JPanel {
             }
         });
 
-        jSeparator75.setBackground(new java.awt.Color(0, 0, 0));
-
         jTextField47.setForeground(new java.awt.Color(153, 153, 153));
         jTextField47.setText("Direccion");
         jTextField47.setBorder(null);
@@ -515,8 +495,6 @@ public class GestionSede extends javax.swing.JPanel {
             }
         });
 
-        jSeparator77.setBackground(new java.awt.Color(0, 0, 0));
-
         jTextField48.setForeground(new java.awt.Color(153, 153, 153));
         jTextField48.setText("Ciudad");
         jTextField48.setBorder(null);
@@ -529,8 +507,6 @@ public class GestionSede extends javax.swing.JPanel {
                 jTextField48MouseExited(evt);
             }
         });
-
-        jSeparator78.setBackground(new java.awt.Color(0, 0, 0));
 
         jTextField49.setForeground(new java.awt.Color(153, 153, 153));
         jTextField49.setText("Teléfono");
@@ -549,8 +525,6 @@ public class GestionSede extends javax.swing.JPanel {
                 jTextField49jTextField5ActionPerformed(evt);
             }
         });
-
-        jSeparator79.setBackground(new java.awt.Color(0, 0, 0));
 
         jButton14.setText("MOSTRAR DATOS");
         jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
