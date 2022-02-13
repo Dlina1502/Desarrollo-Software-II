@@ -1,5 +1,5 @@
 package conexion_y_funciones;
-// Generated 26/01/2022 11:28:34 PM by Hibernate Tools 4.3.1
+// Generated 12/02/2022 10:43:28 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

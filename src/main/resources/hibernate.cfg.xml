@@ -46,17 +46,19 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:postgresql://ec2-18-213-12-212.compute-1.amazonaws.com:5432/d6rscf2q3bo3a4</property>
     <property name="hibernate.connection.username">zaivkdulhmynrz</property>
     <property name="hibernate.connection.password">45c97998daf7b9b34ecec550b2e042246805f5979b265603a7526dbce2c1a5b1</property>
-    <mapping resource="conexion_y_funciones/TipoPago.hbm.xml"/>
-    <mapping resource="conexion_y_funciones/CiudadSede.hbm.xml"/>
-    <mapping resource="conexion_y_funciones/Cliente.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/Seguro.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/TelefonosSedes.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/Envios.hbm.xml"/>
     <mapping resource="conexion_y_funciones/Destinatario.hbm.xml"/>
     <mapping resource="conexion_y_funciones/Sedes.hbm.xml"/>
-    <mapping resource="conexion_y_funciones/RolEmpleados.hbm.xml"/>
-    <mapping resource="conexion_y_funciones/EstadoEmpleado.hbm.xml"/>
     <mapping resource="conexion_y_funciones/PrecioEnvios.hbm.xml"/>
-    <mapping resource="conexion_y_funciones/Seguro.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/Cliente.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/PermisosRol.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/EstadoEmpleado.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/RolEmpleados.hbm.xml"/>
     <mapping resource="conexion_y_funciones/InformacionEmpleados.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/CiudadSede.hbm.xml"/>
     <mapping resource="conexion_y_funciones/Facturas.hbm.xml"/>
-    <mapping resource="conexion_y_funciones/Envios.hbm.xml"/>
+    <mapping resource="conexion_y_funciones/TipoPago.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
