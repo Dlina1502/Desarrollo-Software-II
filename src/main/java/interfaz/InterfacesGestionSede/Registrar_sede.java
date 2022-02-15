@@ -4,12 +4,16 @@
  */
 package interfaz.InterfacesGestionSede;
 
+import conexion_y_funciones.Funciones;
+import java.awt.Color;
+
 /**
  *
  * @author esteban
  */
 public class Registrar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
+    private Funciones funciones = new Funciones();
     private Object bean;
 
     /**
@@ -31,10 +35,239 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jSeparator61 = new javax.swing.JSeparator();
+        jTextField37 = new javax.swing.JTextField();
+        jSeparator62 = new javax.swing.JSeparator();
+        jTextField38 = new javax.swing.JTextField();
+        jSeparator63 = new javax.swing.JSeparator();
+        jTextField39 = new javax.swing.JTextField();
+        jTextField40 = new javax.swing.JTextField();
+        jSeparator64 = new javax.swing.JSeparator();
+        jButton10 = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
+
         setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/iconoSede.png"))); // NOI18N
+
+        jTextField37.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField37.setText("Ciudad");
+        jTextField37.setBorder(null);
+        jTextField37.setPreferredSize(new java.awt.Dimension(7, 24));
+        jTextField37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField37MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField37MouseExited(evt);
+            }
+        });
+
+        jTextField38.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField38.setText("Barrio");
+        jTextField38.setBorder(null);
+        jTextField38.setPreferredSize(new java.awt.Dimension(7, 24));
+        jTextField38.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField38MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField38MouseExited(evt);
+            }
+        });
+
+        jTextField39.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField39.setText("Número de teléfono");
+        jTextField39.setBorder(null);
+        jTextField39.setPreferredSize(new java.awt.Dimension(7, 24));
+        jTextField39.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField39MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField39MouseExited(evt);
+            }
+        });
+
+        jTextField40.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField40.setText("Dirección");
+        jTextField40.setBorder(null);
+        jTextField40.setPreferredSize(new java.awt.Dimension(7, 24));
+        jTextField40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField40MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField40MouseExited(evt);
+            }
+        });
+        jTextField40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField40jTextField4ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("REGISTRAR");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel47.setText("Datos de la sede:");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(107, 145, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addGap(200, 200, 200))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(163, 163, 163))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator62, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator61, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator63, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator64, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(145, 145, 145))))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jLabel47)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel37)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator61, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator62, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator64, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator63, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
+        );
+
+        jPanel3.add(jPanel9);
+
+        add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField37MouseClicked
+        jTextField37.setText(null);
+        jTextField37.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextField37MouseClicked
+
+    private void jTextField37MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField37MouseExited
+        String a = jTextField37.getText();
+        if (a.equals("")){
+            jTextField37.setForeground(Color.GRAY);
+            jTextField37.setText("Ciudad");
+        }
+    }//GEN-LAST:event_jTextField37MouseExited
+
+    private void jTextField38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField38MouseClicked
+        jTextField38.setText(null);
+        jTextField38.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextField38MouseClicked
+
+    private void jTextField38MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField38MouseExited
+        String a = jTextField38.getText();
+        if (a.equals("")){
+            jTextField38.setForeground(Color.GRAY);
+            jTextField38.setText("Barrio");
+        }
+    }//GEN-LAST:event_jTextField38MouseExited
+
+    private void jTextField39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField39MouseClicked
+        jTextField39.setText(null);
+        jTextField39.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextField39MouseClicked
+
+    private void jTextField39MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField39MouseExited
+        String a = jTextField39.getText();
+        if (a.equals("")){
+            jTextField39.setForeground(Color.GRAY);
+            jTextField39.setText("Número de teléfono");
+        }
+    }//GEN-LAST:event_jTextField39MouseExited
+
+    private void jTextField40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField40MouseClicked
+        jTextField40.setText(null);
+        jTextField40.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextField40MouseClicked
+
+    private void jTextField40MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField40MouseExited
+        String a = jTextField40.getText();
+        if (a.equals("")){
+            jTextField40.setForeground(Color.GRAY);
+            jTextField40.setText("Direccion");
+        }
+    }//GEN-LAST:event_jTextField40MouseExited
+
+    private void jTextField40jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField40jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField40jTextField4ActionPerformed
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        String ciudad = jTextField37.getText();
+        String barrio = jTextField38.getText();
+        String direccion = jTextField40.getText();
+        String telefono = jTextField39.getText();
+        funciones.registrarSedes(barrio, direccion, ciudad, telefono);
+    }//GEN-LAST:event_jButton10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton10;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JSeparator jSeparator61;
+    private javax.swing.JSeparator jSeparator62;
+    private javax.swing.JSeparator jSeparator63;
+    private javax.swing.JSeparator jSeparator64;
+    private javax.swing.JTextField jTextField37;
+    private javax.swing.JTextField jTextField38;
+    private javax.swing.JTextField jTextField39;
+    private javax.swing.JTextField jTextField40;
     // End of variables declaration//GEN-END:variables
 }

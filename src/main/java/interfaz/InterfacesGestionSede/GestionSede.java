@@ -21,6 +21,8 @@ import javax.swing.SwingConstants;
 public class GestionSede extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
+    private JPanel registrar_sede, consultar_sede, editar_sede, eliminar_sede;
+    private Registrar_sede registar_sede_panel = new Registrar_sede();
 
     /**
      * Creates new customizer GestionSede
@@ -28,6 +30,8 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
     public GestionSede() {
         initComponents();
         crearBotones();
+        jPanel4.add(registar_sede_panel);
+        repaint();
         
     }
     
@@ -110,7 +114,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 180, Short.MAX_VALUE))
+                .addGap(0, 205, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1, java.awt.BorderLayout.LINE_START);
@@ -123,50 +127,112 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
  public void crearBotones(){
      
      
-     
-     JPanel registrar_sede = new javax.swing.JPanel();
+     //******************BOTON REGISTRAR******************************
+     registrar_sede = new javax.swing.JPanel();
      registrar_sede.setPreferredSize(new Dimension(301, 50));
      registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
      registrar_sede.setLayout(new FlowLayout());
+     
+     registrar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                registrar_sedeMouseReleased(evt);
+            }
+     });
      
      JLabel aux1 = new JLabel();
      aux1.setText("Registrar sede");
      aux1.setHorizontalAlignment(SwingConstants.CENTER);
      registrar_sede.add(aux1);
      jPanel5.add(registrar_sede);
-     
-     JPanel consultar_sede = new javax.swing.JPanel();
+    //******************BOTON CONSULTAR******************************
+     consultar_sede = new javax.swing.JPanel();
      consultar_sede.setPreferredSize(new Dimension(301, 50));
      consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     
+     
+     consultar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                consultar_sedeMouseReleased(evt);
+            }
+     });
      
      JLabel aux2 = new JLabel();
      aux2.setText("Consultar sede");
      aux2.setHorizontalAlignment(SwingConstants.CENTER);
      consultar_sede.add(aux2);
      jPanel5.add(consultar_sede);
-     
-     JPanel editar_sede = new javax.swing.JPanel();
+     //******************BOTON EDITAR******************************
+     editar_sede = new javax.swing.JPanel();
      editar_sede.setPreferredSize(new Dimension(301, 50));
      editar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     
+     editar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                editar_sedeMouseReleased(evt);
+            }
+     });
      
      JLabel aux3 = new JLabel();
      aux3.setText("Editar sede");
      aux3.setHorizontalAlignment(SwingConstants.CENTER);
      editar_sede.add(aux3);
      jPanel5.add(editar_sede);
-     
-      JPanel eliminar_sede = new javax.swing.JPanel();
+     //******************BOTON ELIMINAR******************************
+     eliminar_sede = new javax.swing.JPanel();
      eliminar_sede.setPreferredSize(new Dimension(301, 50));
      eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     
+     
+     eliminar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                eliminar_sedeMouseReleased(evt);
+            }
+     });
      
      JLabel aux4 = new JLabel();
      aux4.setText("Eliminar sede");
      aux4.setHorizontalAlignment(SwingConstants.CENTER);
      eliminar_sede.add(aux4);
      jPanel5.add(eliminar_sede);
-     
+     ////////////////////////////////////////////////////////////////////
      repaint();
  }
+ 
+ private void registrar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        registrar_sede.setBackground(new java.awt.Color(249, 152, 103));
+        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        repaint();
+    }             
+ 
+ private void consultar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_sede.setBackground(new java.awt.Color(249, 152, 103));
+        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        repaint();
+    }     
+ 
+ private void editar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        editar_sede.setBackground(new java.awt.Color(249, 152, 103));
+        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        repaint();
+    }     
+ 
+ private void eliminar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        eliminar_sede.setBackground(new java.awt.Color(249, 152, 103));
+        repaint();
+    }     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel5;
