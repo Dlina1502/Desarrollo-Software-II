@@ -1,5 +1,5 @@
 package conexion_y_funciones;
-// Generated 26/01/2022 11:28:34 PM by Hibernate Tools 4.3.1
+// Generated 12/02/2022 10:43:28 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class RolEmpleados  implements java.io.Serializable {
 
      private int idTipoEmpleado;
      private String tipoEmpleado;
+     private Set permisosRols = new HashSet(0);
      private Set informacionEmpleadoses = new HashSet(0);
 
     public RolEmpleados() {
@@ -23,9 +24,10 @@ public class RolEmpleados  implements java.io.Serializable {
         this.idTipoEmpleado = idTipoEmpleado;
         this.tipoEmpleado = tipoEmpleado;
     }
-    public RolEmpleados(int idTipoEmpleado, String tipoEmpleado, Set informacionEmpleadoses) {
+    public RolEmpleados(int idTipoEmpleado, String tipoEmpleado, Set permisosRols, Set informacionEmpleadoses) {
        this.idTipoEmpleado = idTipoEmpleado;
        this.tipoEmpleado = tipoEmpleado;
+       this.permisosRols = permisosRols;
        this.informacionEmpleadoses = informacionEmpleadoses;
     }
    
@@ -42,6 +44,13 @@ public class RolEmpleados  implements java.io.Serializable {
     
     public void setTipoEmpleado(String tipoEmpleado) {
         this.tipoEmpleado = tipoEmpleado;
+    }
+    public Set getPermisosRols() {
+        return this.permisosRols;
+    }
+    
+    public void setPermisosRols(Set permisosRols) {
+        this.permisosRols = permisosRols;
     }
     public Set getInformacionEmpleadoses() {
         return this.informacionEmpleadoses;

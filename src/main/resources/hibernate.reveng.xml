@@ -41,16 +41,18 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="d6rscf2q3bo3a4" match-schema="public"/>
-  <table-filter match-name="estado_empleado"/>
-  <table-filter match-name="sedes"/>
-  <table-filter match-name="informacion_empleados"/>
-  <table-filter match-name="envios"/>
+  <table-filter match-name="destinatario"/>
+  <table-filter match-name="facturas"/>
   <table-filter match-name="cliente"/>
   <table-filter match-name="tipo_pago"/>
-  <table-filter match-name="rol_empleados"/>
+  <table-filter match-name="telefonos_sedes"/>
   <table-filter match-name="ciudad_sede"/>
-  <table-filter match-name="facturas"/>
+  <table-filter match-name="informacion_empleados"/>
+  <table-filter match-name="rol_empleados"/>
+  <table-filter match-name="estado_empleado"/>
+  <table-filter match-name="sedes"/>
   <table-filter match-name="seguro"/>
+  <table-filter match-name="permisos_rol"/>
   <table-filter match-name="precio_envios"/>
-  <table-filter match-name="destinatario"/>
+  <table-filter match-name="envios"/>
 </hibernate-reverse-engineering>

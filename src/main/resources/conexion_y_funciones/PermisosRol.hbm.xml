@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/02/2022 10:43:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="conexion_y_funciones.PermisosRol" table="permisos_rol" schema="public" optimistic-lock="version">
+        <id name="idPermisoRol" type="int">
+            <column name="id_permiso_rol" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rolEmpleados" class="conexion_y_funciones.RolEmpleados" fetch="select">
+            <column name="id_tipo_empleado" not-null="true" />
+        </many-to-one>
+        <property name="terminalVentas" type="int">
+            <column name="terminal_ventas" not-null="true" />
+        </property>
+        <property name="crearUsuario" type="int">
+            <column name="crear_usuario" not-null="true" />
+        </property>
+        <property name="editarUsuario" type="int">
+            <column name="editar_usuario" not-null="true" />
+        </property>
+        <property name="eliminarUsuario" type="int">
+            <column name="eliminar_usuario" not-null="true" />
+        </property>
+        <property name="crearSede" type="int">
+            <column name="crear_sede" not-null="true" />
+        </property>
+        <property name="consultarSede" type="int">
+            <column name="consultar_sede" not-null="true" />
+        </property>
+        <property name="eliminarSede" type="java.lang.Integer">
+            <column name="eliminar_sede" />
+        </property>
+    </class>
+</hibernate-mapping>

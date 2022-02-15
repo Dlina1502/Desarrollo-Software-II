@@ -1,5 +1,5 @@
 package conexion_y_funciones;
-// Generated 26/01/2022 11:28:34 PM by Hibernate Tools 4.3.1
+// Generated 12/02/2022 10:43:28 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,6 +15,7 @@ public class Sedes  implements java.io.Serializable {
      private CiudadSede ciudadSede;
      private String barrio;
      private String direccion;
+     private Set telefonosSedeses = new HashSet(0);
      private Set informacionEmpleadoses = new HashSet(0);
      private Set facturases = new HashSet(0);
 
@@ -28,11 +29,12 @@ public class Sedes  implements java.io.Serializable {
         this.barrio = barrio;
         this.direccion = direccion;
     }
-    public Sedes(int idSede, CiudadSede ciudadSede, String barrio, String direccion, Set informacionEmpleadoses, Set facturases) {
+    public Sedes(int idSede, CiudadSede ciudadSede, String barrio, String direccion, Set telefonosSedeses, Set informacionEmpleadoses, Set facturases) {
        this.idSede = idSede;
        this.ciudadSede = ciudadSede;
        this.barrio = barrio;
        this.direccion = direccion;
+       this.telefonosSedeses = telefonosSedeses;
        this.informacionEmpleadoses = informacionEmpleadoses;
        this.facturases = facturases;
     }
@@ -64,6 +66,13 @@ public class Sedes  implements java.io.Serializable {
     
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+    public Set getTelefonosSedeses() {
+        return this.telefonosSedeses;
+    }
+    
+    public void setTelefonosSedeses(Set telefonosSedeses) {
+        this.telefonosSedeses = telefonosSedeses;
     }
     public Set getInformacionEmpleadoses() {
         return this.informacionEmpleadoses;
