@@ -18,13 +18,13 @@ import javax.swing.text.PasswordView;
  *
  * @author Usuario
  */
-public class GestionUsuarioGerente extends javax.swing.JPanel {
+public class GestionUsuario extends javax.swing.JPanel {
     Funciones funciones = new Funciones();
     DefaultTableModel model;    
     /**
      * Creates new form GestionUsuarioGerente
      */
-    public GestionUsuarioGerente() {
+    public GestionUsuario() {
         initComponents();
         //inicializa con las sedes
         funciones.consultar_sedes_combo(jComboBox13);
@@ -711,7 +711,7 @@ public class GestionUsuarioGerente extends javax.swing.JPanel {
                             .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator83)
                             .addComponent(jComboBox17, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,14 +763,14 @@ public class GestionUsuarioGerente extends javax.swing.JPanel {
                 .addComponent(jSeparator81, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jComboBox17.getAccessibleContext().setAccessibleName("");
 
         jTabbedPane1.addTab("EDITAR USUARIO", jPanel5);
 
-        add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        add(jTabbedPane1, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField40jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField40jTextField4ActionPerformed

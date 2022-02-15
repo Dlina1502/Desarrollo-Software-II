@@ -174,23 +174,7 @@ public class JFrame_inicio extends javax.swing.JFrame {
         
         if (funcion.login(correo, pass)){
             String rol = funcion.get_rol();
-            
-            if (rol.toUpperCase().equals("gerente".toUpperCase())){
-                JFrame_gerente ventanaGerente = new JFrame_gerente();
-                ventanaGerente.setVisible(true);
-                this.dispose();
-            }
-            if (rol.toUpperCase().equals("operador".toUpperCase())){
-                JFrame_operador ventanaOperador = new JFrame_operador();
-                ventanaOperador.setVisible(true);
-                this.dispose();
-            }
-            if (rol.toUpperCase().equals("secretaria".toUpperCase())){
-                JFrame_secretaria ventanaSecretaria = new JFrame_secretaria();
-                ventanaSecretaria.setVisible(true);
-                this.dispose();
-            }
-            
+ 
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
