@@ -41,6 +41,7 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
+    <property name="temp.use_jdbc_metadata_defaults">false</property>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://ec2-18-213-12-212.compute-1.amazonaws.com:5432/d6rscf2q3bo3a4</property>

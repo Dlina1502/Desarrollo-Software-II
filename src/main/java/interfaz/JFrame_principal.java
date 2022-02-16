@@ -6,6 +6,7 @@
 package interfaz;
 
 import interfaz.InterfacesGestionUsuario.GestionUsuarioTemporal;
+import interfaz.InterfacesGestionRol.GestionRoles;
 import interfaz.InterfacesGestionSede.GestionSede;
 import interfaz.InterfacesGestionUsuario.GestionUsuario;
 import java.awt.BorderLayout;
@@ -23,6 +24,7 @@ public class JFrame_principal extends javax.swing.JFrame {
     GestionSede gestionSede = new GestionSede();
     Reportes reporte = new Reportes();
     TerminalDeVentas terminalDeVentas = new TerminalDeVentas();
+    GestionRoles roles = new GestionRoles();
     
     public JFrame_principal() { 
         initComponents();
@@ -220,7 +222,12 @@ public class JFrame_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
+        jPanel7.removeAll();
+        jPanel7.add(roles);
+        roles.setVisible(true);
+        jPanel7.setVisible(false);
+        jPanel7.setVisible(true);
+        
     }//GEN-LAST:event_jButton5MouseClicked
 
     /**
