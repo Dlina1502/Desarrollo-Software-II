@@ -5,8 +5,10 @@
  */
 package interfaz;
 
+import interfaz.InterfacesGestionUsuario.GestionUsuarioTemporal;
 import interfaz.InterfacesGestionSede.GestionSede;
 import interfaz.InterfacesGestionRol.GestionRoles;
+import interfaz.InterfacesGestionUsuario.GestionUsuario;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -22,11 +24,12 @@ public class JFrame_principal extends javax.swing.JFrame {
     GestionSede gestionSede = new GestionSede();
     Reportes reporte = new Reportes();
     GestionRoles gestionRol = new GestionRoles();
+    TerminalDeVentas terminalDeVentas = new TerminalDeVentas();
+    
     public JFrame_principal() { 
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(this.MAXIMIZED_BOTH); 
-        
         jPanel7.add(gestionUsuario);
     }
 
@@ -43,11 +46,16 @@ public class JFrame_principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+
         jPanel7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,9 +70,12 @@ public class JFrame_principal extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(180, 32767));
         jPanel1.setPreferredSize(new java.awt.Dimension(180, 500));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/logo2.png"))); // NOI18N
+
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("GESTIÓN DE USUARIOS");
+        jButton1.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -75,26 +86,56 @@ public class JFrame_principal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("GESTIÓN DE SEDES");
+        jButton3.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
             }
         });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+
+        jButton6.setBackground(new java.awt.Color(0, 0, 0));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("TERMINAL DE VENTAS");
+        jButton6.setPreferredSize(new java.awt.Dimension(210, 56));
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton6);
+
+        jButton5.setBackground(new java.awt.Color(0, 0, 0));
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("PERMISOS DE USUSARIO");
+        jButton5.setPreferredSize(new java.awt.Dimension(210, 56));
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton5);
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("REPORTES");
+        jButton4.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
             }
         });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/logo2.png"))); // NOI18N
+        jPanel2.add(jButton4);
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,29 +155,21 @@ public class JFrame_principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(65, 65, 65))
-            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
-                .addGap(45, 45, 45)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+
         );
 
         jPanel7.setBackground(new java.awt.Color(254, 254, 254));
@@ -162,17 +195,10 @@ public class JFrame_principal extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        gestionSede.setVisible(false);
-        jPanel7.remove(gestionSede);
-        
-        reporte.setVisible(false);
-        jPanel7.remove(reporte);
-        
-        gestionRol.setVisible(false);
-        jPanel7.remove(gestionRol);
-        
         jPanel7.add(gestionUsuario);
         gestionUsuario.setVisible(true);
+        jPanel7.setVisible(false);
+        jPanel7.setVisible(true);
       
         
     }//GEN-LAST:event_jButton1MouseClicked
@@ -183,52 +209,40 @@ public class JFrame_principal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        gestionUsuario.setVisible(false);
-        jPanel7.remove(gestionUsuario);
-        
-        reporte.setVisible(false);
-        jPanel7.remove(reporte);
-        
-        gestionRol.setVisible(false);
-        jPanel7.remove(gestionRol);
-        
+
         jPanel7.add(gestionSede);
         gestionSede.setVisible(true);
+        jPanel7.setVisible(false);
+        jPanel7.setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        gestionUsuario.setVisible(false);
-        jPanel7.remove(gestionUsuario);
-        
-        gestionSede.setVisible(false);
-        jPanel7.remove(gestionSede);
-        
-        gestionRol.setVisible(false);
-        jPanel7.remove(gestionRol);
-        
+
         jPanel7.add(reporte);
         reporte.setVisible(true);
+        jPanel7.setVisible(false);
+        jPanel7.setVisible(true);
     }//GEN-LAST:event_jButton4MouseClicked
 
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        gestionUsuario.setVisible(false);
-        jPanel7.remove(gestionUsuario);
-        
-        gestionSede.setVisible(false);
-        jPanel7.remove(gestionSede);
-        
-        reporte.setVisible(false);
-        jPanel7.remove(reporte);
-        
-        jPanel7.add(gestionRol);
-        gestionRol.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        jPanel7.removeAll();
+        jPanel7.add(terminalDeVentas);
+        terminalDeVentas.setVisible(true);
+        jPanel7.setVisible(false);
+        jPanel7.setVisible(true);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -272,8 +286,11 @@ public class JFrame_principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables
 

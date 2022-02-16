@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Beans/Customizer.java to edit this template
  */
-package interfaz.InterfacesGestionSede;
+package interfaz.InterfacesGestionUsuario;
 
+import interfaz.InterfacesGestionSede.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -18,22 +19,20 @@ import javax.swing.SwingConstants;
  *
  * @author esteban
  */
-public class GestionSede extends javax.swing.JPanel implements java.beans.Customizer {
+public class GestionUsuario extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
-    private JPanel registrar_sede, consultar_sede, editar_sede, eliminar_sede;
-    private Registrar_sede registrar_sede_panel = new Registrar_sede();
-    private Consultar_sede consultar_sede_panel = new Consultar_sede();
-    private Editar_sede editar_sede_panel = new Editar_sede();
-    private Eliminar_sede eliminar_sede_panel = new Eliminar_sede();
-
+    private JPanel registrar_usuario, consultar_usuario, editar_usuario;
+    private Registrar_usuario registrar_usuario_panel = new Registrar_usuario();
+    private Editar_usuario editar_usuario_panel = new Editar_usuario();
+    private Consultar_usuario consultar_usuario_panel = new Consultar_usuario();
     /**
      * Creates new customizer GestionSede
      */
-    public GestionSede() {
+    public GestionUsuario() {
         initComponents();
         crearBotones();
-        jPanel4.add(registrar_sede_panel);
+        jPanel4.add(registrar_usuario_panel);
         repaint();
         
     }
@@ -76,7 +75,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel5.setText("Gestion de Sedes");
+        jLabel5.setText("Gestion de Usuarios");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -131,135 +130,108 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      
      
      //******************BOTON REGISTRAR******************************
-     registrar_sede = new javax.swing.JPanel();
-     registrar_sede.setPreferredSize(new Dimension(301, 50));
-     registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
-     registrar_sede.setLayout(new FlowLayout());
-     registrar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+     registrar_usuario = new javax.swing.JPanel();
+     registrar_usuario.setPreferredSize(new Dimension(301, 50));
+     registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+     registrar_usuario.setLayout(new FlowLayout());
      
-     registrar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
+     registrar_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                registrar_sedeMouseReleased(evt);
+                registrar_usuarioMouseReleased(evt);
             }
      });
      
      JLabel aux1 = new JLabel();
-     aux1.setText("Registrar sede");
+     aux1.setText("Registrar usuario");
      aux1.setHorizontalAlignment(SwingConstants.CENTER);
-     registrar_sede.add(aux1);
-     jPanel5.add(registrar_sede);
+     registrar_usuario.add(aux1);
+     jPanel5.add(registrar_usuario);
     //******************BOTON CONSULTAR******************************
-     consultar_sede = new javax.swing.JPanel();
-     consultar_sede.setPreferredSize(new Dimension(301, 50));
-     consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
-     consultar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+     consultar_usuario = new javax.swing.JPanel();
+     consultar_usuario.setPreferredSize(new Dimension(301, 50));
+     consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
      
      
-     consultar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
+     consultar_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                consultar_sedeMouseReleased(evt);
+                consultar_usuarioMouseReleased(evt);
             }
      });
      
      JLabel aux2 = new JLabel();
-     aux2.setText("Consultar sede");
+     aux2.setText("Consultar usuario");
      aux2.setHorizontalAlignment(SwingConstants.CENTER);
-     consultar_sede.add(aux2);
-     jPanel5.add(consultar_sede);
+     consultar_usuario.add(aux2);
+     jPanel5.add(consultar_usuario);
      //******************BOTON EDITAR******************************
-     editar_sede = new javax.swing.JPanel();
-     editar_sede.setPreferredSize(new Dimension(301, 50));
-     editar_sede.setBackground(new java.awt.Color(247, 247, 247));
-     editar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+     editar_usuario = new javax.swing.JPanel();
+     editar_usuario.setPreferredSize(new Dimension(301, 50));
+     editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
      
-     editar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
+     editar_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                editar_sedeMouseReleased(evt);
+                editar_usuarioMouseReleased(evt);
             }
      });
      
      JLabel aux3 = new JLabel();
-     aux3.setText("Editar sede");
+     aux3.setText("Editar usuario");
      aux3.setHorizontalAlignment(SwingConstants.CENTER);
-     editar_sede.add(aux3);
-     jPanel5.add(editar_sede);
+     editar_usuario.add(aux3);
+     jPanel5.add(editar_usuario);
      //******************BOTON ELIMINAR******************************
-     eliminar_sede = new javax.swing.JPanel();
-     eliminar_sede.setPreferredSize(new Dimension(301, 50));
-     eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
-     editar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
      
-     
-     eliminar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                eliminar_sedeMouseReleased(evt);
-            }
-     });
-     
-     JLabel aux4 = new JLabel();
-     aux4.setText("Eliminar sede");
-     aux4.setHorizontalAlignment(SwingConstants.CENTER);
-     eliminar_sede.add(aux4);
-     jPanel5.add(eliminar_sede);
      ////////////////////////////////////////////////////////////////////
      repaint();
  }
  
- private void registrar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
+ private void registrar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_sede.setBackground(new java.awt.Color(249, 152, 103));
-        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_usuario.setBackground(new java.awt.Color(249, 152, 103));
+        consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        
         jPanel4.removeAll();
-        registrar_sede_panel.setVisible(true);
-        jPanel4.add(registrar_sede_panel);
+        jPanel4.add(registrar_usuario_panel);
+        
         repaint();
+        
         jPanel4.setVisible(false);
         jPanel4.setVisible(true);
     }             
  
- private void consultar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
+ private void consultar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_sede.setBackground(new java.awt.Color(249, 152, 103));
-        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_usuario.setBackground(new java.awt.Color(249, 152, 103));
+        editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        
         jPanel4.removeAll();
-        consultar_sede_panel.setVisible(true);
-        jPanel4.add(consultar_sede_panel);
+        jPanel4.add(consultar_usuario_panel);
+        
         repaint();
+        
         jPanel4.setVisible(false);
         jPanel4.setVisible(true);
     }     
  
- private void editar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
+ private void editar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        editar_sede.setBackground(new java.awt.Color(249, 152, 103));
-        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel4.removeAll();
-        editar_sede_panel.setVisible(true);
-        jPanel4.add(editar_sede_panel);
+        registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        editar_usuario.setBackground(new java.awt.Color(249, 152, 103));
         repaint();
+        
+        jPanel4.removeAll();
+        jPanel4.add(editar_usuario_panel);
+        
+        repaint();
+        
         jPanel4.setVisible(false);
         jPanel4.setVisible(true);
     }     
  
- private void eliminar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
-        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        eliminar_sede.setBackground(new java.awt.Color(249, 152, 103));
-        jPanel4.removeAll();
-        eliminar_sede_panel.setVisible(true);
-        jPanel4.add(eliminar_sede_panel);
-        repaint();
-        jPanel4.setVisible(false);
-        jPanel4.setVisible(true);
-    }     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel5;
