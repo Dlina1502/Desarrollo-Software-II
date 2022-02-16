@@ -5,12 +5,15 @@
  */
 package interfaz;
 
+import conexion_y_funciones.HibernateUtil;
 import interfaz.InterfacesGestionSede.GestionSede;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.Set;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import org.hibernate.Session;
 
 /**
  *
