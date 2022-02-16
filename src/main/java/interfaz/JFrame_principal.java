@@ -5,7 +5,9 @@
  */
 package interfaz;
 
+import interfaz.InterfacesGestionUsuario.GestionUsuarioTemporal;
 import interfaz.InterfacesGestionSede.GestionSede;
+import interfaz.InterfacesGestionUsuario.GestionUsuario;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
