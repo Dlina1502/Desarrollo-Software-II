@@ -244,6 +244,7 @@ public class JFrame_principal extends javax.swing.JFrame {
     }                                     
 
 
+
     /**
      * @param args the command line arguments
      */
