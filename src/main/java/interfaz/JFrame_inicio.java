@@ -183,7 +183,7 @@ public class JFrame_inicio extends javax.swing.JFrame {
         
         
         
-        Query hqlQuery = session.createQuery("FROM informacion_empleados v WHERE correo = '" + correo + "'" + "AND clave = '" + pass + "'");
+        Query hqlQuery = session.createQuery("FROM InformacionEmpleados v WHERE correo = '" + correo + "'" + "AND clave = '" + pass + "'");
         Iterator<InformacionEmpleados> it = hqlQuery.iterate();
 
         InformacionEmpleados R;
