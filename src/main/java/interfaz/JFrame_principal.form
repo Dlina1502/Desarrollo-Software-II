@@ -46,7 +46,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" pref="600" max="32767" attributes="0"/>
+          <Component id="jPanel1" pref="605" max="32767" attributes="0"/>
           <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -68,22 +68,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+
+            
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="68" max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
-              <Component id="jPanel2" alignment="0" pref="0" max="32767" attributes="0"/>
+
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPanel2" min="-2" pref="350" max="-2" attributes="0"/>
-                  <EmptySpace pref="155" max="32767" attributes="0"/>
+
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,6 +96,7 @@
             </Property>
           </Properties>
         </Component>
+
         <Container class="javax.swing.JPanel" name="jPanel2">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
@@ -189,6 +190,7 @@
             </Component>
           </SubComponents>
         </Container>
+        
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel7">
