@@ -6,16 +6,23 @@
 package interfaz;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.HibernateUtil;
+import conexion_y_funciones.InformacionEmpleados;
+import conexion_y_funciones.Sedes;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  *
@@ -24,6 +31,8 @@ import javax.swing.JPanel;
 public class JFrame_inicio extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel();
     Funciones funcion = new Funciones();
+    Session session = HibernateUtil.buildSessionFactory().openSession();  
+    
     /**
      * Creates new form JFrame_inicio
      */
@@ -172,12 +181,27 @@ public class JFrame_inicio extends javax.swing.JFrame {
         
         String pass = new String(clave);
         
-        if (funcion.login(correo, pass)){
+        
+        
+        Query hqlQuery = session.createQuery("SELECT v FROM informacion_empleados v WHERE correo = '" + correo + "'" + "AND clave = '" + clave + "'");
+        Iterator<InformacionEmpleados> it = hqlQuery.iterate();
+
+        InformacionEmpleados R;
+        while (it.hasNext()) {
+            R = it.next();
+            System.out.println(R.getNombre());
+        }
+        session.close();
+
+        
+        
+        
+        /*if (funcion.login(correo, pass)){
             String rol = funcion.get_rol();
  
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-        }
+        }*/
         
         
     }//GEN-LAST:event_jLabel6MouseClicked

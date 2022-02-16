@@ -46,14 +46,14 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException, URISyntaxException {
-        new JFrame_principal().setVisible(true);
+        new JFrame_inicio().setVisible(true);
 
 
         //new JFrame_operador().setVisible(true);
         //new JFrame_secretaria().setVisible(true);
         
         
-        SessionFactory factory = HibernateUtil.buildSessionFactory();
+        /*SessionFactory factory = HibernateUtil.buildSessionFactory();
         Session session = factory.openSession();
         Transaction tx = null;
         try {
@@ -85,7 +85,7 @@ public class Main {
                 e.printStackTrace(); 
         } finally {
             session.close(); 
-        }
+        }*/
         
         
   
