@@ -181,17 +181,32 @@ public class JFrame_inicio extends javax.swing.JFrame {
         
         String pass = new String(clave);
         
-        
-        
-        Query hqlQuery = session.createQuery("SELECT v FROM informacion_empleados v WHERE correo = '" + correo + "'" + "AND clave = '" + clave + "'");
+        Query hqlQuery = session.createQuery("FROM InformacionEmpleados v WHERE correo = ? AND clave = ?");
+        hqlQuery.setString(0,correo.toUpperCase());
+        hqlQuery.setString(1,pass);
         Iterator<InformacionEmpleados> it = hqlQuery.iterate();
-
+        
         InformacionEmpleados R;
-        while (it.hasNext()) {
+       
+        if (it.hasNext()){
             R = it.next();
-            System.out.println(R.getNombre());
+            System.out.println(R.getEstadoEmpleado().getTipoEstado());
+            switch(R.getEstadoEmpleado().getIdEstado()){
+                case 1:
+                    JFrame_principal ventana = new JFrame_principal();
+                    ventana.setVisible(true);
+                    this.dispose();
+                    break;
+                        
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Usuario inactivo");
+                    break;
+                
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
-        session.close();
+        
 
         
         
