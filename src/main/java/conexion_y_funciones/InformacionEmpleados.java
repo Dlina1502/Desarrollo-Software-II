@@ -50,8 +50,6 @@ public class InformacionEmpleados  implements java.io.Serializable {
        this.correo = correo;
        this.clave = clave;
     }
-    
-    
    
     public int getIdEmpleado() {
         return this.idEmpleado;
