@@ -22,7 +22,10 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
     
     private Object bean;
     private JPanel registrar_sede, consultar_sede, editar_sede, eliminar_sede;
-    private Registrar_sede registar_sede_panel = new Registrar_sede();
+    private Registrar_sede registrar_sede_panel = new Registrar_sede();
+    private Consultar_sede consultar_sede_panel = new Consultar_sede();
+    private Editar_sede editar_sede_panel = new Editar_sede();
+    private Eliminar_sede eliminar_sede_panel = new Eliminar_sede();
 
     /**
      * Creates new customizer GestionSede
@@ -30,7 +33,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
     public GestionSede() {
         initComponents();
         crearBotones();
-        jPanel4.add(registar_sede_panel);
+        jPanel4.add(registrar_sede_panel);
         repaint();
         
     }
@@ -132,6 +135,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      registrar_sede.setPreferredSize(new Dimension(301, 50));
      registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
      registrar_sede.setLayout(new FlowLayout());
+     registrar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
      registrar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -148,6 +152,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      consultar_sede = new javax.swing.JPanel();
      consultar_sede.setPreferredSize(new Dimension(301, 50));
      consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     consultar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
      
      consultar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,6 +170,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      editar_sede = new javax.swing.JPanel();
      editar_sede.setPreferredSize(new Dimension(301, 50));
      editar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     editar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
      editar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -181,6 +187,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      eliminar_sede = new javax.swing.JPanel();
      eliminar_sede.setPreferredSize(new Dimension(301, 50));
      eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     editar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
      
      eliminar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,7 +211,12 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
         editar_sede.setBackground(new java.awt.Color(247, 247, 247));
         eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel4.removeAll();
+        registrar_sede_panel.setVisible(true);
+        jPanel4.add(registrar_sede_panel);
         repaint();
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
     }             
  
  private void consultar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
@@ -213,7 +225,12 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         consultar_sede.setBackground(new java.awt.Color(249, 152, 103));
         editar_sede.setBackground(new java.awt.Color(247, 247, 247));
         eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel4.removeAll();
+        consultar_sede_panel.setVisible(true);
+        jPanel4.add(consultar_sede_panel);
         repaint();
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
     }     
  
  private void editar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
@@ -222,7 +239,12 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
         editar_sede.setBackground(new java.awt.Color(249, 152, 103));
         eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel4.removeAll();
+        editar_sede_panel.setVisible(true);
+        jPanel4.add(editar_sede_panel);
         repaint();
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
     }     
  
  private void eliminar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
@@ -231,7 +253,12 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
         editar_sede.setBackground(new java.awt.Color(247, 247, 247));
         eliminar_sede.setBackground(new java.awt.Color(249, 152, 103));
+        jPanel4.removeAll();
+        eliminar_sede_panel.setVisible(true);
+        jPanel4.add(eliminar_sede_panel);
         repaint();
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
     }     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
