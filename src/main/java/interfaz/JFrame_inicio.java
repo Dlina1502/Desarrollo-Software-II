@@ -6,23 +6,16 @@
 package interfaz;
 
 import conexion_y_funciones.Funciones;
-import conexion_y_funciones.HibernateUtil;
-import conexion_y_funciones.InformacionEmpleados;
-import conexion_y_funciones.Sedes;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
 
 /**
  *
@@ -31,8 +24,6 @@ import org.hibernate.Session;
 public class JFrame_inicio extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel();
     Funciones funcion = new Funciones();
-    Session session = HibernateUtil.buildSessionFactory().openSession();  
-    
     /**
      * Creates new form JFrame_inicio
      */
@@ -181,42 +172,12 @@ public class JFrame_inicio extends javax.swing.JFrame {
         
         String pass = new String(clave);
         
-        Query hqlQuery = session.createQuery("FROM InformacionEmpleados v WHERE correo = ? AND clave = ?");
-        hqlQuery.setString(0,correo.toUpperCase());
-        hqlQuery.setString(1,pass);
-        Iterator<InformacionEmpleados> it = hqlQuery.iterate();
-        
-        InformacionEmpleados R;
-       
-        if (it.hasNext()){
-            R = it.next();
-            System.out.println(R.getEstadoEmpleado().getTipoEstado());
-            switch(R.getEstadoEmpleado().getIdEstado()){
-                case 1:
-                    JFrame_principal ventana = new JFrame_principal();
-                    ventana.setVisible(true);
-                    this.dispose();
-                    break;
-                        
-                case 0:
-                    JOptionPane.showMessageDialog(null, "Usuario inactivo");
-                    break;
-                
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-        }
-        
-
-        
-        
-        
-        /*if (funcion.login(correo, pass)){
+        if (funcion.login(correo, pass)){
             String rol = funcion.get_rol();
  
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-        }*/
+        }
         
         
     }//GEN-LAST:event_jLabel6MouseClicked

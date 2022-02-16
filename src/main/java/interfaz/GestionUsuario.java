@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz.InterfacesGestionUsuario;
+package interfaz;
 import conexion_y_funciones.Funciones;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -18,13 +18,13 @@ import javax.swing.text.PasswordView;
  *
  * @author Usuario
  */
-public class GestionUsuarioTemporal extends javax.swing.JPanel {
+public class GestionUsuario extends javax.swing.JPanel {
     Funciones funciones = new Funciones();
     DefaultTableModel model;    
     /**
      * Creates new form GestionUsuarioGerente
      */
-    public GestionUsuarioTemporal() {
+    public GestionUsuario() {
         initComponents();
         //inicializa con las sedes
         funciones.consultar_sedes_combo(jComboBox13);
