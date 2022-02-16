@@ -14,6 +14,7 @@ import java.awt.Image;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -193,8 +194,11 @@ public class JFrame_inicio extends javax.swing.JFrame {
             System.out.println(R.getEstadoEmpleado().getTipoEstado());
             switch(R.getEstadoEmpleado().getIdEstado()){
                 case 1:
+                    Set permisos = R.getRolEmpleados().getPermisosRols();
+                    System.out.println(permisos.iterator().next());
                     JFrame_principal ventana = new JFrame_principal();
                     ventana.setVisible(true);
+                    session.close(); 
                     this.dispose();
                     break;
                         
