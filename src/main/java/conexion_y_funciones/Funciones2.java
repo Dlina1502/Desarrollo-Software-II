@@ -1,7 +1,9 @@
 
 package conexion_y_funciones;
 
+import interfaz.JFrame_principal;
 import java.util.*;
+import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -173,5 +175,24 @@ public class Funciones2 {
             session.close(); 
         }
     }
+     
+     
+     public int login (String correo, String clave){
+         
+        Session session = HibernateUtil.buildSessionFactory().openSession();
+        Query hqlQuery = session.createQuery("FROM InformacionEmpleados v WHERE correo = ? AND clave = ?");
+        hqlQuery.setString(0,correo.toUpperCase());
+        hqlQuery.setString(1,clave);
+        Iterator<InformacionEmpleados> it = hqlQuery.iterate();
+        
+        InformacionEmpleados R;
+        if (it.hasNext()){
+            R = it.next();
+            return R.getEstadoEmpleado().getIdEstado();
+        }else{
+            return -1;
+        }
+       
+     }
     
 }
