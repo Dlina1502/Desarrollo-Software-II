@@ -15,19 +15,20 @@ import java.util.*;
  */
 public class GestionRoles extends javax.swing.JPanel {
     
-    Funciones2 funcion = new Funciones2();
-    PermisosRol permisos;
-    ArrayList<RolEmpleados> roles;
+    //Funciones2 funcion = new Funciones2();
+    //PermisosRol permisos;
+    Funciones3 funcion3 = new Funciones3();
+    ArrayList<String> roles;
  
     /**
      * Creates new form GestionRoles
      */
     public GestionRoles() {
         initComponents();
-        roles=funcion.listaRoles();
-        PermisosRol permisos=funcion.permisosRol(roles.get(0).getTipoEmpleado());
+        roles=funcion3.listarRoles();
+        //PermisosRol permisos=funcion.permisosRol(roles.get(0).getTipoEmpleado());
         actualizarCombos();
-        llenarCajas(permisos);
+        //llenarCajas(permisos);
         
     }
     
@@ -37,8 +38,8 @@ public class GestionRoles extends javax.swing.JPanel {
         jComboBox1.removeAllItems();
         jComboBox2.removeAllItems();
         for (int i = 0; i < roles.size(); i++){
-            jComboBox1.addItem(roles.get(i).getTipoEmpleado());
-            jComboBox2.addItem(roles.get(i).getTipoEmpleado());
+            jComboBox1.addItem(roles.get(i));
+            jComboBox2.addItem(roles.get(i));
         }
     }
     
@@ -403,8 +404,8 @@ public class GestionRoles extends javax.swing.JPanel {
         
         String rol = (String)jComboBox1.getSelectedItem();
         System.out.println(rol);
-        permisos=funcion.permisosRol(rol); 
-        llenarCajas(permisos);
+        //permisos=funcion.permisosRol(rol); 
+        //llenarCajas(permisos);
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -431,7 +432,7 @@ public class GestionRoles extends javax.swing.JPanel {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         String rolnuevo =jTextField37.getText();
-        funcion.IngresarRol(rolnuevo);
+        //funcion.IngresarRol(rolnuevo);
         JOptionPane.showMessageDialog(this,"Guardado con exito, proceda a ingresar los permisos");
         jComboBox1.addItem(rolnuevo);
         jComboBox2.addItem(rolnuevo);
@@ -476,7 +477,7 @@ public class GestionRoles extends javax.swing.JPanel {
             eliminarSede = 1;
         }
         
-        funcion.guardarPermisos(permisos.getRolEmpleados().getIdTipoEmpleado(), permisos.getRolEmpleados(), terminalVentas, crearUsuario, editarUsuario, eliminarUsuario, crearSede, consultarSede, eliminarSede);
+        //funcion.guardarPermisos(permisos.getRolEmpleados().getIdTipoEmpleado(), permisos.getRolEmpleados(), terminalVentas, crearUsuario, editarUsuario, eliminarUsuario, crearSede, consultarSede, eliminarSede);
         JOptionPane.showMessageDialog(this,"Rol actualizado con éxito");
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -501,8 +502,8 @@ public class GestionRoles extends javax.swing.JPanel {
            int eliminar = eliminar(rol);
            System.out.println("Indice");
            System.out.println(eliminar);
-           funcion.eliminarPermisosRol(rol);
-           funcion.eliminarRolEmpleados(rol);
+           //funcion.eliminarPermisosRol(rol);
+           //funcion.eliminarRolEmpleados(rol);
            jComboBox1.removeItemAt(eliminar);
            jComboBox2.removeItemAt(eliminar);
            JOptionPane.showMessageDialog(this,"Rol eliminado con éxito");

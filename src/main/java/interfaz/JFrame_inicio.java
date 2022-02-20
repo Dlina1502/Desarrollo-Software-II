@@ -194,12 +194,13 @@ public class JFrame_inicio extends javax.swing.JFrame {
         if (aux != -1){
             switch(aux){
                 case 1:
-                    //JFrame_principal ventana = new JFrame_principal();
-                    //ventana.setVisible(true);
                     ArrayList<Integer> permisos = funciones.permisosDeRol();
+                    JFrame_principal ventana = new JFrame_principal(permisos);
+                    ventana.setVisible(true);
+                    /*ArrayList<Integer> permisos = funciones.permisosDeRol();
                     for (int i = 0; i < permisos.size() ; i++){
                         System.out.println(permisos.get(i));
-                    }
+                    }*/
                     this.dispose();
                     break;
                         

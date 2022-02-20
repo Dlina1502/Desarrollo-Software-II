@@ -47,6 +47,7 @@ public class Main {
      */
     public static void main(String[] args) throws SQLException, URISyntaxException {
         new JFrame_inicio().setVisible(true);
+        //new JFrame_principal().setVisible(true);
 
 
         //new JFrame_operador().setVisible(true);

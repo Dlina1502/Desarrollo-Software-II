@@ -12,6 +12,7 @@ import interfaz.InterfacesGestionUsuario.GestionUsuario;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -26,8 +27,9 @@ public class JFrame_principal extends javax.swing.JFrame {
     TerminalDeVentas terminalDeVentas = new TerminalDeVentas();
     GestionRoles roles = new GestionRoles();
     
-    public JFrame_principal() { 
+    public JFrame_principal(ArrayList<Integer> permisos) { 
         initComponents();
+        adaptar_interfaz(permisos);
         this.setLocationRelativeTo(null);
         this.setExtendedState(this.MAXIMIZED_BOTH); 
         jPanel7.add(gestionUsuario);
@@ -59,7 +61,6 @@ public class JFrame_principal extends javax.swing.JFrame {
         setTitle("GERENTE");
         setBackground(new java.awt.Color(255, 255, 255));
         setLocation(new java.awt.Point(0, 0));
-        setPreferredSize(new java.awt.Dimension(820, 550));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
@@ -132,6 +133,11 @@ public class JFrame_principal extends javax.swing.JFrame {
                 jButton4MouseClicked(evt);
             }
         });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -174,7 +180,7 @@ public class JFrame_principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         jPanel7.removeAll();
@@ -230,6 +236,78 @@ public class JFrame_principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
+    public void adaptar_interfaz(ArrayList<Integer> permisos){
+        int terminal_ventas; 
+        int crear_usuario, editar_usuario, eliminar_usuario;
+        int crear_sede, consultar_sede, eliminar_sede;
+        int reportes;
+        int gestion_permisos;
+        
+        terminal_ventas = permisos.get(0);
+        
+        crear_usuario = permisos.get(1);
+        editar_usuario = permisos.get(2);
+        eliminar_usuario = permisos.get(3);
+        
+        crear_sede = permisos.get(4);
+        consultar_sede = permisos.get(5);
+        eliminar_sede = permisos.get(6);
+        
+        reportes = permisos.get(7);
+        
+        gestion_permisos = permisos.get(8);
+        
+        
+        switch(terminal_ventas){
+            case 1:
+                jButton6.setVisible(true);
+                break;
+                
+            case 0:
+                jButton6.setVisible(false);
+                break;
+        }
+        
+        if(crear_usuario == 1 || editar_usuario == 1 || eliminar_usuario == 1){
+            jButton1.setVisible(true);
+        }else{
+            jButton1.setVisible(false);
+        }
+        
+        
+        if(crear_sede == 1 || consultar_sede == 1 || eliminar_sede == 1){
+            jButton3.setVisible(true);
+        }else{
+            jButton3.setVisible(false);
+        }
+        
+        switch(reportes){
+            case 1:
+                jButton4.setVisible(true);
+                break;
+                
+            case 0:
+                jButton4.setVisible(false);
+                break;
+        }
+        
+        switch(gestion_permisos){
+            case 1:
+                jButton5.setVisible(true);
+                break;
+                
+            case 0:
+                jButton5.setVisible(false);
+                break;
+        }
+        
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -262,7 +340,7 @@ public class JFrame_principal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new JFrame_principal().setVisible(true);
+                //new JFrame_principal().setVisible(true);
             }
         });
     }
