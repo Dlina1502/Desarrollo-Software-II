@@ -793,10 +793,6 @@ public class GestionUsuarioTemporal extends javax.swing.JPanel {
         jPasswordField14.setText(null);
     }//GEN-LAST:event_jPasswordField14jPasswordField2MouseClicked
 
-    private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox13ActionPerformed
-
     private void jTextField37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField37ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField37ActionPerformed
@@ -1105,6 +1101,10 @@ public class GestionUsuarioTemporal extends javax.swing.JPanel {
             jTextField50.setText("Correo");  
         }
     }//GEN-LAST:event_jTextField50MouseExited
+
+    private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox13ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

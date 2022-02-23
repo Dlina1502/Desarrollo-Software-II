@@ -5,6 +5,7 @@
  */
 package interfaz.InterfacesGestionUsuario;
 
+import conexion_y_funciones.Funciones3;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -13,12 +14,16 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class Registrar_usuario extends javax.swing.JPanel {
-
+    //Funciones funciones = new Funciones();
+    Funciones3 funciones = new Funciones3();
     /**
      * Creates new form Registrar_usuario
      */
     public Registrar_usuario() {
         initComponents();
+        funciones.consultar_sedes_combobox(jComboBox13);
+        funciones.consultar_roles_combobox(jComboBox14);
+        
     }
 
     /**
@@ -150,13 +155,13 @@ public class Registrar_usuario extends javax.swing.JPanel {
                 jComboBox13MouseClicked(evt);
             }
         });
-        jComboBox13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox13ActionPerformed(evt);
-            }
-        });
 
         jComboBox14.setForeground(new java.awt.Color(153, 153, 153));
+        jComboBox14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox14MouseClicked(evt);
+            }
+        });
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel40.setText("Crear cuenta:");
@@ -437,12 +442,8 @@ public class Registrar_usuario extends javax.swing.JPanel {
 
     private void jComboBox13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox13MouseClicked
         jComboBox13.removeAllItems();
-        //funciones.consultar_sedes_combo(jComboBox13);
+        funciones.consultar_sedes_combobox(jComboBox13);
     }//GEN-LAST:event_jComboBox13MouseClicked
-
-    private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox13ActionPerformed
 
     private void jTextField42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField42MouseClicked
         jTextField37.setText(null);
@@ -499,14 +500,25 @@ public class Registrar_usuario extends javax.swing.JPanel {
         String[] partsSede = sede.split("//");
         String claveConv = new String(clave);
         String claveConfirmConv = new String(claveConfirm);
+        
+        System.err.println(partsSede[0]);
+        System.err.println(partsSede[1]);
+        System.err.println(partsSede[2]);
+        System.err.println(partsSede[3]);
 
-       /* if (claveConv.equals(claveConfirmConv)){
-            funciones.registrarUsuario(documento, partsSede[0],partsSede[1],partsSede[2], rol, "activo", nombre, apellido1, apellido2, telefono, correo, claveConv);
+       if (claveConv.equals(claveConfirmConv)){
+            funciones.registrarUsuario(documento, partsSede[0],partsSede[1],partsSede[2],partsSede[3], rol, "activo", nombre, apellido1, apellido2, telefono, correo, claveConv);
         }else{
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
-        }*/
+        }
 
     }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jComboBox14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox14MouseClicked
+        // TODO add your handling code here:
+        jComboBox14.removeAllItems();
+        funciones.consultar_roles_combobox(jComboBox14);
+    }//GEN-LAST:event_jComboBox14MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

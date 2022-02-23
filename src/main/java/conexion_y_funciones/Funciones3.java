@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -91,6 +92,98 @@ public class Funciones3  extends Conexion2{
         }
         
         return resultados;
+    }
+    
+    
+    public void consultar_sedes_combobox(javax.swing.JComboBox<String> jcombobox){
+        
+        
+        try{
+            sql = "select concat_ws('//',sedes.barrio,sedes.direccion,ciudad_sede.departamento,ciudad_sede.ciudad)  \n" +
+"                   from sedes inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad";
+            resultSet = statement.executeQuery(sql);
+            jcombobox.addItem("Seccione sede");
+            while (resultSet.next()) {
+                jcombobox.addItem(resultSet.getString(1));
+            }
+            
+            
+        }
+        catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+        
+    }
+    
+    public void consultar_roles_combobox(javax.swing.JComboBox<String> jcombobox){
+
+
+       try{
+           sql = "SELECT tipo_empleado from rol_empleados";
+           resultSet = statement.executeQuery(sql);
+
+           jcombobox.addItem("Seleccione rol");
+           while (resultSet.next()) {
+               jcombobox.addItem(resultSet.getString(1));
+           }
+
+
+       }
+       catch (SQLException e){
+           System.err.println(e.getMessage());
+       }
+
+   }
+    
+    public void registrarUsuario(String cedula, String barrio, String direccion, String departamento, String ciudad, 
+            String tipo_empleado,
+            String estado, String nombre, String apellido1,
+            String apellido2, String telefono, String correo, String clave) {
+        try {
+            sql = "select id_sede from sedes \n" +
+						"where barrio ='" + barrio + "'and direccion = '"+ direccion +"'\n" +
+						"and id_ciudad = (select id_ciudad from ciudad_sede where \n "
+                                                                    + "departamento = '"+ departamento+"' and ciudad ='"+ ciudad+"')";
+            resultSet = statement.executeQuery(sql);
+            int id_sede = -1;
+            
+            while(resultSet.next()){
+                id_sede = resultSet.getInt(1);
+            }
+            
+            sql = "select id_tipo_empleado from rol_empleados where tipo_empleado = '"+tipo_empleado+"'";
+            resultSet = statement.executeQuery(sql);
+            
+            int id_tipoEmpleado = -1;
+            
+            while(resultSet.next()){
+                id_tipoEmpleado = resultSet.getInt(1);
+            }
+            
+            sql = "select id_estado from estado_empleado where tipo_estado ='"+ estado.toUpperCase()+"'";
+            resultSet = statement.executeQuery(sql);
+            
+            int id_estado = -1;
+            
+            while(resultSet.next()){
+                id_estado = resultSet.getInt(1);
+            }
+            
+            sql = "INSERT INTO informacion_empleados (documento_empleado, id_sede, id_tipo_empleado, id_estado, nombre,"
+                    + "primer_apellido, segundo_apellido, telefono, correo, clave) VALUES ('" +cedula.toUpperCase()+"'," + id_sede + "," + id_tipoEmpleado +"," 
+                    + id_estado+", '"+ nombre.toUpperCase() +"', '"+ apellido1.toUpperCase()+ "', '" + apellido2.toUpperCase()+"', '"+telefono+"', '"+ correo.toUpperCase()+"', '"+ clave+ "')";
+            
+            
+            statement.executeUpdate(sql);
+            
+            
+            JOptionPane.showMessageDialog(null,"Usuario registrado con éxito");
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
     }
     
 }
