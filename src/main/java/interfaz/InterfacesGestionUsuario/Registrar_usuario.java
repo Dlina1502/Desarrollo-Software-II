@@ -21,8 +21,8 @@ public class Registrar_usuario extends javax.swing.JPanel {
      */
     public Registrar_usuario() {
         initComponents();
-        funciones.consultar_sedes_combobox(jComboBox13);
-        funciones.consultar_roles_combobox(jComboBox14);
+        funciones.boxSede(jComboBox13);
+        funciones.boxRoles(jComboBox14);
         
     }
 
@@ -442,7 +442,7 @@ public class Registrar_usuario extends javax.swing.JPanel {
 
     private void jComboBox13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox13MouseClicked
         jComboBox13.removeAllItems();
-        funciones.consultar_sedes_combobox(jComboBox13);
+        funciones.boxSede(jComboBox13);
     }//GEN-LAST:event_jComboBox13MouseClicked
 
     private void jTextField42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField42MouseClicked
@@ -517,7 +517,7 @@ public class Registrar_usuario extends javax.swing.JPanel {
     private void jComboBox14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox14MouseClicked
         // TODO add your handling code here:
         jComboBox14.removeAllItems();
-        funciones.consultar_roles_combobox(jComboBox14);
+        funciones.boxRoles(jComboBox14);
     }//GEN-LAST:event_jComboBox14MouseClicked
 
 

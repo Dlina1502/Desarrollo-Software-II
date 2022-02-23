@@ -5,6 +5,7 @@
  */
 package interfaz.InterfacesGestionUsuario;
 
+import conexion_y_funciones.Funciones3;
 import java.awt.Color;
 
 /**
@@ -12,7 +13,9 @@ import java.awt.Color;
  * @author Usuario
  */
 public class Consultar_usuario extends javax.swing.JPanel {
-
+    
+    
+    Funciones3 funcion3 = new Funciones3();
     /**
      * Creates new form Editar_usuario
      */
@@ -166,11 +169,11 @@ public class Consultar_usuario extends javax.swing.JPanel {
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         String documento = jTextField43.getText();
-        //funciones.creartablausuario(jTable1, documento);
+        funcion3.creartablausuario(jTable1, documento);
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        //funciones.creartabla(jTable1);
+        funcion3.creartabla(jTable1);
     }//GEN-LAST:event_jButton12MouseClicked
 
 

@@ -5,7 +5,9 @@
  */
 package interfaz.InterfacesGestionUsuario;
 
+import conexion_y_funciones.Funciones3;
 import java.awt.Color;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
@@ -14,7 +16,7 @@ import javax.swing.JPasswordField;
  * @author Usuario
  */
 public class Editar_usuario extends javax.swing.JPanel {
-
+    Funciones3 funcion = new Funciones3();
     /**
      * Creates new form Editar_usuario
      */
@@ -444,7 +446,10 @@ public class Editar_usuario extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         String documentoConsult = jTextField46.getText();
-        //funciones.consultar_datos_usuario(documentoConsult, jTextField45, jTextField47, jTextField48, jTextField49, jTextField50, jComboBox15, jComboBox16, jComboBox17);
+        funcion.consultar_datos_usuario(documentoConsult, jTextField45, jTextField47, jTextField48, jTextField49, jTextField50, jComboBox15, jComboBox16, jComboBox17);
+        funcion.boxRoles(jComboBox16);
+        funcion.boxEstado(jComboBox17);
+        funcion.boxSede(jComboBox15);
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -462,30 +467,32 @@ public class Editar_usuario extends javax.swing.JPanel {
         String rol = (String) jComboBox16.getSelectedItem();
         String estado = (String) jComboBox17.getSelectedItem();
         String[] partsSede = sede.split("//");
-        //funciones.editarUsuario(documento, nombre, apellido1, apellido2, telefono, correo, partsSede[0],partsSede[1],partsSede[2], rol, estado);
+    
+        funcion.editarUsuario(documento, nombre, apellido1, apellido2, telefono, correo, partsSede[0],partsSede[1],partsSede[2], rol, estado);
+        
     }//GEN-LAST:event_jButton15MouseClicked
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
-        /*String documento = jTextField46.getText();
+        String documento = jTextField46.getText();
         JPasswordField pf = new JPasswordField();
         JPasswordField pf2 = new JPasswordField();
         int opcion1 = JOptionPane.showConfirmDialog(null, pf, "Ingresa la contraseña actual", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (opcion1 == JOptionPane.OK_OPTION){
             String password = new String(pf.getPassword());
-            if((funciones.consultarContraseña(documento, password)).equals(password)){
+            if((funcion.consultarContraseña(documento, password)).equals(password)){
                 int opcion2 = JOptionPane.showConfirmDialog(null, pf2, "Correcto. Ingresa la nueva contraseña", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (opcion2 == JOptionPane.OK_OPTION){
                     String newpassword = new String(pf2.getPassword());
                     if ((newpassword.equals(""))||(newpassword.equals(password))){
                         JOptionPane.showMessageDialog(null, "La contraseña es la misma o esta vacia", "La contraseña no fue actualizada", JOptionPane.ERROR_MESSAGE);
                     }else{
-                        funciones.editarContraseña(documento, newpassword);
+                        funcion.editarContraseña(documento, newpassword);
                     }
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
             }
-        }*/
+        }
     }//GEN-LAST:event_jButton16MouseClicked
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
