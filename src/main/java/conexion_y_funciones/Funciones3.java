@@ -219,50 +219,65 @@ public class Funciones3  extends Conexion2{
             JOptionPane.showMessageDialog(null,"No se pudo consultar el usuario");
         }
     }
-
-    /**
-     *
-     * @param jcombobox
-     */
-    /*public void consultar_sedes_combobox (javax.swing.JComboBox<String> jcombobox){
-        
-        
-        try{
-            sql = "select concat_ws('//',sedes.barrio,sedes.direccion,ciudad_sede.departamento,ciudad_sede.ciudad)  \n" +
-"                   from sedes inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad";
-            resultSet = statement.executeQuery(sql);
-            jcombobox.addItem("Seccione sede");
-            while (resultSet.next()) {
-                jcombobox.addItem(resultSet.getString(1));
-            }
-            
-            
-        }
-        catch (SQLException e){
-            System.err.println(e.getMessage());
-        }
-        
-    }
     
-    public void consultar_roles_combobox(javax.swing.JComboBox<String> jcombobox){
+//***************************** Funciones de registro************************************************
+    public void registrarSede(String departamento, String ciudad, String barrio, String direccion, String telefono) {
+        int id_ciudad = -1;
+        int id_sede = -1;
+        try {
+            sql = "SELECT id_ciudad FROM ciudad_sede WHERE departamento = ? and ciudad = ?";
+            PreparedStatement pstmt = conexion.prepareStatement(sql);
+            pstmt.setString(1, departamento);
+            pstmt.setString(2, ciudad);
+            resultSet = pstmt.executeQuery();
 
+            while (resultSet.next()) {
+                id_ciudad = resultSet.getInt(1);
+            }
 
-       try{
-           sql = "SELECT tipo_empleado from rol_empleados";
-           resultSet = statement.executeQuery(sql);
+            if (id_ciudad != -1) {
+                sql = "INSERT INTO sedes (barrio, direccion, id_ciudad) VALUES ('" + barrio + "', '" + direccion + "'," + id_ciudad + ")";
+                statement.executeUpdate(sql);
 
-           jcombobox.addItem("Seleccione rol");
-           while (resultSet.next()) {
-               jcombobox.addItem(resultSet.getString(1));
-           }
+                sql = "select id_sede from sedes where barrio = ? and direccion = ? \n"
+                        + "						and id_ciudad = ?";
+                pstmt = conexion.prepareStatement(sql);
+                pstmt.setString(1, barrio);
+                pstmt.setString(2, direccion);
+                pstmt.setInt(3, id_ciudad);
 
+                resultSet = pstmt.executeQuery();
 
-       }
-       catch (SQLException e){
-           System.err.println(e.getMessage());
-       }
+                while (resultSet.next()) {
+                    id_sede = resultSet.getInt(1);
+                }
+                
+                sql = "INSERT INTO telefonos_sedes VALUES  (?, ?)";
+                pstmt = conexion.prepareStatement(sql);
+                pstmt.setInt(1, id_sede);
+                pstmt.setString(2, telefono);
+                
+                pstmt.executeUpdate();
+                
+                
+                JOptionPane.showMessageDialog(null,"Sede registrada con éxito");
 
-   }*/
+            } else {
+                sql = "INSERT INTO ciudad_sede (departamento, ciudad) VALUES (?, ?)";
+                pstmt = conexion.prepareStatement(sql);
+                pstmt.setString(1, departamento);
+                pstmt.setString(2, ciudad);
+                
+                pstmt.executeUpdate();
+                
+                registrarSede(departamento, ciudad, barrio, direccion, telefono);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
     
     public void registrarUsuario(String cedula, String barrio, String direccion, String departamento, String ciudad, 
             String tipo_empleado,
@@ -315,7 +330,7 @@ public class Funciones3  extends Conexion2{
 
     }
     
-     
+   //*****************************************************************************************************************************  
         
     public void editarUsuario(String cedula, String nombre, String apellido1, String apellido2, String telefono, 
                           String correo, String barrio, String direccion, String ciudad, String rol, String estado) {
@@ -329,6 +344,93 @@ public class Funciones3  extends Conexion2{
         }
     }
 
+//********************************************** llenar combo boxes***********************************************
+    
+    public void boxDepartamento(javax.swing.JComboBox<String> jcombodep) {
+
+        try {
+            sql = "SELECT departamento FROM ciudad_sede";
+            resultSet = statement.executeQuery(sql);
+            String presente = "";
+
+            if (jcombodep.getItemCount() > 0) {
+                presente = (String) jcombodep.getSelectedItem();
+            }
+            jcombodep.addItem("SELECCIONE UN DEPARTAMENTO");
+            jcombodep.addItem("NUEVO DEPARTAMENTO");
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString(1));
+                if (!presente.equals(resultSet.getString("departamento"))) {
+                    jcombodep.addItem(resultSet.getString("departamento"));
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+    }
+    
+    public void boxCiudad(javax.swing.JComboBox<String> jcombociudad, String departamento) {
+        try {
+            sql = "SELECT ciudad FROM ciudad_sede WHERE departamento = '" + departamento + "'";
+            resultSet = statement.executeQuery(sql);
+            String presente = "";
+
+            if (jcombociudad.getItemCount() > 0) {
+                presente = (String) jcombociudad.getSelectedItem();
+            }
+            jcombociudad.addItem("SELECCIONE UNA CIUDAD");
+            jcombociudad.addItem("NUEVA CIUDAD");
+            while (resultSet.next()) {
+                if (!presente.equals(resultSet.getString("ciudad"))) {
+                    jcombociudad.addItem(resultSet.getString("ciudad"));
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    public void boxBarrio(javax.swing.JComboBox<String> jcombobarrio, String departamento, String ciudad){
+        try {
+            sql = "SELECT id_ciudad FROM ciudad_sede where departamento = ? and ciudad = ?";
+            
+            PreparedStatement pstmt = conexion.prepareStatement(sql);
+            pstmt.setString(1, departamento);
+            pstmt.setString(2, ciudad);
+            
+            resultSet = pstmt.executeQuery();
+            int id_ciudad = -1;
+            
+            while (resultSet.next()){
+                id_ciudad = resultSet.getInt(1);
+            }
+            
+            sql = "SELECT barrio FROM sedes WHERE id_ciudad = ?";
+            
+            pstmt = conexion.prepareStatement(sql);
+            pstmt.setInt(1, id_ciudad);
+            resultSet = pstmt.executeQuery();
+            String presente = "";
+            
+            if (jcombobarrio.getItemCount() > 0) {
+                presente = (String) jcombobarrio.getSelectedItem();
+            }
+            jcombobarrio.addItem("SELECCIONE UN BARRIO");
+            jcombobarrio.addItem("NUEVO BARRIO");
+                while (resultSet.next()) {
+                    if (!presente.equals(resultSet.getString("barrio"))) {
+                        jcombobarrio.addItem(resultSet.getString("barrio"));
+                    }
+                }
+            
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
     
     public void boxRoles(javax.swing.JComboBox<String> jcomborol) {
         try {
@@ -397,6 +499,7 @@ public class Funciones3  extends Conexion2{
         }
     }
    
+//*****************************************************************************************************************************
     public String consultarContraseña(String documento, String password){        
         String a="";
         try{
@@ -423,9 +526,10 @@ public class Funciones3  extends Conexion2{
             JOptionPane.showMessageDialog(null, "Contraseña editada con éxito");
         }
     }
+    
+    
 
-//==============================================================================================================================================================
-//==============================================================================================================================================================
+
 }
 
 
