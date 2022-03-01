@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.HashSet;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -23,16 +24,18 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
     
     private Object bean;
     private JPanel registrar_usuario, consultar_usuario, editar_usuario;
+    
     private Registrar_usuario registrar_usuario_panel = new Registrar_usuario();
     private Editar_usuario editar_usuario_panel = new Editar_usuario();
     private Consultar_usuario consultar_usuario_panel = new Consultar_usuario();
+    
     /**
      * Creates new customizer GestionSede
      */
     public GestionUsuario() {
         initComponents();
         crearBotones();
-        jPanel4.add(registrar_usuario_panel);
+        //jPanel4.add(registrar_usuario_panel);
         repaint();
         
     }
@@ -186,6 +189,33 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
      repaint();
  }
  
+    public void adaptar_interfaz(ArrayList<Integer> permisos) {
+
+        int registrar_usuarioP, consultar_usuarioP, editar_usuarioP;
+
+        registrar_usuarioP = permisos.get(1);
+        consultar_usuarioP = permisos.get(2);
+        editar_usuarioP = permisos.get(3);
+
+        
+        editar_usuario_panel = new Editar_usuario();
+        consultar_usuario_panel = new Consultar_usuario();
+
+        switch (registrar_usuarioP) {
+            case 1:
+                registrar_usuario_panel = new Registrar_usuario();
+                registrar_usuario.setVisible(true);
+                break;
+
+            case 0:
+                registrar_usuario.setVisible(false);
+                break;
+        }
+
+        
+
+    }
+
  private void registrar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
         registrar_usuario.setBackground(new java.awt.Color(249, 152, 103));
