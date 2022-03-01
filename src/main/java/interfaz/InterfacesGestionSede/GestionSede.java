@@ -4,6 +4,8 @@
  */
 package interfaz.InterfacesGestionSede;
 
+import conexion_y_funciones.Mapas;
+import conexion_y_funciones.Marker;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -34,6 +36,21 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         initComponents();
         crearBotones();
         jPanel4.add(registrar_sede_panel);
+        
+        
+         Mapas map = new Mapas();
+         Marker  marca[] = new Marker[6];
+        marca[0]= new Marker("3.3756687", "-76.5335596", "direccion","nombre","<strong>Sede 1</strong><p>Universidad del Valle<br>Cali Colombia</p>");
+        marca[1]= new Marker("4.6455568", "-74.0778875", "direccion","nombre","<strong>Sede 2</strong><p>Estadio Nemesio Camacho El Campin<br>Bogota Colombia</p>");
+        marca[2]= new Marker("6.2569053", "-75.590123", "direccion","nombre","<strong>Sede 3</strong><p>Estadio Atanasio Girardot <br>Medellin Colombia</p>");
+        marca[3]= new Marker("3.429783", "-76.5410668", "direccion","nombre","<strong>Sede 4</strong><p>Estadio Pascual Guerrero <br>Cali Colombia</p>");
+        marca[4]= new Marker("3.5219495", "-76.4172661", "direccion","nombre","<strong>Sede 5</strong><p>Estadio Palmaseca <br>Palmira Colombia</p>");
+        marca[5]= new Marker("10.9269163", "-74.8007685", "direccion","nombre","<strong>Sede 6</strong><p>Estadio Metropolitano, Roberto Melendez <br>Barranquila Colombia</p>");
+
+            
+        
+       map.multiplesmarcas(marca);
+        
         repaint();
         
     }
