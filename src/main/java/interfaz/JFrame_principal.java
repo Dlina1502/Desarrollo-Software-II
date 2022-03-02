@@ -5,7 +5,6 @@
  */
 package interfaz;
 
-import interfaz.InterfacesGestionUsuario.GestionUsuarioTemporal;
 import interfaz.InterfacesGestionRol.GestionRoles;
 import interfaz.InterfacesGestionSede.GestionSede;
 import interfaz.InterfacesGestionUsuario.GestionUsuario;
@@ -21,18 +20,17 @@ import javax.swing.JPanel;
  * @author Usuario
  */
 public class JFrame_principal extends javax.swing.JFrame {
-    GestionUsuario gestionUsuario = new GestionUsuario();
-    GestionSede gestionSede = new GestionSede();
-    Reportes reporte = new Reportes();
-    TerminalDeVentas terminalDeVentas = new TerminalDeVentas();
-    GestionRoles roles = new GestionRoles();
+    GestionUsuario gestionUsuario;
+    GestionSede gestionSede;
+    Reportes reporte;
+    TerminalDeVentas terminalDeVentas;
+    GestionRoles roles;
     
     public JFrame_principal(ArrayList<Integer> permisos) { 
         initComponents();
         adaptar_interfaz(permisos);
         this.setLocationRelativeTo(null);
         this.setExtendedState(this.MAXIMIZED_BOTH); 
-        jPanel7.add(gestionUsuario);
     }
 
 /**
@@ -243,7 +241,7 @@ public class JFrame_principal extends javax.swing.JFrame {
     public void adaptar_interfaz(ArrayList<Integer> permisos){
         int terminal_ventas; 
         int crear_usuario, editar_usuario, eliminar_usuario;
-        int crear_sede, consultar_sede, eliminar_sede;
+        int crear_sede, consultar_sede, eliminar_sede, editar_sede;
         int reportes;
         int gestion_permisos;
         
@@ -256,14 +254,16 @@ public class JFrame_principal extends javax.swing.JFrame {
         crear_sede = permisos.get(4);
         consultar_sede = permisos.get(5);
         eliminar_sede = permisos.get(6);
+        editar_sede = permisos.get(7);
         
-        reportes = permisos.get(7);
+        reportes = permisos.get(8);
         
-        gestion_permisos = permisos.get(8);
+        gestion_permisos = permisos.get(9);
         
         
         switch(terminal_ventas){
             case 1:
+                terminalDeVentas = new TerminalDeVentas();
                 jButton6.setVisible(true);
                 break;
                 
@@ -273,13 +273,15 @@ public class JFrame_principal extends javax.swing.JFrame {
         }
         
         if(crear_usuario == 1 || editar_usuario == 1 || eliminar_usuario == 1){
+            gestionUsuario = new GestionUsuario(permisos);
             jButton1.setVisible(true);
         }else{
             jButton1.setVisible(false);
         }
         
         
-        if(crear_sede == 1 || consultar_sede == 1 || eliminar_sede == 1){
+        if(crear_sede == 1 || consultar_sede == 1 || eliminar_sede == 1 || editar_sede == 1){
+            gestionSede = new GestionSede(permisos);
             jButton3.setVisible(true);
         }else{
             jButton3.setVisible(false);
@@ -287,6 +289,7 @@ public class JFrame_principal extends javax.swing.JFrame {
         
         switch(reportes){
             case 1:
+                reporte = new Reportes();
                 jButton4.setVisible(true);
                 break;
                 
@@ -297,6 +300,7 @@ public class JFrame_principal extends javax.swing.JFrame {
         
         switch(gestion_permisos){
             case 1:
+                roles = new GestionRoles();
                 jButton5.setVisible(true);
                 break;
                 

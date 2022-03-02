@@ -61,10 +61,10 @@ public class Funciones3  extends Conexion2{
     public ArrayList<Integer> permisosDeRol(){
         ArrayList<Integer> permisos = new ArrayList<>();
         try{
-            sql = "SELECT terminal_ventas, crear_usuario, editar_usuario, eliminar_usuario, crear_sede, consultar_sede, eliminar_sede, reportes, gestion_permisos FROM permisos_rol WHERE id_tipo_empleado= "+ idTipoEmpleado;
+            sql = "SELECT terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos FROM permisos_rol WHERE id_tipo_empleado= "+ idTipoEmpleado;
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                for(int i = 1; i <= 9; i++){
+                for(int i = 1; i <= 10; i++){
                     permisos.add(resultSet.getInt(i));
                 }
                 

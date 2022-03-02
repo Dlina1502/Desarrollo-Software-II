@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.HashSet;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -21,20 +22,21 @@ import javax.swing.SwingConstants;
  * @author esteban
  */
 public class GestionSede extends javax.swing.JPanel implements java.beans.Customizer {
-    
+
     private Object bean;
     private JPanel registrar_sede, consultar_sede, editar_sede, eliminar_sede;
-    private Registrar_sede registrar_sede_panel = new Registrar_sede();
-    private Consultar_sede consultar_sede_panel = new Consultar_sede();
-    private Editar_sede editar_sede_panel = new Editar_sede();
-    private Eliminar_sede eliminar_sede_panel = new Eliminar_sede();
+    private Registrar_sede registrar_sede_panel;
+    private Consultar_sede consultar_sede_panel;
+    private Eliminar_sede eliminar_sede_panel;
+    private Editar_sede editar_sede_panel;
 
     /**
      * Creates new customizer GestionSede
      */
-    public GestionSede() {
+    public GestionSede(ArrayList<Integer> permisos) {
         initComponents();
         crearBotones();
+        adaptar_interfaz(permisos);
         jPanel4.add(registrar_sede_panel);
         
         
@@ -221,6 +223,64 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      ////////////////////////////////////////////////////////////////////
      repaint();
  }
+ 
+ public void adaptar_interfaz(ArrayList<Integer> permisos){
+
+        int crear_sedeP, consultar_sedeP, eliminar_sedeP, editar_sedeP;
+        
+        crear_sedeP = permisos.get(4);
+        consultar_sedeP = permisos.get(5);
+        eliminar_sedeP = permisos.get(6);
+        editar_sedeP = permisos.get(7);
+        
+        
+        
+        switch(crear_sedeP){
+            case 1:
+                registrar_sede_panel = new Registrar_sede();
+                registrar_sede.setVisible(true);
+                break;
+                
+            case 0:
+                registrar_sede.setVisible(false);
+                break;
+        }
+        
+        switch(consultar_sedeP){
+            case 1:
+                consultar_sede_panel = new Consultar_sede();
+                consultar_sede.setVisible(true);
+                break;
+                
+            case 0:
+                consultar_sede.setVisible(false);
+                break;
+        }
+        
+        switch(eliminar_sedeP){
+            case 1:
+                eliminar_sede_panel = new Eliminar_sede();
+                eliminar_sede.setVisible(true);
+                break;
+                
+            case 0:
+                eliminar_sede.setVisible(false);
+                break;
+        }
+        
+        switch(editar_sedeP){
+            case 1:
+                editar_sede_panel = new Editar_sede();
+                editar_sede.setVisible(true);
+                break;
+                
+            case 0:
+                editar_sede.setVisible(false);
+                break;
+        }
+        
+        
+    }
  
  private void registrar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
