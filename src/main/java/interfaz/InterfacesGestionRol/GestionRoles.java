@@ -7,6 +7,7 @@ package interfaz.InterfacesGestionRol;
 
 import conexion_y_funciones.*;
 import java.awt.Color;
+import java.awt.event.ItemEvent;
 import javax.swing.JOptionPane;
 import java.util.*;
 /**
@@ -16,8 +17,8 @@ import java.util.*;
 public class GestionRoles extends javax.swing.JPanel {
     
     //Funciones2 funcion = new Funciones2();
-    //PermisosRol permisos;
-    Funciones3 funcion3 = new Funciones3();
+    ArrayList<Integer> permisos;
+    Funciones3 funciones = new Funciones3();
     ArrayList<String> roles;
  
     /**
@@ -25,7 +26,7 @@ public class GestionRoles extends javax.swing.JPanel {
      */
     public GestionRoles() {
         initComponents();
-        roles=funcion3.listarRoles();
+        roles=funciones.listarRoles();
         //PermisosRol permisos=funcion.permisosRol(roles.get(0).getTipoEmpleado());
         actualizarCombos();
         //llenarCajas(permisos);
@@ -33,68 +34,91 @@ public class GestionRoles extends javax.swing.JPanel {
     }
     
     private void actualizarCombos(){
-        
-        
-        jComboBox1.removeAllItems();
+   
+        jComboBox4.removeAllItems();
         jComboBox2.removeAllItems();
         for (int i = 0; i < roles.size(); i++){
-            jComboBox1.addItem(roles.get(i));
+            jComboBox4.addItem(roles.get(i));
             jComboBox2.addItem(roles.get(i));
         }
     }
     
-    private void llenarCajas(PermisosRol permisos){
-        
-        if (permisos.getTerminalVentas()==1){
-            jCheckBox1.setSelected(true);
+    private void llenarCajas(ArrayList<Integer> permisos) {
+        if (permisos != null && !permisos.isEmpty()) {
+            if (permisos.get(0) == 1) {
+                jCheckBox22.setSelected(true);
+            } else {
+                jCheckBox22.setSelected(false);
+            }
+
+            if (permisos.get(1) == 1) {
+                jCheckBox23.setSelected(true);
+            } else {
+                jCheckBox23.setSelected(false);
+            }
+
+            if (permisos.get(2) == 1) {
+                jCheckBox24.setSelected(true);
+            } else {
+                jCheckBox24.setSelected(false);
+            }
+
+            if (permisos.get(3) == 1) {
+                jCheckBox25.setSelected(true);
+            } else {
+                jCheckBox25.setSelected(false);
+            }
+
+            if (permisos.get(4) == 1) {
+                jCheckBox21.setSelected(true);
+            } else {
+                jCheckBox21.setSelected(false);
+            }
+
+            if (permisos.get(5) == 1) {
+                jCheckBox26.setSelected(true);
+            } else {
+                jCheckBox26.setSelected(false);
+            }
+
+            if (permisos.get(6) == 1) {
+                jCheckBox28.setSelected(true);
+            } else {
+                jCheckBox28.setSelected(false);
+            }
+
+            if (permisos.get(7) == 1) {
+                jCheckBox29.setSelected(true);
+            } else {
+                jCheckBox29.setSelected(false);
+            }
+
+            if (permisos.get(8) == 1) {
+                jCheckBox27.setSelected(true);
+            } else {
+                jCheckBox27.setSelected(false);
+            }
+
+            if (permisos.get(9) == 1) {
+                jCheckBox30.setSelected(true);
+            } else {
+                jCheckBox30.setSelected(false);
+            }
+        } else {
+            jCheckBox22.setSelected(false);
+            jCheckBox23.setSelected(false);
+            jCheckBox24.setSelected(false);
+            jCheckBox25.setSelected(false);
+            jCheckBox21.setSelected(false);
+            jCheckBox26.setSelected(false);
+            jCheckBox28.setSelected(false);
+            jCheckBox29.setSelected(false);
+            jCheckBox27.setSelected(false);
+            jCheckBox30.setSelected(false);
         }
-        else{
-            jCheckBox1.setSelected(false);
-        }
-        
-        if (permisos.getCrearUsuario()==1){
-            jCheckBox2.setSelected(true);
-        }
-        else{
-            jCheckBox2.setSelected(false);
-        }
-        
-        if (permisos.getEditarUsuario()==1){
-            jCheckBox3.setSelected(true);
-        }
-        else{
-            jCheckBox3.setSelected(false);
-        }
-        
-        if (permisos.getEliminarUsuario()==1){
-            jCheckBox4.setSelected(true);
-        }
-        else{
-            jCheckBox4.setSelected(false);
-        }
-        
-        if (permisos.getCrearSede()==1){
-            jCheckBox5.setSelected(true);
-        }
-        else{
-            jCheckBox5.setSelected(false);
-        }
-        
-        if (permisos.getConsultarSede()==1){
-            jCheckBox6.setSelected(true);
-        }
-        else{
-            jCheckBox6.setSelected(false);
-        }
-        
-        if (permisos.getEliminarSede()==1){
-            jCheckBox7.setSelected(true);
-        }
-        else{
-            jCheckBox7.setSelected(false);
-        }
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,150 +128,33 @@ public class GestionRoles extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jPanel6 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jTextField37 = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jCheckBox30 = new javax.swing.JCheckBox();
+        jCheckBox27 = new javax.swing.JCheckBox();
+        jCheckBox29 = new javax.swing.JCheckBox();
+        jCheckBox25 = new javax.swing.JCheckBox();
+        jCheckBox24 = new javax.swing.JCheckBox();
+        jCheckBox23 = new javax.swing.JCheckBox();
+        jCheckBox28 = new javax.swing.JCheckBox();
+        jCheckBox26 = new javax.swing.JCheckBox();
+        jCheckBox21 = new javax.swing.JCheckBox();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jCheckBox22 = new javax.swing.JCheckBox();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.BorderLayout());
-
-        jPanel1.setFocusable(false);
-        jPanel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-
-        jCheckBox6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox6.setText("Cosultar sede");
-
-        jCheckBox5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox5.setText("Crear sede");
-
-        jCheckBox4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox4.setText("Eliminar Usuario");
-
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jComboBox1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jComboBox1PropertyChange(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Guardar cambios");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox7.setText("Elimnar sede");
-
-        jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox1.setText("Terminal de ventas");
-
-        jCheckBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox2.setText("Crear usuario");
-
-        jCheckBox3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jCheckBox3.setText("Editar usuario");
-
-        jDesktopPane1.setLayer(jCheckBox6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jCheckBox5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jCheckBox4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jCheckBox7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jCheckBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jCheckBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jCheckBox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(192, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jPanel2.setPreferredSize(new java.awt.Dimension(709, 100));
 
@@ -265,9 +172,9 @@ public class GestionRoles extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(373, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-                .addContainerGap(372, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+                .addContainerGap(368, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,13 +188,13 @@ public class GestionRoles extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1251, Short.MAX_VALUE)
+            .addGap(0, 1234, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1251, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1234, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGap(0, 109, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(2, 2, 2)
@@ -296,19 +203,6 @@ public class GestionRoles extends javax.swing.JPanel {
         );
 
         add(jPanel2, java.awt.BorderLayout.PAGE_START);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1251, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-
-        add(jPanel4, java.awt.BorderLayout.PAGE_END);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton3.setText("Eliminar");
@@ -343,143 +237,203 @@ public class GestionRoles extends javax.swing.JPanel {
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
 
         add(jPanel5, java.awt.BorderLayout.LINE_END);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Ingresar");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel8.setPreferredSize(new java.awt.Dimension(900, 700));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton6.setText("Ingresar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
             }
         });
 
-        jTextField37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField37.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField37.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField37.setText("Ingresar Nuevo rol");
-        jTextField37.setBorder(null);
-        jTextField37.setPreferredSize(new java.awt.Dimension(7, 24));
-        jTextField37.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton7.setText("Guardar cambios");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField37MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jTextField37MouseExited(evt);
+                jButton1MouseClicked(evt);
             }
         });
-        jTextField37.addActionListener(new java.awt.event.ActionListener() {
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField37ActionPerformed(evt);
+                guardarCambios(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField37, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+        jLabel13.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(1, 1, 1));
+        jLabel13.setText("Gestion de roles");
+
+        jCheckBox30.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox30.setText("Gestion de roles");
+
+        jCheckBox27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox27.setText("Reportes");
+
+        jCheckBox29.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox29.setText("Editar sede");
+
+        jCheckBox25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox25.setText("Editar Usuario");
+        jCheckBox25.setPreferredSize(new java.awt.Dimension(226, 26));
+        jCheckBox25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox24.setText("Consultar usuario");
+        jCheckBox24.setPreferredSize(new java.awt.Dimension(226, 26));
+        jCheckBox24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox23.setText("Registrar usuario");
+        jCheckBox23.setPreferredSize(new java.awt.Dimension(226, 26));
+        jCheckBox23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox28.setText("Eliminar sede");
+
+        jCheckBox26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox26.setText("Consultar sede");
+
+        jCheckBox21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox21.setText("Registrar sede");
+        jCheckBox21.setPreferredSize(new java.awt.Dimension(151, 26));
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(1, 1, 1));
+        jLabel12.setText("Gestion de sedes");
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(1, 1, 1));
+        jLabel11.setText("Gestion de usuarios");
+
+        jCheckBox22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox22.setText("Terminal de ventas");
+
+        jLabel10.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(1, 1, 1));
+        jLabel10.setText("Propiedades de ventas");
+
+        jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jComboBox4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboBox1PropertyChange(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jCheckBox22, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox27, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox30, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jCheckBox23, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox21, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jCheckBox24, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCheckBox26, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(256, 256, 256)
+                                .addComponent(jCheckBox29, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jCheckBox25, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jCheckBox28, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 83, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox27, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox28, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox29, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBox30, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(93, 93, 93))
         );
 
-        add(jPanel6, java.awt.BorderLayout.LINE_START);
+        jPanel8.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 870, 580));
+
+        add(jPanel8, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-        String rol = (String)jComboBox1.getSelectedItem();
-        System.out.println(rol);
-        //permisos=funcion.permisosRol(rol); 
-        //llenarCajas(permisos);
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jComboBox1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBox1PropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1PropertyChange
-
-    private void jTextField37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField37ActionPerformed
-
-    private void jTextField37MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField37MouseExited
-        String a = jTextField37.getText();
-        if (a.equals("")){
-            jTextField37.setForeground(Color.GRAY);
-            jTextField37.setText("Ingresar nuevo rol");
-        }
-    }//GEN-LAST:event_jTextField37MouseExited
-
-    private void jTextField37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField37MouseClicked
-        jTextField37.setText(null);
-        jTextField37.setForeground(Color.BLACK);
-    }//GEN-LAST:event_jTextField37MouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        String rolnuevo =jTextField37.getText();
-        //funcion.IngresarRol(rolnuevo);
-        JOptionPane.showMessageDialog(this,"Guardado con exito, proceda a ingresar los permisos");
-        jComboBox1.addItem(rolnuevo);
-        jComboBox2.addItem(rolnuevo);
-        jTextField37.setForeground(Color.GRAY);
-        jTextField37.setText("Ingresar nuevo rol");
-        
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-
-        int terminalVentas = 0;
-        int crearUsuario = 0;
-        int editarUsuario = 0;
-        int eliminarUsuario = 0;
-        int crearSede = 0;
-        int consultarSede = 0;
-        int eliminarSede = 0;
-        
-        if (jCheckBox1.isSelected()){
-            terminalVentas = 1;
-        }
-        if (jCheckBox2.isSelected()){
-            crearUsuario = 1;
-        }
-        if (jCheckBox3.isSelected()){
-            editarUsuario = 1;
-        }
-        if (jCheckBox4.isSelected()){
-            eliminarUsuario = 1;
-        }
-        if (jCheckBox5.isSelected()){
-            crearSede = 1;
-        }
-        if (jCheckBox6.isSelected()){
-            consultarSede = 1;
-        }
-        if (jCheckBox7.isSelected()){
-            eliminarSede = 1;
-        }
-        
-        //funcion.guardarPermisos(permisos.getRolEmpleados().getIdTipoEmpleado(), permisos.getRolEmpleados(), terminalVentas, crearUsuario, editarUsuario, eliminarUsuario, crearSede, consultarSede, eliminarSede);
-        JOptionPane.showMessageDialog(this,"Rol actualizado con éxito");
-    }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -488,9 +442,9 @@ public class GestionRoles extends javax.swing.JPanel {
     
     private int eliminar (String item){
         ArrayList<String> aux = new ArrayList();
-        System.out.println(jComboBox1.getItemCount());
-        for (int i = 0; i < jComboBox1.getItemCount(); i++){
-               aux.add(jComboBox1.getItemAt(i));
+        System.out.println(jComboBox4.getItemCount());
+        for (int i = 0; i < jComboBox4.getItemCount(); i++){
+               aux.add(jComboBox4.getItemAt(i));
            }
         System.out.println("Mi lista");
         System.out.println(aux);
@@ -504,34 +458,179 @@ public class GestionRoles extends javax.swing.JPanel {
            System.out.println(eliminar);
            //funcion.eliminarPermisosRol(rol);
            //funcion.eliminarRolEmpleados(rol);
-           jComboBox1.removeItemAt(eliminar);
+           jComboBox4.removeItemAt(eliminar);
            jComboBox2.removeItemAt(eliminar);
            JOptionPane.showMessageDialog(this,"Rol eliminado con éxito");
            
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void guardarCambios(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCambios
+        // TODO add your handling code here:
+        
+        int terminalVentas = 0;
+        int reportes = 0;
+
+        int registrarUsuario = 0;
+        int consultarUsuario = 0;
+        int editarUsuario = 0;
+
+        int registrarSede = 0;
+        int consultarSede = 0;
+        int eliminarSede = 0;
+        int editarSede = 0;
+        
+        int gestionRoles= 0;
+
+        if (jCheckBox22.isSelected()){
+            terminalVentas = 1;
+        }
+        if (jCheckBox27.isSelected()){
+            reportes = 1;
+        }
+        if (jCheckBox23.isSelected()){
+            registrarUsuario = 1;
+        }
+        if (jCheckBox24.isSelected()){
+            consultarUsuario = 1;
+        }
+        if (jCheckBox25.isSelected()){
+            editarUsuario = 1;
+        }
+        if (jCheckBox21.isSelected()){
+            registrarSede = 1;
+        }
+        if (jCheckBox26.isSelected()){
+            consultarSede = 1;
+        }
+        if (jCheckBox28.isSelected()){
+            eliminarSede = 1;
+        }
+        if (jCheckBox29.isSelected()){
+            editarSede = 1;
+        }
+        if (jCheckBox30.isSelected()){
+            gestionRoles = 1;
+        }
+
+        if (permisos != null && !permisos.isEmpty()) {
+            permisos.set(0, terminalVentas);
+            permisos.set(1, registrarUsuario);
+            permisos.set(2, consultarUsuario);
+            permisos.set(3, editarUsuario);
+            permisos.set(4, registrarSede);
+            permisos.set(5, consultarSede);
+            permisos.set(6, eliminarSede);
+            permisos.set(7, editarSede);
+            permisos.set(8, reportes);
+            permisos.set(9, gestionRoles);
+        }else{
+            permisos.add(terminalVentas);
+            permisos.add(registrarUsuario);
+            permisos.add(consultarUsuario);
+            permisos.add(editarUsuario);
+            permisos.add(registrarSede);
+            permisos.add(consultarSede);
+            permisos.add(eliminarSede);
+            permisos.add(editarSede);
+            permisos.add(reportes);
+            permisos.add(gestionRoles);
+        }
+        String rol = (String)jComboBox4.getSelectedItem();
+        funciones.buscarCrearRol(rol);
+        
+        
+        funciones.insertarActualizarPermisos(permisos);
+
+        //funcion.guardarPermisos(permisos.getRolEmpleados().getIdTipoEmpleado(), permisos.getRolEmpleados(), terminalVentas, crearUsuario, editarUsuario, eliminarUsuario, crearSede, consultarSede, eliminarSede);
+        //JOptionPane.showMessageDialog(this,"Rol actualizado con éxito");
+        
+    }//GEN-LAST:event_guardarCambios
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jComboBox1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBox1PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1PropertyChange
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+        String rol = (String)jComboBox4.getSelectedItem();
+        System.out.println(rol);
+        //permisos=funcion.permisosRol(rol);
+        //llenarCajas(permisos);
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        /*String rolnuevo =jTextField37.getText();
+        //funcion.IngresarRol(rolnuevo);
+        JOptionPane.showMessageDialog(this,"Guardado con exito, proceda a ingresar los permisos");
+        jComboBox1.addItem(rolnuevo);
+        jComboBox2.addItem(rolnuevo);
+        jTextField37.setForeground(Color.GRAY);
+        jTextField37.setText("Ingresar nuevo rol");*/
+        
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+        // TODO add your handling code here:
+        if(evt.getItem().equals("NUEVO ROL") && (evt.getStateChange() == ItemEvent.SELECTED)){
+            String getMessage = JOptionPane.showInputDialog(null, "Por favor ingrese un rol"); 
+            jComboBox4.addItem(getMessage.toUpperCase());
+            jComboBox4.setSelectedItem(getMessage.toUpperCase());
+        }
+        
+        if ((!evt.getItem().equals("SELECCIONE UN ROL")) && (evt.getStateChange() == ItemEvent.SELECTED))
+        {
+            String rol = (String)jComboBox4.getSelectedItem();
+            System.out.println(rol);
+            funciones.buscarCrearRol(rol);
+            permisos = funciones.permisosDeRol();
+            llenarCajas(permisos);
+            System.out.println(permisos);
+        }
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JCheckBox jCheckBox21;
+    private javax.swing.JCheckBox jCheckBox22;
+    private javax.swing.JCheckBox jCheckBox23;
+    private javax.swing.JCheckBox jCheckBox24;
+    private javax.swing.JCheckBox jCheckBox25;
+    private javax.swing.JCheckBox jCheckBox26;
+    private javax.swing.JCheckBox jCheckBox27;
+    private javax.swing.JCheckBox jCheckBox28;
+    private javax.swing.JCheckBox jCheckBox29;
+    private javax.swing.JCheckBox jCheckBox30;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField jTextField37;
+    private javax.swing.JPanel jPanel8;
     // End of variables declaration//GEN-END:variables
 }

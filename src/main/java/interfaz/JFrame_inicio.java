@@ -180,48 +180,31 @@ public class JFrame_inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         String correo = jTextField1.getText();
         char[] clave = jPasswordField1.getPassword();
-        
-        
+
         String pass = new String(clave);
-        
+
         Funciones3 funciones = new Funciones3();
-        
+
         int aux = -1;
-        
-        
+
         aux = funciones.login(correo.toUpperCase(), pass);
-        System.out.println(aux);
-        if (aux != -1){
-            switch(aux){
+        if (aux != -1) {
+            switch (aux) {
                 case 1:
                     ArrayList<Integer> permisos = funciones.permisosDeRol();
                     JFrame_principal ventana = new JFrame_principal(permisos);
                     ventana.setVisible(true);
-                    /*ArrayList<Integer> permisos = funciones.permisosDeRol();
-                    for (int i = 0; i < permisos.size() ; i++){
-                        System.out.println(permisos.get(i));
-                    }*/
                     this.dispose();
                     break;
-                        
+
                 case 0:
                     JOptionPane.showMessageDialog(null, "Usuario inactivo");
                     break;
-                
+
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
-        
-        
-        
-        /*if (funcion.login(correo, pass)){
-            String rol = funcion.get_rol();
- 
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-        }*/
-        
         
     }//GEN-LAST:event_jLabel6MouseClicked
 

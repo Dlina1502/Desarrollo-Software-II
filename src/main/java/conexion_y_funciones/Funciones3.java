@@ -39,6 +39,11 @@ public class Funciones3  extends Conexion2{
 
     }
     
+    public void setIidTipoEmpleado(int id){
+        idTipoEmpleado= id;
+    }
+    
+    
     public int login(String correo, String clave){
         try{
             correo = correo.trim();
@@ -58,7 +63,42 @@ public class Funciones3  extends Conexion2{
         return -1;
     }
     
-    public ArrayList<Integer> permisosDeRol(){
+    public void buscarCrearRol(String rol) {
+        boolean existeRol = false;
+        try {
+            sql = "SELECT EXISTS (SELECT id_tipo_empleado FROM rol_empleados WHERE tipo_empleado = '" + rol + "')";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                existeRol = resultSet.getBoolean(1);
+
+            }
+            if (existeRol) {
+                sql = "SELECT id_tipo_empleado FROM rol_empleados WHERE tipo_empleado = '" + rol + "'";
+                resultSet = statement.executeQuery(sql);
+                while (resultSet.next()) {
+                    idTipoEmpleado = resultSet.getInt(1);
+
+                }
+                System.out.println(idTipoEmpleado);
+            } else {
+                sql = "INSERT INTO rol_empleados (tipo_empleado) VALUES (?)";
+                PreparedStatement pstmt = conexion.prepareStatement(sql);
+                pstmt.setString(1, rol);
+                pstmt.executeUpdate();
+                
+                ResultSet generatedKeys = pstmt.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    idTipoEmpleado = generatedKeys.getInt(1);
+                }
+
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public ArrayList permisosDeRol(){
         ArrayList<Integer> permisos = new ArrayList<>();
         try{
             sql = "SELECT terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos FROM permisos_rol WHERE id_tipo_empleado= "+ idTipoEmpleado;
@@ -78,11 +118,55 @@ public class Funciones3  extends Conexion2{
         
     }
     
+    public void insertarActualizarPermisos(ArrayList<Integer> permisos){
+        try{
+            sql = "INSERT INTO permisos_rol (terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos,id_tipo_empleado) "
+                    + "values(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id_tipo_empleado) DO "
+                    + "UPDATE SET terminal_ventas = ?, registrar_usuario = ?, consultar_usuario = ?, editar_usuario = ?, crear_sede = ?, consultar_sede = ?, eliminar_sede = ?, editar_sede = ?, reportes = ?, gestion_permisos = ?";
+            PreparedStatement pstmt = conexion.prepareStatement(sql);
+            pstmt.setInt(1, permisos.get(0));
+            pstmt.setInt(2, permisos.get(1));
+            pstmt.setInt(3, permisos.get(2));
+            pstmt.setInt(4, permisos.get(3));
+            pstmt.setInt(5, permisos.get(4));
+            pstmt.setInt(6, permisos.get(5));
+            pstmt.setInt(7, permisos.get(6));
+            pstmt.setInt(8, permisos.get(7));
+            pstmt.setInt(9, permisos.get(8));
+            pstmt.setInt(10, permisos.get(9));
+            pstmt.setInt(11, idTipoEmpleado);
+            pstmt.setInt(12, permisos.get(0));
+            pstmt.setInt(13, permisos.get(1));
+            pstmt.setInt(14, permisos.get(2));
+            pstmt.setInt(15, permisos.get(3));
+            pstmt.setInt(16, permisos.get(4));
+            pstmt.setInt(17, permisos.get(5));
+            pstmt.setInt(18, permisos.get(6));
+            pstmt.setInt(19, permisos.get(7));
+            pstmt.setInt(20, permisos.get(8));
+            pstmt.setInt(21, permisos.get(9));
+            
+            pstmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null,"Permisos actualizados con exito");
+            
+
+        }
+        catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+        
+    }
+    
     public ArrayList listarRoles(){
         ArrayList<String> resultados = new ArrayList();
         try{
             sql = "SELECT * FROM rol_empleados";
             resultSet = statement.executeQuery(sql);
+            
+            
+            resultados.add("SELECCIONE UN ROL");
+            resultados.add("NUEVO ROL");
             
             while(resultSet.next()){
                 resultados.add(resultSet.getString(2));
