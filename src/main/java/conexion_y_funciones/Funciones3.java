@@ -57,7 +57,8 @@ public class Funciones3  extends Conexion2{
             
         }
         catch (SQLException e){
-            System.err.println(e.getMessage());
+            System.err.println("Error "+e.getMessage());
+            return -2;
         }
         
         return -1;
