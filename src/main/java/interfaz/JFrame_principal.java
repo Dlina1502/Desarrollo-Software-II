@@ -8,6 +8,7 @@ package interfaz;
 import interfaz.InterfacesGestionRol.GestionRoles;
 import interfaz.InterfacesGestionSede.GestionSede;
 import interfaz.InterfacesGestionUsuario.GestionUsuario;
+import interfaz.InterfacesTerminalDeVentas.TerminalDeVentas;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;

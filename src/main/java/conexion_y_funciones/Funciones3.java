@@ -10,7 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -549,8 +551,6 @@ public class Funciones3  extends Conexion2{
                 presente = (String) jcomboestado.getSelectedItem();
             }
                 while (resultSet.next()) {
-                    System.out.println(presente);
-                    System.out.println(resultSet.getString("tipo_estado"));
                     if (!presente.equals(resultSet.getString("tipo_estado"))) {
                         jcomboestado.addItem(resultSet.getString("tipo_estado"));
                     }
@@ -615,6 +615,157 @@ public class Funciones3  extends Conexion2{
     
 
 
+//==============================================================================================================================================================
+//=====================================================================TERMINAL DE VENTAS========================================================================
+    
+    public void consultar_seguro_combo(javax.swing.JComboBox<String> jcombobox){  
+        try{
+            sql = "SELECT tipo_seguro FROM seguro";
+            resultSet = statement.executeQuery(sql);
+              
+            jcombobox.addItem("Tipo de seguro");
+            while (resultSet.next()) {
+                jcombobox.addItem(resultSet.getString("tipo_seguro"));
+            }   
+        }
+        catch (SQLException e){
+            System.err.println(e.getMessage());
+        } 
+    }
+
+    public void consultar_pago_combo(javax.swing.JComboBox<String> jcombobox){
+         
+        try{
+            sql = "SELECT tipo_pago FROM tipo_pago";
+            resultSet = statement.executeQuery(sql);
+              
+            jcombobox.addItem("Tipo de pago");
+            while (resultSet.next()) {
+                jcombobox.addItem(resultSet.getString("tipo_pago"));
+            }   
+        }
+        catch (SQLException e){
+            System.err.println(e.getMessage());
+        }   
+    }
+
+    public void consultar_sedes_combo(javax.swing.JComboBox<String> jcombobox){
+ 
+        try{
+            sql = "select concat_ws('//',sedes.barrio,sedes.direccion,ciudad_sede.ciudad)  \n" +
+"                   from sedes inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad";
+            resultSet = statement.executeQuery(sql);
+            jcombobox.addItem("Seccione sede");
+            while (resultSet.next()) {
+                jcombobox.addItem(resultSet.getString(1));
+            }   
+        }
+        catch (SQLException e){
+            System.err.println(e.getMessage());
+        }  
+    }    
+    
+    public void calcularprecio(double peso, double valorpaquete, String seguro, javax.swing.JTextField jText){
+        double impuesto=0;
+        double preciobase=0;
+        double valorSeguro=0;
+        try{
+            sql = "SELECT * FROM precio_envios";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                preciobase = resultSet.getDouble(3);
+                impuesto= resultSet.getDouble(2);
+            }
+            sql = "SELECT * FROM seguro WHERE tipo_seguro = '"+seguro+"'";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                valorSeguro = resultSet.getDouble(3);
+                
+            }
+            double precioenvio = preciobase+(valorpaquete*0.1)*peso;
+            precioenvio = precioenvio+(precioenvio*impuesto)+valorSeguro;
+            int total = (int) precioenvio;
+            jText.setText(""+total);
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+   
+    public void registrarRemitente(String documento, String nombre, String apellido, String telefono, String direccion, String ciudad) {
+
+        try {
+
+            sql = "SELECT agregar_cliente ('" + documento.toUpperCase() + "','" + nombre.toUpperCase() + "','" + apellido.toUpperCase() + "','"+ telefono +"','" + direccion.toUpperCase() + "','" + ciudad.toUpperCase() + "')";
+            statement.executeQuery(sql);
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    public void registrarDestinatario(String documento, String nombre, String apellido, String telefono, String direccion, String ciudad) {
+
+        try {
+
+            sql = "SELECT agregar_destinatario ('" + documento.toUpperCase() + "','" + nombre.toUpperCase() + "','" + apellido.toUpperCase() + "','"+ telefono +"','" + direccion.toUpperCase() + "','" + ciudad.toUpperCase()+"')";
+            statement.executeQuery(sql);
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    public void registrarEnvio(String documentoR, String documentoD, String precioPaquete, String fecha, String descripcion, String cantidad, String tipoSeguro) {
+
+        try {
+            sql = "select id_cliente from cliente where documento_cliente='"+documentoR+"'";
+            resultSet = statement.executeQuery(sql);
+            int id_cliente = 0;
+            while (resultSet.next()){
+                id_cliente = resultSet.getInt(1);
+            }
+            
+            sql = "select id_destinatario from destinatario where documento_destinatario='"+documentoD+"'";
+            resultSet = statement.executeQuery(sql);
+            int id_destinatario = 0;
+            while (resultSet.next()){
+                id_destinatario = resultSet.getInt(1);
+            }
+            
+            sql = "select id_seguro from seguro where tipo_seguro='"+tipoSeguro+"'";
+            resultSet = statement.executeQuery(sql);
+            int id_seguro = 0;
+            while (resultSet.next()){
+                id_seguro = resultSet.getInt(1);
+            }
+                                   
+            
+            sql = "INSERT INTO envios (id_cliente,id_destinatario,valor_paquete,fecha_envio,descripcion_mercancia,cantidad,id_seguro)" +
+"                  VALUES ('"+id_cliente+"','"+id_destinatario+"','"+ precioPaquete +"','"+ fecha+"','"+ descripcion+"','"+cantidad+"','"+id_seguro+"')";
+            statement.executeQuery(sql);
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void registrarFactura(String barrioE, String direccionE, String ciudadE, String tipopago, String fecha, String precioEnvio){ 
+        try {            
+            sql = "SELECT * FROM consultar_id_sede('"+barrioE+"','"+direccionE+"','"+ciudadE+"')";
+            resultSet = statement.executeQuery(sql);
+            int id_sede = 0;
+            while (resultSet.next()){
+                id_sede = resultSet.getInt(1);
+            }
+            sql = "select crear_factura("+id_sede+",'"+tipopago.toUpperCase()+"','"+fecha+"','"+precioEnvio+"')";
+            statement.executeQuery(sql);
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }    
+    
+    
 }
 
 
