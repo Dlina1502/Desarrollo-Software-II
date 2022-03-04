@@ -13,6 +13,7 @@ import com.teamdev.jxbrowser.view.swing.BrowserView;
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Objects;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -89,18 +90,31 @@ public class Mapas {
     }
     
     
-    public void multiplesmarcas(Marker [] marker){
+    public void marcas(Marker[] marker){
+        multiplesmarcas( marker,null);
+    }
+    
+    public void marcas(Marker[] marker,JPanel panel){
+        multiplesmarcas( marker, panel);
+    }
+    
+    public void multiplesmarcas(Marker [] marker, JPanel panel){
      Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
         Browser browser = engine.newBrowser();
 
         SwingUtilities.invokeLater(() -> {
             BrowserView view = BrowserView.newInstance(browser);
 
-            JFrame frame = new JFrame("Mapa");
-            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            frame.add(view, BorderLayout.CENTER);
-            frame.setSize(700, 500);
-            frame.setVisible(true);
+            if (Objects.isNull(panel)){
+                JFrame frame = new JFrame("Mapa");
+                frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                frame.add(view, BorderLayout.CENTER);
+                frame.setSize(700, 500);
+                frame.setVisible(true);
+            }
+            else {
+                panel.add(view, BorderLayout.CENTER);
+            }
         });
         
         String latitud= marker[0].latitud;

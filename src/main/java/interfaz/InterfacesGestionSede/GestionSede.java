@@ -51,7 +51,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
 
             
         
-       map.multiplesmarcas(marca);
+       map.marcas(marca,jPanel4);
         
         repaint();
         
