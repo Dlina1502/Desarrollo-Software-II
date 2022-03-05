@@ -33,7 +33,7 @@ import org.hibernate.Session;
  */
 public class JFrame_inicio extends javax.swing.JFrame {
     FondoPanel fondo = new FondoPanel();
-    Funciones funcion = new Funciones();
+    Funciones3 funciones = new Funciones3();
     //Session session = HibernateUtil.buildSessionFactory().openSession();  
     
     /**
@@ -182,12 +182,18 @@ public class JFrame_inicio extends javax.swing.JFrame {
         char[] clave = jPasswordField1.getPassword();
 
         String pass = new String(clave);
+        
+        login(correo, pass);
+        
 
-        Funciones3 funciones = new Funciones3();
-
+        
+    }//GEN-LAST:event_jLabel6MouseClicked
+    
+    
+    public int login(String correo, String clave){
         int aux = -1;
 
-        aux = funciones.login(correo.toUpperCase(), pass);
+        aux = funciones.login(correo.toUpperCase(), clave);
         if (aux != -1) {
             switch (aux) {
                 case 1:
@@ -206,8 +212,10 @@ public class JFrame_inicio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
         
-    }//GEN-LAST:event_jLabel6MouseClicked
-
+        
+        return aux;
+    }
+    
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
         // TODO add your handling code here:
         jPasswordField1.setText(null);
