@@ -17,10 +17,10 @@ package interfaz;
     import javax.swing.JOptionPane;
     import javax.swing.WindowConstants;
     import javax.swing.table.DefaultTableModel;
-public class TerminalDeVentas extends javax.swing.JPanel {
+public class TerminalDeVentas1 extends javax.swing.JPanel {
     
     Funciones funciones = new Funciones();
-    public TerminalDeVentas() {
+    public TerminalDeVentas1() {
         initComponents();   
         jComboBox15.removeAllItems();
         funciones.consultar_seguro_combo(jComboBox15);
@@ -95,8 +95,6 @@ public class TerminalDeVentas extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(462, 480));
-
-        jSeparator71.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("REMITENTE:");
@@ -296,8 +294,6 @@ public class TerminalDeVentas extends javax.swing.JPanel {
         jComboBox15.setForeground(new java.awt.Color(153, 153, 153));
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione tipo de seguro", " " }));
 
-        jSeparator80.setBackground(new java.awt.Color(0, 0, 0));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("TOTAL A PAGAR:");
 
@@ -343,8 +339,6 @@ public class TerminalDeVentas extends javax.swing.JPanel {
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
-
-        jSeparator81.setBackground(new java.awt.Color(0, 0, 0));
 
         jComboBox2.setForeground(new java.awt.Color(153, 153, 153));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sede" }));
@@ -426,9 +420,9 @@ public class TerminalDeVentas extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator80)
-                            .addComponent(jComboBox15, 0, 172, Short.MAX_VALUE)
+                            .addComponent(jComboBox15, 0, 0, Short.MAX_VALUE)
                             .addComponent(jTextField48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator73, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(jSeparator73)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator81))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

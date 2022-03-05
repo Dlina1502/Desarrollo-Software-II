@@ -5,7 +5,7 @@
  */
 package conexion_y_funciones;
 
-import interfaz.TerminalDeVentas;
+import interfaz.TerminalDeVentas1;
 import java.awt.List;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
