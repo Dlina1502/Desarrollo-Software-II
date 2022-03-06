@@ -10,10 +10,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,6 +29,7 @@ public class Funciones3  extends Conexion2{
     private String sql;   
     private int idTipoEmpleado;
     private int estado;
+    private int id_empleado;
     
     //constructor de la clase
     public Funciones3()  {
@@ -49,11 +52,12 @@ public class Funciones3  extends Conexion2{
     public int login(String correo, String clave){
         try{
             correo = correo.trim();
-            sql = "SELECT id_tipo_empleado, id_estado FROM informacion_empleados where  correo ='"+correo.toUpperCase()+"' AND clave = '"+clave+"'";
+            sql = "SELECT id_tipo_empleado, id_estado, id_empleado FROM informacion_empleados where  correo ='"+correo.toUpperCase()+"' AND clave = '"+clave+"'";
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 idTipoEmpleado = resultSet.getInt(1);
                 estado = resultSet.getInt(2);
+                id_empleado = resultSet.getInt(3);
                 return estado;
             }
             
@@ -64,6 +68,17 @@ public class Funciones3  extends Conexion2{
         }
         
         return -1;
+    }
+    
+    public void registrarIngreso(String fecha){
+        try{
+            sql ="INSERT INTO registro_ingreso_usuarios VALUES ("+id_empleado+",'"+fecha+"')";
+            statement.executeUpdate(sql);
+        }catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        
+        
     }
     
     public void buscarCrearRol(String rol) {
@@ -267,6 +282,70 @@ public class Funciones3  extends Conexion2{
             JOptionPane.showMessageDialog(null, e);
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }        
+    }
+    
+    public void crearTablaRegistroAccesos(javax.swing.JTable jTable){
+        DefaultTableModel model;
+        String[] titulos = {"Documento", "Nombre", "Apellido", "Hora"};
+        String[] registros = new String[4];
+        
+        sql = "SELECT documento_empleado, nombre, primer_apellido, fecha FROM informacion_empleados E JOIN registro_ingreso_usuarios D ON E.id_empleado = D.id_empleado";
+        model = new DefaultTableModel(null, titulos);
+        try {
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                registros[0] = resultSet.getString(1);
+                registros[1] = resultSet.getString(2);
+                registros[2] = resultSet.getString(3);
+                registros[3] = resultSet.getString(4);
+                model.addRow(registros);
+            }
+            jTable.setModel(model);
+            jTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(130);
+            jTable.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTable.getColumnModel().getColumn(2).setPreferredWidth(139);
+            jTable.getColumnModel().getColumn(3).setPreferredWidth(200);
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }   
+    
+    public void buscarRegistroFechas(String id_empleado, Date fechaInf, Date fechaSup,javax.swing.JTable jTable){
+        DefaultTableModel model;
+        String[] titulos = {"Documento", "Nombre", "Apellido", "Hora"};
+        String[] registros = new String[4];
+        if(!(id_empleado == null) && !id_empleado.isEmpty() && !id_empleado.equals("Ingrese el documento")){
+            sql = "SELECT documento_empleado, nombre, primer_apellido, fecha FROM informacion_empleados E JOIN registro_ingreso_usuarios D ON E.id_empleado = D.id_empleado "
+                + "WHERE fecha BETWEEN '"+ fechaInf+"' AND '"+ fechaSup +"' AND documento_empleado = '"+id_empleado+"'";
+        }else{
+            sql = "SELECT documento_empleado, nombre, primer_apellido, fecha FROM informacion_empleados E JOIN registro_ingreso_usuarios D ON E.id_empleado = D.id_empleado "
+                + "WHERE fecha BETWEEN '"+ fechaInf+"' AND '"+ fechaSup +"'";
+        }
+        
+        model = new DefaultTableModel(null, titulos);
+        try {
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                registros[0] = resultSet.getString(1);
+                registros[1] = resultSet.getString(2);
+                registros[2] = resultSet.getString(3);
+                registros[3] = resultSet.getString(4);
+                model.addRow(registros);
+            }
+            jTable.setModel(model);
+            jTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(130);
+            jTable.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTable.getColumnModel().getColumn(2).setPreferredWidth(139);
+            jTable.getColumnModel().getColumn(3).setPreferredWidth(200);
+
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     

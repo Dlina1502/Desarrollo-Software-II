@@ -23,11 +23,12 @@ import javax.swing.SwingConstants;
 public class GestionUsuario extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
-    private JPanel registrar_usuario, consultar_usuario, editar_usuario;
+    private JPanel registrar_usuario, consultar_usuario, editar_usuario, consultar_registros;
     
     private Registrar_usuario registrar_usuario_panel;
     private Editar_usuario editar_usuario_panel;
     private Consultar_usuario consultar_usuario_panel;
+    private Consultar_registros consultar_registros_panel;
     
     /**
      * Creates new customizer GestionSede
@@ -183,8 +184,22 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
      aux3.setHorizontalAlignment(SwingConstants.CENTER);
      editar_usuario.add(aux3);
      jPanel5.add(editar_usuario);
-     //******************BOTON ELIMINAR******************************
-
+     //******************BOTON CONSULTAR REGISTROS******************************
+     consultar_registros = new javax.swing.JPanel();
+     consultar_registros.setPreferredSize(new Dimension(301, 50));
+     consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
+     
+     consultar_registros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                consultar_registrosMouseReleased(evt);
+            }
+     });
+     
+     JLabel aux4 = new JLabel();
+     aux4.setText("Consultar registros");
+     aux4.setHorizontalAlignment(SwingConstants.CENTER);
+     consultar_registros.add(aux4);
+     jPanel5.add(consultar_registros);
      
      ////////////////////////////////////////////////////////////////////
      repaint();
@@ -234,6 +249,9 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
                 editar_usuario.setVisible(false);
                 break;
         }
+        
+        consultar_registros_panel = new Consultar_registros();
+        
 
         
 
@@ -244,6 +262,7 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         registrar_usuario.setBackground(new java.awt.Color(249, 152, 103));
         consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
         editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
         
         jPanel4.removeAll();
         jPanel4.add(registrar_usuario_panel);
@@ -252,13 +271,30 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         
         jPanel4.setVisible(false);
         jPanel4.setVisible(true);
-    }             
+    }         
+ 
+ private void consultar_registrosMouseReleased(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_registros.setBackground(new java.awt.Color(249, 152, 103));
+        
+        jPanel4.removeAll();
+        jPanel4.add(consultar_registros_panel);
+        
+        repaint();
+        
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
+    }          
  
  private void consultar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
         registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
         consultar_usuario.setBackground(new java.awt.Color(249, 152, 103));
         editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
         
         jPanel4.removeAll();
         jPanel4.add(consultar_usuario_panel);
@@ -274,6 +310,7 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
         consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
         editar_usuario.setBackground(new java.awt.Color(249, 152, 103));
+        consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
         repaint();
         
         jPanel4.removeAll();

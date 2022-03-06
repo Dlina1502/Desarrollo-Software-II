@@ -15,6 +15,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -197,6 +199,9 @@ public class JFrame_inicio extends javax.swing.JFrame {
         if (aux != -1) {
             switch (aux) {
                 case 1:
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    String fecha = dtf.format(LocalDateTime.now());
+                    funciones.registrarIngreso(fecha);
                     ArrayList<Integer> permisos = funciones.permisosDeRol();
                     JFrame_principal ventana = new JFrame_principal(permisos);
                     ventana.setVisible(true);

@@ -37,11 +37,10 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         initComponents();
         crearBotones();
         adaptar_interfaz(permisos);
-        jPanel4.add(registrar_sede_panel);
         
         
          Mapas map = new Mapas();
-         Marker  marca[] = new Marker[6];
+        Marker  marca[] = new Marker[6];
         marca[0]= new Marker("3.3756687", "-76.5335596", "direccion","nombre","<strong>Sede 1</strong><p>Universidad del Valle<br>Cali Colombia</p>");
         marca[1]= new Marker("4.6455568", "-74.0778875", "direccion","nombre","<strong>Sede 2</strong><p>Estadio Nemesio Camacho El Campin<br>Bogota Colombia</p>");
         marca[2]= new Marker("6.2569053", "-75.590123", "direccion","nombre","<strong>Sede 3</strong><p>Estadio Atanasio Girardot <br>Medellin Colombia</p>");
