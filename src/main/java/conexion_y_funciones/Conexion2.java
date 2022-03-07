@@ -15,14 +15,17 @@ import java.sql.SQLException;
  * @author esteban
  */
 public class Conexion2 {
+    private static Connection con=null;
      public Connection getConnection() throws URISyntaxException, SQLException {
-        URI dbUri = new URI("postgres://zaivkdulhmynrz:45c97998daf7b9b34ecec550b2e042246805f5979b265603a7526dbce2c1a5b1@ec2-18-213-12-212.compute-1.amazonaws.com:5432/d6rscf2q3bo3a4");
+        if( con == null ){ 
+            URI dbUri = new URI("postgres://zaivkdulhmynrz:45c97998daf7b9b34ecec550b2e042246805f5979b265603a7526dbce2c1a5b1@ec2-18-213-12-212.compute-1.amazonaws.com:5432/d6rscf2q3bo3a4");
 
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+            String username = dbUri.getUserInfo().split(":")[0];
+            String password = dbUri.getUserInfo().split(":")[1];
+            String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
         
-        return DriverManager.getConnection(dbUrl, username, password);
-        
+            con=DriverManager.getConnection(dbUrl, username, password);
+        }
+        return con;
     }
 }
