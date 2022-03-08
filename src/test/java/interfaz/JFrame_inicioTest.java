@@ -4,7 +4,6 @@
  */
 package interfaz;
 
-import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,7 +17,7 @@ public class JFrame_inicioTest {
     }
 
     @Test
-    public void testLogin() throws IOException {
+    public void testLogin() {
         System.out.println("login");
         String correo = "usuarioActivo";
         String clave = "2";

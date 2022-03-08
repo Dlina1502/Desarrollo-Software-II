@@ -8,7 +8,6 @@ import conexion_y_funciones.Funciones;
 import conexion_y_funciones.Mapas;
 import conexion_y_funciones.Marker;
 import conexion_y_funciones.Slider;
-import conexion_y_funciones.Funciones3;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
@@ -19,8 +18,8 @@ import javax.swing.ImageIcon;
 public class Consultar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
-    private Mapas map = new Mapas();
-    private Funciones3 funcion3 = new Funciones3();
+    private Funciones funciones = new Funciones();
+    Mapas map = new Mapas();
 
     /**
      * Creates new customizer Consultar_sede
@@ -140,7 +139,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel43)
@@ -231,7 +230,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         String ciudad = jTextField43.getText();
-        funcion3.creartablasedeciudad(jTable1, ciudad);
+        funciones.creartablasedeciudad(jTable1, ciudad);
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -239,7 +238,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        funcion3.creartablasede(jTable1);
+        funciones.creartablasede(jTable1);
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jTextField51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField51MouseClicked
@@ -257,7 +256,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
     private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
         String barrio = jTextField51.getText();
-        funcion3.creartablasedebarrio(jTable1, barrio);
+        funciones.creartablasedebarrio(jTable1, barrio);
     }//GEN-LAST:event_jButton17MouseClicked
 
 

@@ -5,7 +5,6 @@
 package interfaz.InterfacesGestionSede;
 
 import conexion_y_funciones.Funciones;
-import conexion_y_funciones.Funciones3;
 import java.awt.Color;
 
 /**
@@ -15,7 +14,7 @@ import java.awt.Color;
 public class Editar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
     
-    private Funciones3 funcion3 = new Funciones3();
+    private Funciones funciones = new Funciones();
     private Object bean;
 
     /**
@@ -150,11 +149,6 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
                 jComboBox14MouseClicked(evt);
             }
         });
-        jComboBox14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox14ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -182,11 +176,11 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
                         .addGap(98, 98, 98)
                         .addComponent(jLabel46))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addGap(137, 137, 137)
                         .addComponent(jLabel45)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                        .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +211,7 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
                 .addComponent(jSeparator79, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         add(jPanel5, java.awt.BorderLayout.CENTER);
@@ -286,7 +280,7 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
         String sede = (String) jComboBox14.getSelectedItem();
         String[] parteSede = sede.split("//");
-        funcion3.consultarSede(parteSede[0], parteSede[1], parteSede[2], jTextField45, jTextField47, jTextField48, jTextField49);
+        funciones.consultarSede(parteSede[0], parteSede[1], parteSede[2], jTextField45, jTextField47, jTextField48, jTextField49);
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -300,17 +294,13 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
         String direccion = jTextField47.getText();
         String telefono = jTextField49.getText();
         String[] parteSede = sede.split("//");
-        //funciones.editarSede(parteSede[0],parteSede[1],parteSede[2], barrio, direccion, ciudad, telefono);
+        funciones.editarSede(parteSede[0],parteSede[1],parteSede[2], barrio, direccion, ciudad, telefono);
     }//GEN-LAST:event_jButton15MouseClicked
 
     private void jComboBox14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox14MouseClicked
         jComboBox14.removeAllItems();
-        funcion3.consultar_sedes_combo(jComboBox14);
+        funciones.consultar_sedes_combo(jComboBox14);
     }//GEN-LAST:event_jComboBox14MouseClicked
-
-    private void jComboBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox14ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

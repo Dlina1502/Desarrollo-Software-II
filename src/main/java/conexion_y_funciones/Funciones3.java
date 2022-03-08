@@ -290,96 +290,6 @@ public class Funciones3  extends Conexion2{
         }        
     }
     
-    public void creartablasede(javax.swing.JTable jTable){
-        DefaultTableModel model;
-        String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
-        String[] registros = new String[50];
-        sql = "SELECT * FROM consultar_sedes()";
-        model = new DefaultTableModel(null, titulos);
-        try {
-            resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-
-                registros[0] = resultSet.getString(1);
-                registros[1] = resultSet.getString(2);
-                registros[2] = resultSet.getString(3);
-                registros[3] = resultSet.getString(4);
-                model.addRow(registros);
-                
-            }            
-            jTable.setModel(model);
-            jTable.setAutoResizeMode(jTable.AUTO_RESIZE_OFF);
-            jTable.getColumnModel().getColumn(0).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(1).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(2).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(3).setPreferredWidth(175);
-
-            } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }        
-    }
-    
-    public void creartablasedebarrio(javax.swing.JTable jTable, String barrio){
-        DefaultTableModel model;
-        String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
-        String[] registros = new String[50];
-        sql = "SELECT * FROM consultar_sedes_barrio('"+barrio+"')";
-        model = new DefaultTableModel(null, titulos);
-        try {
-            resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-
-                registros[0] = resultSet.getString(1);
-                registros[1] = resultSet.getString(2);
-                registros[2] = resultSet.getString(3);
-                registros[3] = resultSet.getString(4);
-                model.addRow(registros);
-                
-            }            
-            jTable.setModel(model);
-            jTable.setAutoResizeMode(jTable.AUTO_RESIZE_OFF);
-            jTable.getColumnModel().getColumn(0).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(1).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(2).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(3).setPreferredWidth(175);
-
-            } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }        
-    }
-    
-    public void creartablasedeciudad(javax.swing.JTable jTable, String ciudad){
-        DefaultTableModel model;
-        String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
-        String[] registros = new String[50];
-        sql = "SELECT * FROM consultar_sedes_ciudad('"+ciudad+"')";
-        model = new DefaultTableModel(null, titulos);
-        try {
-            resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-
-                registros[0] = resultSet.getString(1);
-                registros[1] = resultSet.getString(2);
-                registros[2] = resultSet.getString(3);
-                registros[3] = resultSet.getString(4);
-                model.addRow(registros);
-                
-            }            
-            jTable.setModel(model);
-            jTable.setAutoResizeMode(jTable.AUTO_RESIZE_OFF);
-            jTable.getColumnModel().getColumn(0).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(1).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(2).setPreferredWidth(175);
-            jTable.getColumnModel().getColumn(3).setPreferredWidth(175);
-
-            } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }        
-    }
-    
     public void crearTablaRegistroAccesos(javax.swing.JTable jTable){
         DefaultTableModel model;
         String[] titulos = {"Documento", "Nombre", "Apellido", "Hora"};
@@ -479,25 +389,6 @@ public class Funciones3  extends Conexion2{
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
             JOptionPane.showMessageDialog(null,"No se pudo consultar el usuario");
-        }
-    }
-    
-    public void consultarSede(String barrio, String direccion, String ciudad, 
-            javax.swing.JTextField jTextBarrio, javax.swing.JTextField jTextDireccion, 
-            javax.swing.JTextField jTextCiudad, javax.swing.JTextField jTextTelefono){
-        try {
-            sql = "SELECT * FROM consultar_datos_sede('"+barrio+"','"+direccion+"','"+ciudad+"')";
-            resultSet = statement.executeQuery(sql);
-            while(resultSet.next()){                
-                jTextBarrio.setText(resultSet.getString(2));
-                jTextDireccion.setText(resultSet.getString(3));
-                jTextCiudad.setText(resultSet.getString(4));
-                jTextTelefono.setText(resultSet.getString(5));
-            }
-            JOptionPane.showMessageDialog(null,"Sede consultada");
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
-            JOptionPane.showMessageDialog(null,"No se pudo consultar la sede");
         }
     }
     
