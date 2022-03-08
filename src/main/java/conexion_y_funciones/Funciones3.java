@@ -734,21 +734,110 @@ public class Funciones3  extends Conexion2{
         }   
     }
 
-    public void consultar_sedes_combo(javax.swing.JComboBox<String> jcombobox){
- 
-        try{
-            sql = "select concat_ws('//',sedes.barrio,sedes.direccion,ciudad_sede.ciudad)  \n" +
-"                   from sedes inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad";
+    public void consultar_sedes_combo(javax.swing.JComboBox<String> jcombobox) {
+
+        try {
+            sql = "select concat_ws('//',sedes.barrio,sedes.direccion,ciudad_sede.ciudad)  \n"
+                    + "                   from sedes inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad";
             resultSet = statement.executeQuery(sql);
             jcombobox.addItem("Seccione sede");
             while (resultSet.next()) {
                 jcombobox.addItem(resultSet.getString(1));
-            }   
-        }
-        catch (SQLException e){
+            }
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
-        }  
-    }    
+        }
+    }
+
+    public void creartablasede(javax.swing.JTable jTable) {
+        DefaultTableModel model;
+        String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
+        String[] registros = new String[50];
+        sql = "SELECT * FROM consultar_sedes()";
+        model = new DefaultTableModel(null, titulos);
+        try {
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+
+                registros[0] = resultSet.getString(1);
+                registros[1] = resultSet.getString(2);
+                registros[2] = resultSet.getString(3);
+                registros[3] = resultSet.getString(4);
+                model.addRow(registros);
+
+            }
+            jTable.setModel(model);
+            jTable.setAutoResizeMode(jTable.AUTO_RESIZE_OFF);
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(1).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(2).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(3).setPreferredWidth(175);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void creartablasedebarrio(javax.swing.JTable jTable, String barrio) {
+        DefaultTableModel model;
+        String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
+        String[] registros = new String[50];
+        sql = "SELECT * FROM consultar_sedes_barrio('" + barrio + "')";
+        model = new DefaultTableModel(null, titulos);
+        try {
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+
+                registros[0] = resultSet.getString(1);
+                registros[1] = resultSet.getString(2);
+                registros[2] = resultSet.getString(3);
+                registros[3] = resultSet.getString(4);
+                model.addRow(registros);
+
+            }
+            jTable.setModel(model);
+            jTable.setAutoResizeMode(jTable.AUTO_RESIZE_OFF);
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(1).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(2).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(3).setPreferredWidth(175);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void creartablasedeciudad(javax.swing.JTable jTable, String ciudad){
+        DefaultTableModel model;
+        String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
+        String[] registros = new String[50];
+        sql = "SELECT * FROM consultar_sedes_ciudad('"+ciudad+"')";
+        model = new DefaultTableModel(null, titulos);
+        try {
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+
+                registros[0] = resultSet.getString(1);
+                registros[1] = resultSet.getString(2);
+                registros[2] = resultSet.getString(3);
+                registros[3] = resultSet.getString(4);
+                model.addRow(registros);
+                
+            }            
+            jTable.setModel(model);
+            jTable.setAutoResizeMode(jTable.AUTO_RESIZE_OFF);
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(1).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(2).setPreferredWidth(175);
+            jTable.getColumnModel().getColumn(3).setPreferredWidth(175);
+
+            } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+        }        
+    }
     
     public void calcularprecio(double peso, double valorpaquete, String seguro, javax.swing.JTextField jText){
         double impuesto=0;

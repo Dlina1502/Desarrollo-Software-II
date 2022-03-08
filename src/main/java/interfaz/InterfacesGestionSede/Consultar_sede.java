@@ -5,6 +5,7 @@
 package interfaz.InterfacesGestionSede;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 import conexion_y_funciones.Mapas;
 import conexion_y_funciones.Marker;
 import conexion_y_funciones.Slider;
@@ -18,7 +19,7 @@ import javax.swing.ImageIcon;
 public class Consultar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
-    private Funciones funciones = new Funciones();
+    private Funciones3 funciones = new Funciones3();
     Mapas map = new Mapas();
 
     /**
