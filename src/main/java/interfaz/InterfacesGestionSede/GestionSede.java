@@ -6,13 +6,17 @@ package interfaz.InterfacesGestionSede;
 
 import conexion_y_funciones.Mapas;
 import conexion_y_funciones.Marker;
+import conexion_y_funciones.Funciones3;
+import conexion_y_funciones.Slider;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -33,12 +37,13 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
     /**
      * Creates new customizer GestionSede
      */
-    public GestionSede(ArrayList<Integer> permisos) {
+    public GestionSede(ArrayList<Integer> permisos) throws IOException {
         initComponents();
         crearBotones();
         adaptar_interfaz(permisos);
         
         
+        Funciones3 funciones= new Funciones3();
          Mapas map = new Mapas();
         Marker  marca[] = new Marker[6];
         marca[0]= new Marker("3.3756687", "-76.5335596", "direccion","nombre","<strong>Sede 1</strong><p>Universidad del Valle<br>Cali Colombia</p>");
@@ -48,10 +53,16 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         marca[4]= new Marker("3.5219495", "-76.4172661", "direccion","nombre","<strong>Sede 5</strong><p>Estadio Palmaseca <br>Palmira Colombia</p>");
         marca[5]= new Marker("10.9269163", "-74.8007685", "direccion","nombre","<strong>Sede 6</strong><p>Estadio Metropolitano, Roberto Melendez <br>Barranquila Colombia</p>");
 
-            
+        ImageIcon[] imagenes=funciones.readImage(4);
         
-       map.marcas(marca,jPanel4);
+        Slider slider = new Slider(imagenes);
         
+      // map.marcas(marca,jPanel4);
+      String [] direccion = new String[3];
+      direccion[0]="Universidad del Valle";
+      direccion[1]="14 de Calima, Cali";
+      direccion[2]="Calle 75 CN, Cali";
+        map.geocoder(direccion, jPanel4);
         repaint();
         
     }
