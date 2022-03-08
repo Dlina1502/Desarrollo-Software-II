@@ -476,6 +476,25 @@ public class Funciones3  extends Conexion2{
         }
     }
     
+    public void consultarSede(String barrio, String direccion, String ciudad, 
+            javax.swing.JTextField jTextBarrio, javax.swing.JTextField jTextDireccion, 
+            javax.swing.JTextField jTextCiudad, javax.swing.JTextField jTextTelefono){
+        try {
+            sql = "SELECT * FROM consultar_datos_sede('"+barrio+"','"+direccion+"','"+ciudad+"')";
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){                
+                jTextBarrio.setText(resultSet.getString(2));
+                jTextDireccion.setText(resultSet.getString(3));
+                jTextCiudad.setText(resultSet.getString(4));
+                jTextTelefono.setText(resultSet.getString(5));
+            }
+            JOptionPane.showMessageDialog(null,"Sede consultada");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"No se pudo consultar la sede");
+        }
+    }
+    
 //***************************** Funciones de registro************************************************
     public void registrarSede(String departamento, String ciudad, String barrio, String direccion, String telefono) {
         int id_ciudad = -1;
