@@ -13,6 +13,7 @@ import conexion_y_funciones.InformacionEmpleados;
 import conexion_y_funciones.Sedes;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -185,14 +186,18 @@ public class JFrame_inicio extends javax.swing.JFrame {
 
         String pass = new String(clave);
         
-        login(correo, pass);
+        try {
+            login(correo, pass);
+        } catch (IOException ex) {
+            Logger.getLogger(JFrame_inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
 
         
     }//GEN-LAST:event_jLabel6MouseClicked
     
     
-    public int login(String correo, String clave){
+    public int login(String correo, String clave) throws IOException{
         int aux = -1;
 
         aux = funciones.login(correo.toUpperCase(), clave);
