@@ -89,16 +89,16 @@ public class Mapas {
         
     }
     
-    
+    /*
     public void marcas(Marker[] marker){
         multiplesmarcas( marker,null);
     }
     
     public void marcas(Marker[] marker,JPanel panel){
         multiplesmarcas( marker, panel);
-    }
+    }*/
     
-    public void multiplesmarcas(Marker [] marker, JPanel panel){
+    public void mapaVacio(JPanel panel){
      Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
         Browser browser = engine.newBrowser();
 
@@ -117,7 +117,7 @@ public class Mapas {
             }
         });
         
-        String latitud= marker[0].latitud;
+        /*String latitud= marker[0].latitud;
         String longitud= marker[0].longitud;
         
         cadenadata="var markers  = [\n";
@@ -127,66 +127,43 @@ public class Mapas {
             if(i!=(marker.length-1))
                 cadenadata=cadenadata+",\n";
         }
-           cadenadata=cadenadata+"   ];\n";
+           cadenadata=cadenadata+"   ];\n";*/
         
 
         browser.mainFrame().ifPresent(mainFrame -> {
             String cadena="<!DOCTYPE html>\n" +
-        	    "<html>\n" +
-        	    "  <head>\n" +
-        	    "    <title>Mapas Flash</title>\n" +
-        	    "    <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\">\n" +
-        	    "    <meta charset=\"utf-8\">\n" +
-        	    "    <style>\n" +
-        	    "      html, body, #map-canvas {\n" +
-        	    "        height: 100%;\n" +
-        	    "        margin: 0px;\n" +
-        	    "        padding: 0px\n" +
-        	    "      }\n" +
-        	    "    </style>\n" +
-        	    "    <script src=\"https://maps.googleapis.com/maps/api/js?key="+this.apigoogle+"&sensor=false\"></script>\n" +
-        	    "    <script>\n" +
-
-                    
-                    "function initialize() { \n"+
-                    "    var infoWindow = new google.maps.InfoWindow();\n"+
-                    "    var myCenter=new google.maps.LatLng("+latitud+","+longitud+");\n"+
-                    "    var mapOptions = {\n"+
-                    "        center: myCenter,\n"+
-                    "        zoom: 6,\n"+
-                    "        mapTypeId: google.maps.MapTypeId.ROADMAP,\n"+
-                    "    };\n"+
-                    "    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);\n"+
-                         cadenadata+
-                    "   setmarker(markers,map,infoWindow)\n"+   
-                    "}\n"+
-
-                    "google.maps.event.addDomListener(window, 'load', initialize);\n"+                  
-                    "function setmarker(markers,map,infoWindow){\n"+
-                    "        for (var i = 0; i < markers.length; i++) {\n"+
-                    "            var data = markers[i];\n"+
-                    "            var myLatlng = new google.maps.LatLng(data.lat, data.lng);\n"+
-                    "            var marker = new google.maps.Marker({\n"+
-                    "                position: myLatlng,\n"+
-                    "                map: map,\n"+
-                    "                title: data.title\n"+
-                    "            });\n"+           
-                    "            (function (marker, data) {\n"+
-                    "                google.maps.event.addListener(marker, 'click', function (e) {\n"+                 
-                    "                    infoWindow.setContent(\"<div style = 'width:200px;min-height:40px'>\" + data.description + \"</div>\");\n"+
-                    "                    infoWindow.open(map, marker);\n"+
-                    "                });\n"+
-                    "            })(marker, data);\n"+
-                    "        }\n"+
-                    "}"+
-                    
-                    "</script>\n" +
-        	    "  </head>\n" +
-        	    "  <body>\n" +
-        	    "    <div id=\"map-canvas\"  style=\"width: 100%; height: 100%;\"></div>\n" +
-        	    "  </body>\n" +
-        	    "</html>";
-            //System.out.println(cadena);
+                            "<html>\n" +
+                            "  <head>\n" +
+                            "   <title>Mapas Flash</title>\n" +
+                            "    <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\">\n" +
+                            "    <meta charset=\"utf-8\">\n" +
+                            "    <style>\n" +
+                            "      html, body, #map-canvas {\n" +
+                            "        height: 100%;\n" +
+                            "        margin: 0px;\n" +
+                            "        padding: 0px\n" +
+                            "      }\n" +
+                            "    </style>\n" +
+                            "    <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIESYOsg2LBnPqNdnrOy2IBQsMtWEcK-Y&sensor=false\"></script>\n" +
+                            "    <script>\n" +
+                            "function initialize() { \n" +
+                            "    var infoWindow = new google.maps.InfoWindow();\n" +
+                            "    var myCenter=new google.maps.LatLng(3.954680893066221,-76.5455193936426);\n" +
+                            "    var mapOptions = {\n" +
+                            "        center: myCenter,\n" +
+                            "        zoom: 6,\n" +
+                            "        mapTypeId: google.maps.MapTypeId.ROADMAP,\n" +
+                            "    };\n" +
+                            "    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);\n" +
+                            "}\n" +
+                            "google.maps.event.addDomListener(window, 'load', initialize);\n" +
+                            "</script>\n" +
+                            "  </head>\n" +
+                            "  <body>\n" +
+                            "    <div id=\"map-canvas\"  style=\"width: 100%; height: 100%;\"></div>\n" +
+                            "  </body>\n" +
+                            "</html>";
+            System.out.println(cadena);
             mainFrame.loadHtml(cadena);
         });	
 	
@@ -199,7 +176,6 @@ public class Mapas {
 
         SwingUtilities.invokeLater(() -> {
             BrowserView view = BrowserView.newInstance(browser);
-
             if (Objects.isNull(panel)){
                 JFrame frame = new JFrame("Mapa");
                 frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -208,7 +184,8 @@ public class Mapas {
                 frame.setVisible(true);
             }
             else {
-                panel.add(view, BorderLayout.CENTER);
+                
+                panel.add(view);
             }
         });
       
@@ -250,8 +227,28 @@ public class Mapas {
                     "          map.setCenter(results[0].geometry.location);\n"+
                     "          var marker = new google.maps.Marker({\n"+
                     "              map: map,\n"+
-                    "              position: results[0].geometry.location\n"+
+                    "              position: results[0].geometry.location,\n"+
+                    "              title: \"hola mundo\"\n"+            
                     "          });\n"+
+                    "            const contentString =\n"+
+                    "                  '<div id=\"content\">' +" +
+                    "                  '<div id=\"siteNotice\">' +" +
+                    "                  \"</div>\" +" +
+                    "                  '<h1 id=\"firstHeading\" class=\"firstHeading\">"+direccion[z]+"</h1>'+" +
+                    "                  '<div id=\"bodyContent\">' +" +
+                    "                  \"</div>\" +" +
+                    "                  \"</div>\";\n"+
+                    "            const infowindow = new google.maps.InfoWindow({\n"+
+                    "                content: contentString,\n"+
+                    "            });\n"+
+
+                    "            marker.addListener(\"click\", () => {\n"+
+                    "                infowindow.open({\n"+
+                    "                anchor: marker,\n"+
+                    "                map,\n"+
+                    "                shouldFocus: false,\n"+
+                    "                });\n"+
+                    "            });\n"+
                     "        } else {\n"+
                     "          alert('Geocode was not successful for the following reason: ' + status);\n"+
                     "        }\n"+
