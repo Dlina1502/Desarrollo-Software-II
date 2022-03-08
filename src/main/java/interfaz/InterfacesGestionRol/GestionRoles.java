@@ -252,6 +252,11 @@ public class GestionRoles extends javax.swing.JPanel {
                 jButton2MouseClicked(evt);
             }
         });
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton7.setText("Guardar cambios");
@@ -583,7 +588,7 @@ public class GestionRoles extends javax.swing.JPanel {
         jComboBox2.addItem(rolnuevo);
         jTextField37.setForeground(Color.GRAY);
         jTextField37.setText("Ingresar nuevo rol");*/
-        
+        JOptionPane.showMessageDialog(this,"Por favor ingrese un rol.");
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
@@ -604,6 +609,10 @@ public class GestionRoles extends javax.swing.JPanel {
             System.out.println(permisos);
         }
     }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

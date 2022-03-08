@@ -5,6 +5,7 @@
 package interfaz.InterfacesGestionSede;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 import java.awt.Color;
 
 /**
@@ -14,7 +15,7 @@ import java.awt.Color;
 public class Consultar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
-    private Funciones funciones = new Funciones();
+   Funciones3 funcion3 = new Funciones3();
 
     /**
      * Creates new customizer Consultar_sede
@@ -125,7 +126,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel43)
@@ -189,7 +190,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel1);
@@ -212,7 +213,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         String ciudad = jTextField43.getText();
-        funciones.creartablasedeciudad(jTable1, ciudad);
+        funcion3.creartablasedeciudad(jTable1, ciudad);
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -220,7 +221,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        funciones.creartablasede(jTable1);
+        funcion3.creartablasede(jTable1);
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jTextField51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField51MouseClicked
@@ -238,7 +239,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
     private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
         String barrio = jTextField51.getText();
-        funciones.creartablasedebarrio(jTable1, barrio);
+        funcion3.creartablasedebarrio(jTable1, barrio);
     }//GEN-LAST:event_jButton17MouseClicked
 
 

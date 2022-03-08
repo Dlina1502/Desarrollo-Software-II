@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ */ 
 package interfaz.InterfacesGestionUsuario;
 
 import conexion_y_funciones.Funciones3;
@@ -218,6 +218,11 @@ public class Registrar_usuario extends javax.swing.JPanel {
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton10MouseClicked(evt);
+            }
+        });
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
             }
         });
 
@@ -519,6 +524,10 @@ public class Registrar_usuario extends javax.swing.JPanel {
         jComboBox14.removeAllItems();
         funciones.boxRoles(jComboBox14);
     }//GEN-LAST:event_jComboBox14MouseClicked
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
