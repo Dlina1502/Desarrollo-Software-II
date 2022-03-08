@@ -5,8 +5,12 @@
 package interfaz.InterfacesGestionSede;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Mapas;
+import conexion_y_funciones.Marker;
+import conexion_y_funciones.Slider;
 import conexion_y_funciones.Funciones3;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -15,13 +19,22 @@ import java.awt.Color;
 public class Consultar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
-   Funciones3 funcion3 = new Funciones3();
+    private Mapas map = new Mapas();
+    private Funciones3 funcion3 = new Funciones3();
 
     /**
      * Creates new customizer Consultar_sede
      */
     public Consultar_sede() {
         initComponents();
+        //map.mapaVacio(jPanel2);
+        String[] direccion = new String[3];
+        direccion[0] = "Universidad del Valle";
+        direccion[1] = "14 de Calima//Cali";
+        direccion[2] = "BRISAS//Calle 75C N//Cali";
+        map.geocoder(direccion, jPanel2);
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
     }
     
     public void setObject(Object bean) {
@@ -51,6 +64,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
         jButton17 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -190,10 +204,14 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel1);
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(500, 600));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+        jPanel4.add(jPanel2);
 
         add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -251,6 +269,7 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator71;
