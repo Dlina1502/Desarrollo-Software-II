@@ -4,6 +4,9 @@
  */
 package conexion_y_funciones;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +17,9 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -953,6 +959,42 @@ public class Funciones3  extends Conexion2{
         }
     }    
     
+    public ImageIcon[] readImage(int envio) throws IOException {
+
+        String query1 = "SELECT COUNT(*) FROM statusenvio WHERE id_envio=" + envio + " and imagen is not null";
+        String query2 = "SELECT imagen   FROM public.statusenvio WHERE id_envio=" + envio + " and imagen is not null";
+        int rows = 0;
+        byte[] buf;
+        ImageIcon images[] = null;
+        int contador;
+        try {
+            resultSet = statement.executeQuery(query1);
+            while (resultSet.next()) {
+                rows = resultSet.getInt(1);
+            }
+
+            images = new ImageIcon[rows];
+
+            contador = 0;
+            resultSet = statement.executeQuery(query2);
+            while (resultSet.next()) {
+                buf = resultSet.getBytes("imagen");
+                images[contador] = new ImageIcon(buf);
+                FileOutputStream os = new FileOutputStream("img_" + contador + ".png");
+                os.write(buf);
+                os.flush();
+                os.close();
+                contador++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Funciones3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Funciones3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return images;
+
+    }
     
 }
 
