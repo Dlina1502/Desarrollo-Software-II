@@ -12,6 +12,7 @@ import interfaz.InterfacesTerminalDeVentas.TerminalDeVentas;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -27,7 +28,7 @@ public class JFrame_principal extends javax.swing.JFrame {
     TerminalDeVentas terminalDeVentas;
     GestionRoles roles;
     
-    public JFrame_principal(ArrayList<Integer> permisos) { 
+    public JFrame_principal(ArrayList<Integer> permisos) throws IOException { 
         initComponents();
         adaptar_interfaz(permisos);
         this.setLocationRelativeTo(null);
@@ -239,7 +240,7 @@ public class JFrame_principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
     
-    public void adaptar_interfaz(ArrayList<Integer> permisos){
+    public void adaptar_interfaz(ArrayList<Integer> permisos) throws IOException{
         int terminal_ventas; 
         int crear_usuario, editar_usuario, eliminar_usuario;
         int crear_sede, consultar_sede, eliminar_sede, editar_sede;
