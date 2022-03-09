@@ -37,149 +37,24 @@ public class Mapas {
         System.setProperty("jxbrowser.license.key", this.apijxbrowser);
     }
     
-    public void marca(String latitud, String longitud, String marca){
-     Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
+    
+    
+   
+    
+ 
+    public void geocoder(ArrayList<String> direccion){
+        Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
         Browser browser = engine.newBrowser();
 
         SwingUtilities.invokeLater(() -> {
             BrowserView view = BrowserView.newInstance(browser);
 
-            JFrame frame = new JFrame("Mapas");
-            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            JFrame frame = new JFrame("Mapa");
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.add(view, BorderLayout.CENTER);
             frame.setSize(700, 500);
             frame.setVisible(true);
-        });
 
-        browser.mainFrame().ifPresent(mainFrame -> {
-            mainFrame.loadHtml("<!DOCTYPE html>\n" +
-        	    "<html>\n" +
-        	    "  <head>\n" +
-        	    "    <title>Mapas Flash</title>\n" +
-        	    "    <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\">\n" +
-        	    "    <meta charset=\"utf-8\">\n" +
-        	    "    <style>\n" +
-        	    "      html, body, #map-canvas {\n" +
-        	    "        height: 100%;\n" +
-        	    "        margin: 0px;\n" +
-        	    "        padding: 0px\n" +
-        	    "      }\n" +
-        	    "    </style>\n" +
-        	    "    <script src=\"https://maps.googleapis.com/maps/api/js?key="+this.apigoogle+"&sensor=false\"></script>\n" +
-        	    "    <script>\n" +
-        	    "var map;\n" +
-        	    "function initialize() {\n" +
-        	    "  var mapOptions = {\n" +
-        	    "    zoom: 4,\n" +
-        	    "    center: new google.maps.LatLng(\n"+latitud+", \n"+longitud+")\n" +
-        	    "  };\n" +
-        	    "  map = new google.maps.Map(document.getElementById('map-canvas'),\n" +
-        	    "      mapOptions);\n" +
-        	    "  marker = new google.maps.Marker({position: new google.maps.LatLng(\n"+latitud+", \n"+longitud+"), map: map}); \n\n"+
-        	    "}\n" +
-        	    "\n" +
-        	    "google.maps.event.addDomListener(window, 'load', initialize);\n" +
-        	    "\n" +
-        	    "    </script>\n" +
-        	    "  </head>\n" +
-        	    "  <body>\n" +
-        	    "    <div id=\"map-canvas\"  style=\"width: 700px; height: 470px;\"></div>\n" +
-        	    "  </body>\n" +
-        	    "</html>");
-        });
-        
-    }
-    
-    
-    public void mapaVacio(JPanel panel){
-     Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
-        Browser browser = engine.newBrowser();
-
-        SwingUtilities.invokeLater(() -> {
-            BrowserView view = BrowserView.newInstance(browser);
-
-            if (Objects.isNull(panel)){
-                JFrame frame = new JFrame("Mapa");
-                frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                frame.add(view, BorderLayout.CENTER);
-                frame.setSize(700, 500);
-                frame.setVisible(true);
-            }
-            else {
-                panel.add(view, BorderLayout.CENTER);
-            }
-        });
-        
-        /*String latitud= marker[0].latitud;
-        String longitud= marker[0].longitud;
-        
-        cadenadata="var markers  = [\n";
-        
-        for (int i=0;i<marker.length;i++) {
-            cadenadata = cadenadata+"       {lat: '" + marker[i].latitud + "' , lng: '" + marker[i].longitud + "', name: '" + marker[i].nombre + "',  address: '" + marker[i].direccion + "',   description: '" + marker[i].informacion + "'}";
-            if(i!=(marker.length-1))
-                cadenadata=cadenadata+",\n";
-        }
-           cadenadata=cadenadata+"   ];\n";*/
-        
-
-        browser.mainFrame().ifPresent(mainFrame -> {
-            String cadena="<!DOCTYPE html>\n" +
-                            "<html>\n" +
-                            "  <head>\n" +
-                            "   <title>Mapas Flash</title>\n" +
-                            "    <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\">\n" +
-                            "    <meta charset=\"utf-8\">\n" +
-                            "    <style>\n" +
-                            "      html, body, #map-canvas {\n" +
-                            "        height: 100%;\n" +
-                            "        margin: 0px;\n" +
-                            "        padding: 0px\n" +
-                            "      }\n" +
-                            "    </style>\n" +
-                            "    <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAIESYOsg2LBnPqNdnrOy2IBQsMtWEcK-Y&sensor=false\"></script>\n" +
-                            "    <script>\n" +
-                            "function initialize() { \n" +
-                            "    var infoWindow = new google.maps.InfoWindow();\n" +
-                            "    var myCenter=new google.maps.LatLng(3.954680893066221,-76.5455193936426);\n" +
-                            "    var mapOptions = {\n" +
-                            "        center: myCenter,\n" +
-                            "        zoom: 6,\n" +
-                            "        mapTypeId: google.maps.MapTypeId.ROADMAP,\n" +
-                            "    };\n" +
-                            "    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);\n" +
-                            "}\n" +
-                            "google.maps.event.addDomListener(window, 'load', initialize);\n" +
-                            "</script>\n" +
-                            "  </head>\n" +
-                            "  <body>\n" +
-                            "    <div id=\"map-canvas\"  style=\"width: 100%; height: 100%;\"></div>\n" +
-                            "  </body>\n" +
-                            "</html>";
-            System.out.println(cadena);
-            mainFrame.loadHtml(cadena);
-        });	
-	
-    }
-    
- 
-    public void geocoder(ArrayList<String> direccion, JPanel panel){
-     Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
-        Browser browser = engine.newBrowser();
-
-        SwingUtilities.invokeLater(() -> {
-            BrowserView view = BrowserView.newInstance(browser);
-            
-            if (Objects.isNull(panel)){
-                JFrame frame = new JFrame("Mapa");
-                frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                frame.add(view, BorderLayout.CENTER);
-                frame.setSize(700, 500);
-                frame.setVisible(true);
-            }
-            else {
-                panel.add(view, BorderLayout.CENTER);
-            }
         });
       
         browser.mainFrame().ifPresent(mainFrame -> {

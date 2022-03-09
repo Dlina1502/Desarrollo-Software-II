@@ -11,7 +11,11 @@ import conexion_y_funciones.Marker;
 import conexion_y_funciones.Slider;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -26,11 +30,9 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
     /**
      * Creates new customizer Consultar_sede
      */
-    public Consultar_sede() {
+    public Consultar_sede(JPanel panel) {
         initComponents();
-        map.mapaVacio(jPanel2);
-       
-        
+
         
     }
     
@@ -61,7 +63,6 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
         jButton17 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -206,10 +207,6 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
         jPanel4.add(jPanel1);
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(500, 600));
-        jPanel2.setLayout(new java.awt.BorderLayout());
-        jPanel4.add(jPanel2);
-
         add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -237,9 +234,12 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
         ArrayList<String> direcciones = funciones.creartablasede(jTable1);
-        jPanel2.removeAll();
-        map.geocoder(direcciones, jPanel2);
-        jPanel2.updateUI();
+        map.geocoder(direcciones);
+
+        
+        
+        
+        
         
     }//GEN-LAST:event_jButton12MouseClicked
 
@@ -270,7 +270,6 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator71;

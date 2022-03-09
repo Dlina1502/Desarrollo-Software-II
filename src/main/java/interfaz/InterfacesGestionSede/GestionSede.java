@@ -146,10 +146,15 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
 
     private void jPanel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseReleased
         // TODO add your handling code here:
+        actualizarJpanel4();
+    }//GEN-LAST:event_jPanel4MouseReleased
+ 
+    public void actualizarJpanel4(){
         jPanel4.setVisible(false);
         jPanel4.setVisible(true);
-    }//GEN-LAST:event_jPanel4MouseReleased
- public void crearBotones(){
+    }
+    
+    public void crearBotones(){
      
      
      //******************BOTON REGISTRAR******************************
@@ -251,7 +256,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         
         switch(consultar_sedeP){
             case 1:
-                consultar_sede_panel = new Consultar_sede();
+                consultar_sede_panel = new Consultar_sede(jPanel4);
                 consultar_sede.setVisible(true);
                 break;
                 
@@ -344,7 +349,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    public static javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
