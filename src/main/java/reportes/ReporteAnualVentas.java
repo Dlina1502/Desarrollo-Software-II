@@ -6,6 +6,7 @@
 package reportes;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
@@ -20,7 +21,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Usuario
  */
 public class ReporteAnualVentas extends JFrame{
-    private Funciones funcion = new Funciones();
+    private Funciones3 funcion = new Funciones3();
     /**
     * Constructor
     */

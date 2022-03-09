@@ -6,6 +6,7 @@
 package reportes;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -23,7 +24,7 @@ import org.jfree.data.general.PieDataset;
  * @author Usuario
  */
 public class ReporteVentaSedes extends JFrame{
-    private Funciones funcion = new Funciones();
+    private Funciones3 funcion = new Funciones3();
     public ReporteVentaSedes (String nombreVentana, int anio){
         super(nombreVentana);
         JFreeChart torta = ChartFactory.createPieChart("Ventas por sede durante el año "+anio, createDataset(anio), true, true, false);

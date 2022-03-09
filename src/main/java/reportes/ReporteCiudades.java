@@ -6,6 +6,7 @@
 package reportes;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import java.util.*;
@@ -22,7 +23,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class ReporteCiudades extends JFrame{
     
-    private Funciones funcion = new Funciones();
+    private Funciones3 funcion = new Funciones3();
     
     public ReporteCiudades (String nombreVentana){
         super(nombreVentana);
