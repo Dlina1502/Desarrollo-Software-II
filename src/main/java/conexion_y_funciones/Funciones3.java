@@ -749,10 +749,11 @@ public class Funciones3  extends Conexion2{
         }
     }
 
-    public void creartablasede(javax.swing.JTable jTable) {
+    public ArrayList creartablasede(javax.swing.JTable jTable) {
         DefaultTableModel model;
         String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
         String[] registros = new String[50];
+        ArrayList<String> direcciones = new ArrayList<>();
         sql = "SELECT * FROM consultar_sedes()";
         model = new DefaultTableModel(null, titulos);
         try {
@@ -763,6 +764,8 @@ public class Funciones3  extends Conexion2{
                 registros[1] = resultSet.getString(2);
                 registros[2] = resultSet.getString(3);
                 registros[3] = resultSet.getString(4);
+                
+                direcciones.add(""+resultSet.getString(1)+"//"+resultSet.getString(2)+"//"+resultSet.getString(3));
                 model.addRow(registros);
 
             }
@@ -777,6 +780,7 @@ public class Funciones3  extends Conexion2{
             JOptionPane.showMessageDialog(null, e);
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        return direcciones;
     }
 
     public void creartablasedebarrio(javax.swing.JTable jTable, String barrio) {
@@ -809,10 +813,11 @@ public class Funciones3  extends Conexion2{
         }
     }
     
-    public void creartablasedeciudad(javax.swing.JTable jTable, String ciudad){
+    public ArrayList creartablasedeciudad(javax.swing.JTable jTable, String ciudad){
         DefaultTableModel model;
         String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
         String[] registros = new String[50];
+        ArrayList<String> direcciones = new ArrayList<>();
         sql = "SELECT * FROM consultar_sedes_ciudad('"+ciudad+"')";
         model = new DefaultTableModel(null, titulos);
         try {
@@ -823,6 +828,8 @@ public class Funciones3  extends Conexion2{
                 registros[1] = resultSet.getString(2);
                 registros[2] = resultSet.getString(3);
                 registros[3] = resultSet.getString(4);
+                
+                direcciones.add(""+resultSet.getString(1)+"//"+resultSet.getString(2)+"//"+resultSet.getString(3));
                 model.addRow(registros);
                 
             }            
@@ -836,7 +843,8 @@ public class Funciones3  extends Conexion2{
             } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
-        }        
+        }
+        return direcciones;
     }
     
     public void calcularprecio(double peso, double valorpaquete, String seguro, javax.swing.JTextField jText){

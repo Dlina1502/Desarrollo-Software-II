@@ -10,6 +10,7 @@ import conexion_y_funciones.Mapas;
 import conexion_y_funciones.Marker;
 import conexion_y_funciones.Slider;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
@@ -27,14 +28,10 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
      */
     public Consultar_sede() {
         initComponents();
-        //map.mapaVacio(jPanel2);
-        String[] direccion = new String[3];
-        direccion[0] = "Universidad del Valle";
-        direccion[1] = "14 de Calima//Cali";
-        direccion[2] = "BRISAS//Calle 75C N//Cali";
-        map.geocoder(direccion, jPanel2);
-        jPanel4.setVisible(false);
-        jPanel4.setVisible(true);
+        map.mapaVacio(jPanel2);
+       
+        
+        
     }
     
     public void setObject(Object bean) {
@@ -239,7 +236,11 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        funciones.creartablasede(jTable1);
+        ArrayList<String> direcciones = funciones.creartablasede(jTable1);
+        jPanel2.removeAll();
+        map.geocoder(direcciones, jPanel2);
+        jPanel2.updateUI();
+        
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jTextField51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField51MouseClicked
