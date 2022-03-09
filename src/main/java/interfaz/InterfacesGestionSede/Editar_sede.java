@@ -5,6 +5,7 @@
 package interfaz.InterfacesGestionSede;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 import java.awt.Color;
 
 /**
@@ -14,7 +15,7 @@ import java.awt.Color;
 public class Editar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
     
-    private Funciones funciones = new Funciones();
+    private Funciones3 funcion3 = new Funciones3();
     private Object bean;
 
     /**
@@ -174,19 +175,19 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
                             .addComponent(jSeparator79, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addComponent(jLabel46))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jLabel45)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel45)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel46))))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
                     .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -211,7 +212,7 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
                 .addComponent(jSeparator79, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         add(jPanel5, java.awt.BorderLayout.CENTER);
@@ -280,7 +281,7 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
         String sede = (String) jComboBox14.getSelectedItem();
         String[] parteSede = sede.split("//");
-        funciones.consultarSede(parteSede[0], parteSede[1], parteSede[2], jTextField45, jTextField47, jTextField48, jTextField49);
+        funcion3.consultarSede(parteSede[0], parteSede[1], parteSede[2], jTextField45, jTextField47, jTextField48, jTextField49);
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -294,12 +295,12 @@ public class Editar_sede extends javax.swing.JPanel implements java.beans.Custom
         String direccion = jTextField47.getText();
         String telefono = jTextField49.getText();
         String[] parteSede = sede.split("//");
-        funciones.editarSede(parteSede[0],parteSede[1],parteSede[2], barrio, direccion, ciudad, telefono);
+        funcion3.editarSede(parteSede[0],parteSede[1],parteSede[2], barrio, direccion, ciudad, telefono);
     }//GEN-LAST:event_jButton15MouseClicked
 
     private void jComboBox14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox14MouseClicked
         jComboBox14.removeAllItems();
-        funciones.consultar_sedes_combo(jComboBox14);
+        funcion3.consultar_sedes_combo(jComboBox14);
     }//GEN-LAST:event_jComboBox14MouseClicked
 
 
