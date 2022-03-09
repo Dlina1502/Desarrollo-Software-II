@@ -674,7 +674,10 @@ public class Formulario_de_envio extends javax.swing.JPanel {
         String precioenvio = jTextField62.getText();
         funciones.registrarFactura(partsSede[0], partsSede[1], partsSede[2], tipopago, fecha, precioenvio);
         JOptionPane.showMessageDialog(this,"Factura creada");
-        new Ventanafactura().setVisible(true);
+        
+        funciones.generarFactura();
+        funciones.abrirFactura();
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
