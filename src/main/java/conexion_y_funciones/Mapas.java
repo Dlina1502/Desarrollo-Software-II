@@ -13,6 +13,7 @@ import com.teamdev.jxbrowser.view.swing.BrowserView;
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -89,14 +90,6 @@ public class Mapas {
         
     }
     
-    /*
-    public void marcas(Marker[] marker){
-        multiplesmarcas( marker,null);
-    }
-    
-    public void marcas(Marker[] marker,JPanel panel){
-        multiplesmarcas( marker, panel);
-    }*/
     
     public void mapaVacio(JPanel panel){
      Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
@@ -170,12 +163,13 @@ public class Mapas {
     }
     
  
-    public void geocoder(String [] direccion, JPanel panel){
+    public void geocoder(ArrayList<String> direccion, JPanel panel){
      Engine engine = Engine.newInstance(HARDWARE_ACCELERATED);
         Browser browser = engine.newBrowser();
 
         SwingUtilities.invokeLater(() -> {
             BrowserView view = BrowserView.newInstance(browser);
+            
             if (Objects.isNull(panel)){
                 JFrame frame = new JFrame("Mapa");
                 frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -184,8 +178,7 @@ public class Mapas {
                 frame.setVisible(true);
             }
             else {
-                
-                panel.add(view);
+                panel.add(view, BorderLayout.CENTER);
             }
         });
       
@@ -220,9 +213,9 @@ public class Mapas {
 
                     "    function codeAddress() {\n";
                     
-                    for(int z=0;z<direccion.length;z++){
+                    for(int z=0;z<direccion.size();z++){
                     
-                        cadena+="      geocoder.geocode( { 'address': '"+direccion[z]+"'}, function(results, status) {\n"+
+                        cadena+="      geocoder.geocode( { 'address': '"+direccion.get(z)+"'}, function(results, status) {\n"+
                     "        if (status == 'OK') {\n"+
                     "          map.setCenter(results[0].geometry.location);\n"+
                     "          var marker = new google.maps.Marker({\n"+
@@ -234,7 +227,7 @@ public class Mapas {
                     "                  '<div id=\"content\">' +" +
                     "                  '<div id=\"siteNotice\">' +" +
                     "                  \"</div>\" +" +
-                    "                  '<h1 id=\"firstHeading\" class=\"firstHeading\">"+direccion[z]+"</h1>'+" +
+                    "                  '<h1 id=\"firstHeading\" class=\"firstHeading\">"+direccion.get(z)+"</h1>'+" +
                     "                  '<div id=\"bodyContent\">' +" +
                     "                  \"</div>\" +" +
                     "                  \"</div>\";\n"+

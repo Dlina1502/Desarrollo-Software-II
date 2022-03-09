@@ -134,10 +134,21 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         jPanel2.add(jPanel1, java.awt.BorderLayout.LINE_START);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jPanel4MouseReleased(evt);
+            }
+        });
         jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
 
         add(jPanel2);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseReleased
+        // TODO add your handling code here:
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
+    }//GEN-LAST:event_jPanel4MouseReleased
  public void crearBotones(){
      
      
@@ -297,9 +308,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         jPanel4.removeAll();
         consultar_sede_panel.setVisible(true);
         jPanel4.add(consultar_sede_panel);
-        repaint();
-        jPanel4.setVisible(false);
-        jPanel4.setVisible(true);
+        jPanel4.updateUI();
     }     
  
  private void editar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      

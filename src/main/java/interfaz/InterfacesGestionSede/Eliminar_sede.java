@@ -5,6 +5,7 @@
 package interfaz.InterfacesGestionSede;
 
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 
 /**
  *
@@ -13,7 +14,7 @@ import conexion_y_funciones.Funciones;
 public class Eliminar_sede extends javax.swing.JPanel implements java.beans.Customizer {
     
     private Object bean;
-    private Funciones funciones = new Funciones();
+    private Funciones3 funcion3 = new Funciones3();
     /**
      * Creates new customizer Eliminar_sede
      */
@@ -126,12 +127,12 @@ public class Eliminar_sede extends javax.swing.JPanel implements java.beans.Cust
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
         String sede = (String) jComboBox13.getSelectedItem();
         String[] partsSede = sede.split("//");
-        funciones.eliminarsede(partsSede[0], partsSede[1], partsSede[2]);
+        funcion3.eliminarsede(partsSede[0], partsSede[1], partsSede[2]);
     }//GEN-LAST:event_jButton13MouseClicked
 
     private void jComboBox13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox13MouseClicked
         jComboBox13.removeAllItems();
-        funciones.consultar_sedes_combo(jComboBox13);
+        funcion3.consultar_sedes_combo(jComboBox13);
     }//GEN-LAST:event_jComboBox13MouseClicked
 
 
