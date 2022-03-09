@@ -1284,7 +1284,89 @@ public class Funciones3  extends Conexion2{
            e.printStackTrace();
        }
    }
+   
+
+
+//==============================================================================================================================================================
+//=====================================================================REPORTES=================================================================================   
+    public void consultaVentasMeses(int[][] arreglo, int anio) {
+        try {
+            sql = "select EXTRACT(MONTH FROM fecha),sum (total) from facturas where EXTRACT(YEAR FROM fecha) = " + anio + " group by extract(MONTH from fecha);";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                arreglo[resultSet.getInt(1) - 1][0] = resultSet.getInt(2);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
+
+    public void consultaEnviosMeses(int[][] arreglo, int anio) {
+        try {
+            sql = "select EXTRACT(MONTH FROM fecha),count (id_factura) from facturas where EXTRACT(YEAR FROM fecha) = " + anio + " group by extract(MONTH from fecha);";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                arreglo[resultSet.getInt(1) - 1][0] = resultSet.getInt(2);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
     
+        public void consultaTopCiudadDestino(ArrayList ciudades, ArrayList ventas){
+        try{
+            sql = "select count(envios.id_envio) as mayor, ciudad_sede.ciudad as destino FROM envios \n"+
+                  "inner join destinatario on envios.id_destinatario = destinatario.id_destinatario \n"+
+                  "inner join ciudad_sede on destinatario.id_ciudad = ciudad_sede.id_ciudad \n"+
+                  "group by destino order by mayor desc FETCH FIRST 5 ROWS ONLY";
+            
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                ciudades.add(resultSet.getString(2));
+                ventas.add(resultSet.getInt(1));
+            }                 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
+        
+        public void consultaEmpleadosSedes(ArrayList numEmpleados, ArrayList sedes){
+        try{
+            sql = "select count(np.documento_empleado), np.concat from (select informacion_empleados.id_sede,informacion_empleados.documento_empleado ,CONCAT(sedes.barrio,'//',sedes.direccion,'//',ciudad_sede.ciudad)\n" +
+                  "    from informacion_empleados inner join sedes on informacion_empleados.id_sede = sedes.id_sede\n" +
+                  "    inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad) as np\n" +
+                  "    group by np.id_sede, np.concat";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                sedes.add(resultSet.getString(2));
+                numEmpleados.add(resultSet.getInt(1));
+            }                 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
+    
+        
+        public void consultaVentasSedes(ArrayList ventas, ArrayList sedes, int anio){
+        try{
+            sql = "select count(id_factura), np.id_sede,np.concat from (select facturas.id_sede,facturas.fecha ,CONCAT(sedes.barrio,'//',sedes.direccion,'//',ciudad_sede.ciudad), facturas.id_factura\n" +
+                  " from facturas inner join sedes on facturas.id_sede = sedes.id_sede\n" +
+                  " inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad) as np\n" +
+                  " where EXTRACT(YEAR FROM np.fecha) = "+anio+"\n" +
+                  " group by np.id_sede, np.concat";
+                    
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                sedes.add(resultSet.getString(3));
+                
+                ventas.add(resultSet.getInt(1));
+                
+                System.out.println(ventas);
+            }                 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }    
 }
 
 

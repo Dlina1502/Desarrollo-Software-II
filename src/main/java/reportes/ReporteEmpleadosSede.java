@@ -5,6 +5,7 @@
  */
 package reportes;
 import conexion_y_funciones.Funciones;
+import conexion_y_funciones.Funciones3;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -18,7 +19,7 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author Usuario
  */
 public class ReporteEmpleadosSede extends JFrame {
-    private Funciones funcion = new Funciones();
+    private Funciones3 funcion = new Funciones3();
     /**
     * Constructor
     */
