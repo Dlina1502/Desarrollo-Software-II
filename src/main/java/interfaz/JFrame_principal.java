@@ -33,6 +33,8 @@ public class JFrame_principal extends javax.swing.JFrame {
         adaptar_interfaz(permisos);
         this.setLocationRelativeTo(null);
         this.setExtendedState(this.MAXIMIZED_BOTH); 
+        this.setResizable(true);
+        
     }
 
 /**
