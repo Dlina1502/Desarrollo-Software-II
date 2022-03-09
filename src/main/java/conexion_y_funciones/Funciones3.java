@@ -4,6 +4,9 @@
  */
 package conexion_y_funciones;
 
+import java.awt.Color;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,6 +26,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
+/*
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfSignatureAppearance;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+*/
 
 /**
  *
@@ -864,7 +886,7 @@ public class Funciones3  extends Conexion2{
                 valorSeguro = resultSet.getDouble(3);
                 
             }
-            double precioenvio = preciobase+(valorpaquete*0.1)*peso;
+            double precioenvio = preciobase+(valorpaquete*0.01)*peso;
             precioenvio = precioenvio+(precioenvio*impuesto)+valorSeguro;
             int total = (int) precioenvio;
             jText.setText(""+total);
@@ -983,6 +1005,293 @@ public class Funciones3  extends Conexion2{
         return images;
 
     }
+    
+
+//==============================================================================================================================================================
+//=====================================================================GENERAR FACTURA========================================================================
+
+    
+   public void generarFactura(){
+       
+            sql = "select * from (select envios.id_envio, facturas.id_factura, facturas.fecha,\n"+ 
+			   "ciudad_sede.ciudad, sedes.barrio ,sedes.direccion,telefonos_sedes.telefono,\n"+
+                           "cliente.nombre as nombreR, cliente.apellido as apellidoR, cliente.documento_cliente as documentoR, cliente.celular as celularR,\n"+
+                           "destinatario.nombre as nombred, destinatario.apellido as apellidod, destinatario.documento_destinatario as documentod, destinatario.celular as celulard,\n"+
+                           "seguro.tipo_seguro, facturas.total FROM facturas \n"+
+			   "inner join envios on facturas.id_envio=envios.id_envio \n"+
+			   "inner join sedes on facturas.id_sede=sedes.id_sede \n"+
+			   "inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad \n"+
+			   "inner join telefonos_sedes on sedes.id_sede = telefonos_sedes.id_sede \n"+
+			   "inner join cliente on envios.id_cliente = cliente.id_cliente \n"+
+			   "inner join destinatario on envios.id_destinatario = destinatario.id_destinatario \n"+
+			   "inner join seguro on envios.id_seguro = seguro.id_seguro) as np \n"+
+			   "order by np.id_factura desc \n"+
+			   "fetch first 1 rows only";
+        
+            
+            String codigoEnvio = null;
+            String codigoFactura = null;
+            String fecha = null;
+            String ciudad = null;
+            String barrio = null;
+            String direccion = null;
+            String telefono = null;
+            String nombrer = null;
+            String apellidor = null;
+            String cedular = null;
+            String celularr = null;
+            String nombred = null;
+            String apellidod = null;
+            String cedulad = null;
+            String celulard = null;
+            String seguro = null;
+            int total = 0;
+            
+            try {
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                
+                codigoEnvio = resultSet.getString(1);
+                codigoFactura = resultSet.getString(2);
+                fecha = resultSet.getString(3);
+                ciudad = resultSet.getString(4);
+                barrio = resultSet.getString(5);
+                direccion = resultSet.getString(6);
+                telefono = resultSet.getString(7);
+                nombrer = resultSet.getString(8);
+                apellidor = resultSet.getString(9);
+                cedular = resultSet.getString(10);
+                celularr = resultSet.getString(11);
+                nombred = resultSet.getString(12);
+                apellidod = resultSet.getString(13);
+                cedulad = resultSet.getString(14);
+                celulard = resultSet.getString(15);
+                seguro = resultSet.getString(16);
+                total = resultSet.getInt(17);
+                
+                
+               System.out.println(nombrer);
+               System.out.println(nombred);
+               System.out.println(total);
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    try {
+      
+        PDDocument documento = new PDDocument();
+        PDPage pagina = new PDPage(PDRectangle.A6);
+        documento.addPage(pagina);
+        
+        int pageHeight = (int) pagina.getTrimBox().getHeight();
+        int pageWidth = (int) pagina.getTrimBox().getWidth();
+        
+        PDPageContentStream contenido = new PDPageContentStream(documento,pagina);
+        
+        contenido.setStrokingColor(Color.BLACK);
+        contenido.setLineWidth(1);
+        
+        
+        int initX = 50;
+        int initY = pageHeight-300;
+        int cellHeight = 100;
+        int cellWidth=100;
+        
+        PDImageXObject imagen1 = PDImageXObject.createFromFile("src\\main\\resources\\META-INF\\panel1.png", documento);
+        contenido.drawImage(imagen1, initX-50, initY+250);
+        
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+80, initY+230);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Empresa de envios Flash");
+        contenido.endText();    
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+125, initY+200);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Código de envío: "+codigoEnvio);
+        contenido.endText();        
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+125, initY+185);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Código de factura: "+codigoFactura);
+        contenido.endText();
+
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+125, initY+170);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Fecha: "+fecha);
+        contenido.endText();        
+        
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX, initY+200);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Ciudad: "+ciudad);
+        contenido.endText();
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX, initY+185);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Barrio: "+barrio);
+        contenido.endText();
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX, initY+170);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Direccion: "+direccion);
+        contenido.endText();
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX, initY+155);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Teléfono: "+telefono);
+        contenido.endText();
+        
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+50, initY+140);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 10);
+        contenido.showText("FACTURA DE ENVÍO");
+        contenido.endText();
+        
+        
+        contenido.addRect(initX, initY+100, 100, 30);
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+25, initY+110);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 8);
+        contenido.showText("REMITENTE");
+        contenido.endText();
+        
+        contenido.addRect(initX+100, initY+100, 100, 30);
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+120, initY+110);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 8);
+        contenido.showText("DESTINATARIO");
+        contenido.endText();
+        
+        contenido.addRect(initX, initY, cellWidth, cellHeight);
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+15, initY+70);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText(nombrer);
+        contenido.endText();
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+15, initY+60);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText(apellidor);
+        contenido.endText();
+
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+15, initY+50);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("CC: "+cedular);
+        contenido.endText();
+
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+15, initY+40);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Cel: "+celularr);
+        contenido.endText();
+        
+        
+        contenido.addRect(initX+100, initY, cellWidth, cellHeight);
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+115, initY+70);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText(nombred);
+        contenido.endText();
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+115, initY+60);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText(apellidod);
+        contenido.endText();
+
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+115, initY+50);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("CC: "+cedulad);
+        contenido.endText();
+
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+115, initY+40);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("Cel: "+celulard);
+        contenido.endText();        
+
+        //TOTAL
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX, initY-20);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("SEGURO");
+        contenido.endText();  
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+70, initY-20);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("TOTAL A PAGAR");
+        contenido.endText(); 
+        
+ 
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX, initY-30);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText(seguro);
+        contenido.endText(); 
+        
+        contenido.beginText();
+        contenido.newLineAtOffset(initX+70, initY-30);
+        contenido.setFont(PDType1Font.TIMES_ROMAN, 7);
+        contenido.showText("$"+total);
+        contenido.endText(); 
+       
+        contenido.stroke();
+        contenido.close();
+ 
+        documento.save("src/main/resources/facturas/factura"+codigoFactura+".pdf");
+        documento.close();
+        
+        System.out.println("Documento creado");
+    }catch(Exception x){
+        System.out.println("error: "+x.getMessage().toString());
+    }
+    }
+   
+   public void abrirFactura(){
+       
+       sql = "select id_factura from facturas order by id_factura desc fetch first 1 rows only";
+       
+       String codigoFactura = null;
+       
+       try {
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+               
+                codigoFactura = resultSet.getString(1);
+     
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
+       
+       try{
+           File path = new File("src/main/resources/facturas/factura"+codigoFactura+".pdf");
+           Desktop.getDesktop().open(path);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+   }
     
 }
 
