@@ -479,7 +479,7 @@ public class Funciones3  extends Conexion2{
             String apellido2, String telefono, String correo, String clave) {
         try {
             sql = "select id_sede from sedes \n" +
-						"where barrio ='" + barrio + "'and direccion = '"+ direccion +"'\n" +
+						"where barrio = '" + barrio + "' and direccion = '"+ direccion +"' \n" +
 						"and id_ciudad = (select id_ciudad from ciudad_sede where \n "
                                                                     + "departamento = '"+ departamento+"' and ciudad ='"+ ciudad+"')";
             resultSet = statement.executeQuery(sql);
@@ -672,7 +672,7 @@ public class Funciones3  extends Conexion2{
         
     public void boxSede(javax.swing.JComboBox<String> jcombosede) {
         try {
-            sql = "select concat_ws('//',sedes.barrio,sedes.direccion,ciudad_sede.ciudad) as direccion from sedes, ciudad_sede";
+            sql = "select concat_ws('//',E.barrio,E.direccion,D.departamento,D.ciudad) as direccion from sedes E inner join ciudad_sede D on E.id_ciudad = D.id_ciudad";
             resultSet = statement.executeQuery(sql);
             String presente = "";
             
@@ -863,10 +863,11 @@ public class Funciones3  extends Conexion2{
         return direcciones;
     }
 
-    public void creartablasedebarrio(javax.swing.JTable jTable, String barrio) {
+    public ArrayList creartablasedebarrio(javax.swing.JTable jTable, String barrio) {
         DefaultTableModel model;
         String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
         String[] registros = new String[50];
+        ArrayList<String> direcciones = new ArrayList<>();
         sql = "SELECT * FROM consultar_sedes_barrio('" + barrio + "')";
         model = new DefaultTableModel(null, titulos);
         try {
@@ -877,6 +878,8 @@ public class Funciones3  extends Conexion2{
                 registros[1] = resultSet.getString(2);
                 registros[2] = resultSet.getString(3);
                 registros[3] = resultSet.getString(4);
+                
+                direcciones.add(""+resultSet.getString(1)+"//"+resultSet.getString(2)+"//"+resultSet.getString(3));
                 model.addRow(registros);
 
             }
@@ -891,6 +894,8 @@ public class Funciones3  extends Conexion2{
             JOptionPane.showMessageDialog(null, e);
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
+        return direcciones;
     }
     
     public ArrayList creartablasedeciudad(javax.swing.JTable jTable, String ciudad){

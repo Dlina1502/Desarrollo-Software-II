@@ -225,7 +225,9 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         String ciudad = jTextField43.getText();
-        funciones.creartablasedeciudad(jTable1, ciudad);
+        ArrayList<String> direcciones = funciones.creartablasedeciudad(jTable1, ciudad.toUpperCase());
+        map.geocoder(direcciones);
+        
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -258,7 +260,8 @@ public class Consultar_sede extends javax.swing.JPanel implements java.beans.Cus
 
     private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
         String barrio = jTextField51.getText();
-        funciones.creartablasedebarrio(jTable1, barrio);
+        ArrayList<String> direcciones=funciones.creartablasedebarrio(jTable1, barrio.toUpperCase());
+        map.geocoder(direcciones);
     }//GEN-LAST:event_jButton17MouseClicked
 
 
