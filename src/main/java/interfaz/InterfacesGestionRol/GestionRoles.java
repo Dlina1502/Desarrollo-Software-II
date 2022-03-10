@@ -19,6 +19,7 @@ public class GestionRoles extends javax.swing.JPanel {
     //Funciones2 funcion = new Funciones2();
     ArrayList<Integer> permisos;
     Funciones3 funciones = new Funciones3();
+    Funciones2 funcion2 = new Funciones2();
     ArrayList<String> roles;
  
     /**
@@ -370,7 +371,7 @@ public class GestionRoles extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCheckBox28, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -412,8 +413,8 @@ public class GestionRoles extends javax.swing.JPanel {
            int eliminar = eliminar(rol);
            System.out.println("Indice");
            System.out.println(eliminar);
-           //funcion.eliminarPermisosRol(rol);
-           //funcion.eliminarRolEmpleados(rol);
+           funcion2.eliminarPermisosRol(rol);
+           funcion2.eliminarRolEmpleados(rol);
            jComboBox4.removeItemAt(eliminar);
            JOptionPane.showMessageDialog(this,"Rol eliminado con éxito");
            
@@ -534,6 +535,9 @@ public class GestionRoles extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(evt.getItem().equals("NUEVO ROL") && (evt.getStateChange() == ItemEvent.SELECTED)){
             String getMessage = JOptionPane.showInputDialog(null, "Por favor ingrese un rol"); 
+            /*if (getMessage == null){
+                JOptionPane.showMessageDialog(null, "hola");
+            }*/
             jComboBox4.addItem(getMessage.toUpperCase());
             jComboBox4.setSelectedItem(getMessage.toUpperCase());
         }

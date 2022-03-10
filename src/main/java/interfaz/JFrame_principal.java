@@ -122,7 +122,7 @@ public class JFrame_principal extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(51, 51, 51));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("PERMISOS DE USUSARIO");
+        jButton5.setText("PERMISOS DE USUARIO");
         jButton5.setBorder(null);
         jButton5.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
