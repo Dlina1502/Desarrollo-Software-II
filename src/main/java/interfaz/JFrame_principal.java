@@ -273,16 +273,10 @@ public class JFrame_principal extends javax.swing.JFrame {
         gestion_permisos = permisos.get(10);
         
         
-        switch(terminal_ventas){
-            case 1:
-                terminalDeVentas = new TerminalDeVentas();
-                jButton6.setVisible(true);
-                break;
-                
-            case 0:
-                jButton6.setVisible(false);
-                break;
-        }
+
+        terminalDeVentas = new TerminalDeVentas(permisos);
+        jButton6.setVisible(true);
+
         
         if(crear_usuario == 1 || editar_usuario == 1 || eliminar_usuario == 1  || consultar_accesos == 1){
             gestionUsuario = new GestionUsuario(permisos);
