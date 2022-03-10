@@ -436,8 +436,10 @@ public class GestionRoles extends javax.swing.JPanel {
            int eliminar = eliminar(rol);
            System.out.println("Indice");
            System.out.println(eliminar);
-           funcion2.eliminarPermisosRol(rol);
-           funcion2.eliminarRolEmpleados(rol);
+           
+           funciones.eliminarRolEmpleados(rol);
+           funciones.eliminarPermisosRol(rol);
+           
            jComboBox4.removeItemAt(eliminar);
            JOptionPane.showMessageDialog(this,"Rol eliminado con éxito");
            

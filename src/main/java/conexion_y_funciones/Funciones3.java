@@ -98,6 +98,27 @@ public class Funciones3  extends Conexion2{
         return -1;
     }
     
+    public void eliminarPermisosRol(String rol) {
+        try {
+            sql = "delete from rol_empleados where tipo_empleado = '" + rol + "'";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    
+    public void eliminarRolEmpleados(String rol) {
+        try {
+            sql = "delete from permisos_rol where id_tipo_empleado = (select id_tipo_empleado from rol_empleados  where tipo_empleado = '"+rol+"')";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+    }
+    
+    
     public void registrarIngreso(String fecha){
         try{
             sql ="INSERT INTO registro_ingreso_usuarios VALUES ("+id_empleado+",'"+fecha+"')";
