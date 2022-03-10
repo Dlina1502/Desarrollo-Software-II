@@ -147,10 +147,10 @@ public class Funciones3  extends Conexion2{
     public ArrayList permisosDeRol(){
         ArrayList<Integer> permisos = new ArrayList<>();
         try{
-            sql = "SELECT terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos FROM permisos_rol WHERE id_tipo_empleado= "+ idTipoEmpleado;
+            sql = "SELECT terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, consultar_accesos, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos FROM permisos_rol WHERE id_tipo_empleado= "+ idTipoEmpleado;
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                for(int i = 1; i <= 10; i++){
+                for(int i = 1; i <= 11; i++){
                     permisos.add(resultSet.getInt(i));
                 }
                 
@@ -166,9 +166,9 @@ public class Funciones3  extends Conexion2{
     
     public void insertarActualizarPermisos(ArrayList<Integer> permisos){
         try{
-            sql = "INSERT INTO permisos_rol (terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos,id_tipo_empleado) "
-                    + "values(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id_tipo_empleado) DO "
-                    + "UPDATE SET terminal_ventas = ?, registrar_usuario = ?, consultar_usuario = ?, editar_usuario = ?, crear_sede = ?, consultar_sede = ?, eliminar_sede = ?, editar_sede = ?, reportes = ?, gestion_permisos = ?";
+            sql = "INSERT INTO permisos_rol (terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, consultar_accesos, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos, id_tipo_empleado) "
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id_tipo_empleado) DO "
+                    + "UPDATE SET terminal_ventas = ?, registrar_usuario = ?, consultar_usuario = ?, editar_usuario = ? , consultar_accesos = ?, crear_sede = ?, consultar_sede = ?, eliminar_sede = ?, editar_sede = ?, reportes = ?, gestion_permisos = ?";
             PreparedStatement pstmt = conexion.prepareStatement(sql);
             pstmt.setInt(1, permisos.get(0));
             pstmt.setInt(2, permisos.get(1));
@@ -180,17 +180,19 @@ public class Funciones3  extends Conexion2{
             pstmt.setInt(8, permisos.get(7));
             pstmt.setInt(9, permisos.get(8));
             pstmt.setInt(10, permisos.get(9));
-            pstmt.setInt(11, idTipoEmpleado);
-            pstmt.setInt(12, permisos.get(0));
-            pstmt.setInt(13, permisos.get(1));
-            pstmt.setInt(14, permisos.get(2));
-            pstmt.setInt(15, permisos.get(3));
-            pstmt.setInt(16, permisos.get(4));
-            pstmt.setInt(17, permisos.get(5));
-            pstmt.setInt(18, permisos.get(6));
-            pstmt.setInt(19, permisos.get(7));
-            pstmt.setInt(20, permisos.get(8));
-            pstmt.setInt(21, permisos.get(9));
+            pstmt.setInt(11, permisos.get(10));
+            pstmt.setInt(12, idTipoEmpleado);
+            pstmt.setInt(13, permisos.get(0));
+            pstmt.setInt(14, permisos.get(1));
+            pstmt.setInt(15, permisos.get(2));
+            pstmt.setInt(16, permisos.get(3));
+            pstmt.setInt(17, permisos.get(4));
+            pstmt.setInt(18, permisos.get(5));
+            pstmt.setInt(19, permisos.get(6));
+            pstmt.setInt(20, permisos.get(7));
+            pstmt.setInt(21, permisos.get(8));
+            pstmt.setInt(22, permisos.get(9));
+            pstmt.setInt(23, permisos.get(10));
             
             pstmt.executeUpdate();
             
