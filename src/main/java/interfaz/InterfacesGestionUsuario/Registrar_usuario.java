@@ -446,8 +446,8 @@ public class Registrar_usuario extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox13MouseClicked
 
     private void jTextField42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField42MouseClicked
-        jTextField37.setText(null);
-        jTextField37.setForeground(Color.BLACK);
+        jTextField42.setText(null);
+        jTextField42.setForeground(Color.BLACK);
     }//GEN-LAST:event_jTextField42MouseClicked
 
     private void jTextField42MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField42MouseExited
