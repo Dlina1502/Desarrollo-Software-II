@@ -555,10 +555,11 @@ public class GestionRoles extends javax.swing.JPanel {
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
         // TODO add your handling code here:
         if(evt.getItem().equals("NUEVO ROL") && (evt.getStateChange() == ItemEvent.SELECTED)){
-            String getMessage = JOptionPane.showInputDialog(null, "Por favor ingrese un rol"); 
-            /*if (getMessage == null){
-                JOptionPane.showMessageDialog(null, "hola");
-            }*/
+            String getMessage = JOptionPane.showInputDialog(null, "Por favor ingrese un rol");
+            while(getMessage.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Campo vacío, por favor ingrese un nuevo rol.");
+                getMessage = JOptionPane.showInputDialog(null, "Por favor ingrese un rol");
+            }
             jComboBox4.addItem(getMessage.toUpperCase());
             jComboBox4.setSelectedItem(getMessage.toUpperCase());
         }

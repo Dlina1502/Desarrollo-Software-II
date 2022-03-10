@@ -57,8 +57,6 @@ public class Reportes extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -197,31 +195,6 @@ public class Reportes extends javax.swing.JPanel {
             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel14.setPreferredSize(new java.awt.Dimension(105, 50));
-
-        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Mercancia que sale de cada sede");
-        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel13MouseReleased(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-        );
-
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel7.setPreferredSize(new java.awt.Dimension(301, 95));
@@ -271,7 +244,6 @@ public class Reportes extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(350, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,9 +282,7 @@ public class Reportes extends javax.swing.JPanel {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7504, Short.MAX_VALUE))
+                .addContainerGap(7555, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel1, java.awt.BorderLayout.WEST);
@@ -335,9 +305,7 @@ public class Reportes extends javax.swing.JPanel {
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel14.setBackground(new java.awt.Color(247, 247, 247));
    
-        //jPanel7.setVisible(false);
         repaint();
         
         if (jTextField1.getText().equals("")) {
@@ -360,7 +328,6 @@ public class Reportes extends javax.swing.JPanel {
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel14.setBackground(new java.awt.Color(247, 247, 247));
         //jPanel7.setVisible(false);
         repaint();
         
@@ -384,7 +351,6 @@ public class Reportes extends javax.swing.JPanel {
         jPanel11.setBackground(new java.awt.Color(249, 152, 103));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel14.setBackground(new java.awt.Color(247, 247, 247));
        
         //jPanel7.setVisible(false);
         repaint();
@@ -410,7 +376,7 @@ public class Reportes extends javax.swing.JPanel {
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
         jPanel12.setBackground(new java.awt.Color(249, 152, 103));
         jPanel13.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel14.setBackground(new java.awt.Color(247, 247, 247));
+
         //jPanel7.setVisible(false);
         repaint();
         
@@ -429,7 +395,7 @@ public class Reportes extends javax.swing.JPanel {
         jPanel11.setBackground(new java.awt.Color(247, 247, 247));
         jPanel12.setBackground(new java.awt.Color(247, 247, 247));
         jPanel13.setBackground(new java.awt.Color(249, 152, 103));
-        jPanel14.setBackground(new java.awt.Color(247, 247, 247));
+       
         //jPanel7.setVisible(true);
         repaint();
         
@@ -440,17 +406,6 @@ public class Reportes extends javax.swing.JPanel {
         reporte.setVisible(true);
         
     }//GEN-LAST:event_jLabel11MouseReleased
-
-    private void jLabel13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseReleased
-        jPanel3.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel5.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel11.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel12.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel13.setBackground(new java.awt.Color(247, 247, 247));
-        jPanel14.setBackground(new java.awt.Color(249, 152, 103));
-        //jPanel7.setVisible(true);
-        repaint();
-    }//GEN-LAST:event_jLabel13MouseReleased
 /*
 SIZE)
                 .addContainerGap(7680, Short.MAX_VALUE))
@@ -478,7 +433,6 @@ SIZE)
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -487,7 +441,6 @@ SIZE)
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
