@@ -501,11 +501,11 @@ public class Registrar_usuario extends javax.swing.JPanel {
         String claveConv = new String(clave);
         String claveConfirmConv = new String(claveConfirm);
         
-        System.err.println(partsSede[0]);
-        System.err.println(partsSede[1]);
-        System.err.println(partsSede[2]);
-        System.err.println(partsSede[3]);
-
+        System.out.println(partsSede[0]);
+        System.out.println(partsSede[1]);
+        System.out.println(partsSede[2]);
+        System.out.println(partsSede[3]);
+        
        if (claveConv.equals(claveConfirmConv)){
             funciones.registrarUsuario(documento, partsSede[0],partsSede[1],partsSede[2],partsSede[3], rol, "activo", nombre, apellido1, apellido2, telefono, correo, claveConv);
         }else{

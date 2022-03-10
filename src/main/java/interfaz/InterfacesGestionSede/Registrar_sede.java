@@ -44,16 +44,13 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
         jPanel9 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jSeparator61 = new javax.swing.JSeparator();
-        jTextField37 = new javax.swing.JTextField();
         jSeparator62 = new javax.swing.JSeparator();
-        jTextField38 = new javax.swing.JTextField();
         jSeparator63 = new javax.swing.JSeparator();
         jTextField39 = new javax.swing.JTextField();
         jTextField40 = new javax.swing.JTextField();
         jSeparator64 = new javax.swing.JSeparator();
         jButton10 = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jSeparator65 = new javax.swing.JSeparator();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -66,32 +63,6 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/iconoSede.png"))); // NOI18N
-
-        jTextField37.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField37.setText("Ciudad");
-        jTextField37.setBorder(null);
-        jTextField37.setPreferredSize(new java.awt.Dimension(7, 24));
-        jTextField37.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField37MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jTextField37MouseExited(evt);
-            }
-        });
-
-        jTextField38.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField38.setText("Barrio");
-        jTextField38.setBorder(null);
-        jTextField38.setPreferredSize(new java.awt.Dimension(7, 24));
-        jTextField38.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField38MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jTextField38MouseExited(evt);
-            }
-        });
 
         jTextField39.setForeground(new java.awt.Color(153, 153, 153));
         jTextField39.setText("Número de teléfono");
@@ -133,11 +104,6 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
 
         jLabel47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel47.setText("Datos de la sede:");
-
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Departamento");
-        jTextField1.setBorder(null);
-        jTextField1.setPreferredSize(new java.awt.Dimension(172, 23));
 
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -197,20 +163,9 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
                                 .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel9Layout.createSequentialGroup()
-                            .addGap(86, 86, 86)
-                            .addComponent(jLabel47))
-                        .addGroup(jPanel9Layout.createSequentialGroup()
-                            .addGap(284, 284, 284)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 251, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addComponent(jLabel47)
+                .addGap(0, 499, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,49 +198,13 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
                         .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator65, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)))
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel9);
 
         add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField37MouseClicked
-        jTextField37.setText(null);
-        jTextField37.setForeground(Color.BLACK);
-    }//GEN-LAST:event_jTextField37MouseClicked
-
-    private void jTextField37MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField37MouseExited
-        String a = jTextField37.getText();
-        if (a.equals("")){
-            jTextField37.setForeground(Color.GRAY);
-            jTextField37.setText("Ciudad");
-        }
-    }//GEN-LAST:event_jTextField37MouseExited
-
-    private void jTextField38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField38MouseClicked
-        jTextField38.setText(null);
-        jTextField38.setForeground(Color.BLACK);
-    }//GEN-LAST:event_jTextField38MouseClicked
-
-    private void jTextField38MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField38MouseExited
-        String a = jTextField38.getText();
-        if (a.equals("")){
-            jTextField38.setForeground(Color.GRAY);
-            jTextField38.setText("Barrio");
-        }
-    }//GEN-LAST:event_jTextField38MouseExited
 
     private void jTextField39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField39MouseClicked
         jTextField39.setText(null);
@@ -391,9 +310,6 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
     private javax.swing.JSeparator jSeparator63;
     private javax.swing.JSeparator jSeparator64;
     private javax.swing.JSeparator jSeparator65;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField37;
-    private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField40;
     // End of variables declaration//GEN-END:variables

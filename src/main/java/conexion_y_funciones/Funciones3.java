@@ -479,7 +479,7 @@ public class Funciones3  extends Conexion2{
             String apellido2, String telefono, String correo, String clave) {
         try {
             sql = "select id_sede from sedes \n" +
-						"where barrio ='" + barrio + "'and direccion = '"+ direccion +"'\n" +
+						"where barrio = '" + barrio + "' and direccion = '"+ direccion +"' \n" +
 						"and id_ciudad = (select id_ciudad from ciudad_sede where \n "
                                                                     + "departamento = '"+ departamento+"' and ciudad ='"+ ciudad+"')";
             resultSet = statement.executeQuery(sql);
@@ -672,7 +672,7 @@ public class Funciones3  extends Conexion2{
         
     public void boxSede(javax.swing.JComboBox<String> jcombosede) {
         try {
-            sql = "select concat_ws('//',sedes.barrio,sedes.direccion,ciudad_sede.ciudad) as direccion from sedes, ciudad_sede";
+            sql = "select concat_ws('//',E.barrio,E.direccion,D.departamento,D.ciudad) as direccion from sedes E inner join ciudad_sede D on E.id_ciudad = D.id_ciudad";
             resultSet = statement.executeQuery(sql);
             String presente = "";
             
@@ -863,10 +863,11 @@ public class Funciones3  extends Conexion2{
         return direcciones;
     }
 
-    public void creartablasedebarrio(javax.swing.JTable jTable, String barrio) {
+    public ArrayList creartablasedebarrio(javax.swing.JTable jTable, String barrio) {
         DefaultTableModel model;
         String[] titulos = {"Barrio", "Direccion", "ciudad", "Telefono"};
         String[] registros = new String[50];
+        ArrayList<String> direcciones = new ArrayList<>();
         sql = "SELECT * FROM consultar_sedes_barrio('" + barrio + "')";
         model = new DefaultTableModel(null, titulos);
         try {
@@ -877,6 +878,8 @@ public class Funciones3  extends Conexion2{
                 registros[1] = resultSet.getString(2);
                 registros[2] = resultSet.getString(3);
                 registros[3] = resultSet.getString(4);
+                
+                direcciones.add(""+resultSet.getString(1)+"//"+resultSet.getString(2)+"//"+resultSet.getString(3));
                 model.addRow(registros);
 
             }
@@ -891,6 +894,8 @@ public class Funciones3  extends Conexion2{
             JOptionPane.showMessageDialog(null, e);
             JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
+        return direcciones;
     }
     
     public ArrayList creartablasedeciudad(javax.swing.JTable jTable, String ciudad){
@@ -1350,7 +1355,89 @@ public class Funciones3  extends Conexion2{
            e.printStackTrace();
        }
    }
+   
+
+
+//==============================================================================================================================================================
+//=====================================================================REPORTES=================================================================================   
+    public void consultaVentasMeses(int[][] arreglo, int anio) {
+        try {
+            sql = "select EXTRACT(MONTH FROM fecha),sum (total) from facturas where EXTRACT(YEAR FROM fecha) = " + anio + " group by extract(MONTH from fecha);";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                arreglo[resultSet.getInt(1) - 1][0] = resultSet.getInt(2);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
+
+    public void consultaEnviosMeses(int[][] arreglo, int anio) {
+        try {
+            sql = "select EXTRACT(MONTH FROM fecha),count (id_factura) from facturas where EXTRACT(YEAR FROM fecha) = " + anio + " group by extract(MONTH from fecha);";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                arreglo[resultSet.getInt(1) - 1][0] = resultSet.getInt(2);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
     
+        public void consultaTopCiudadDestino(ArrayList ciudades, ArrayList ventas){
+        try{
+            sql = "select count(envios.id_envio) as mayor, ciudad_sede.ciudad as destino FROM envios \n"+
+                  "inner join destinatario on envios.id_destinatario = destinatario.id_destinatario \n"+
+                  "inner join ciudad_sede on destinatario.id_ciudad = ciudad_sede.id_ciudad \n"+
+                  "group by destino order by mayor desc FETCH FIRST 5 ROWS ONLY";
+            
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                ciudades.add(resultSet.getString(2));
+                ventas.add(resultSet.getInt(1));
+            }                 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
+        
+        public void consultaEmpleadosSedes(ArrayList numEmpleados, ArrayList sedes){
+        try{
+            sql = "select count(np.documento_empleado), np.concat from (select informacion_empleados.id_sede,informacion_empleados.documento_empleado ,CONCAT(sedes.barrio,'//',sedes.direccion,'//',ciudad_sede.ciudad)\n" +
+                  "    from informacion_empleados inner join sedes on informacion_empleados.id_sede = sedes.id_sede\n" +
+                  "    inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad) as np\n" +
+                  "    group by np.id_sede, np.concat";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                sedes.add(resultSet.getString(2));
+                numEmpleados.add(resultSet.getInt(1));
+            }                 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }
+    
+        
+        public void consultaVentasSedes(ArrayList ventas, ArrayList sedes, int anio){
+        try{
+            sql = "select count(id_factura), np.id_sede,np.concat from (select facturas.id_sede,facturas.fecha ,CONCAT(sedes.barrio,'//',sedes.direccion,'//',ciudad_sede.ciudad), facturas.id_factura\n" +
+                  " from facturas inner join sedes on facturas.id_sede = sedes.id_sede\n" +
+                  " inner join ciudad_sede on sedes.id_ciudad = ciudad_sede.id_ciudad) as np\n" +
+                  " where EXTRACT(YEAR FROM np.fecha) = "+anio+"\n" +
+                  " group by np.id_sede, np.concat";
+                    
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                sedes.add(resultSet.getString(3));
+                
+                ventas.add(resultSet.getInt(1));
+                
+                System.out.println(ventas);
+            }                 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
+        }
+    }    
 }
 
 
