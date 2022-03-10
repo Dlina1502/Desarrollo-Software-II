@@ -37,7 +37,6 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         initComponents();
         crearBotones();
         adaptar_interfaz(permisos);
-        //jPanel4.add(registrar_usuario_panel);
         repaint();
         
     }
@@ -214,15 +213,15 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
  
     public void adaptar_interfaz(ArrayList<Integer> permisos) {
 
-        int registrar_usuarioP, consultar_usuarioP, editar_usuarioP;
+        int registrar_usuarioP, consultar_usuarioP, editar_usuarioP, consultar_accesoP;
 
         registrar_usuarioP = permisos.get(1);
         consultar_usuarioP = permisos.get(2);
         editar_usuarioP = permisos.get(3);
-
+        consultar_accesoP = permisos.get(4);
         
-        editar_usuario_panel = new Editar_usuario();
-        consultar_usuario_panel = new Consultar_usuario();
+
+      
 
         switch (registrar_usuarioP) {
             case 1:
@@ -257,7 +256,16 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
                 break;
         }
         
-        consultar_registros_panel = new Consultar_registros();
+        switch (consultar_accesoP) {
+            case 1:
+                consultar_registros_panel = new Consultar_registros();
+                consultar_registros.setVisible(true);
+                break;
+
+            case 0:
+                consultar_registros.setVisible(false);
+                break;
+        }
         
 
         

@@ -251,7 +251,7 @@ public class JFrame_principal extends javax.swing.JFrame {
     
     public void adaptar_interfaz(ArrayList<Integer> permisos) throws IOException{
         int terminal_ventas; 
-        int crear_usuario, editar_usuario, eliminar_usuario;
+        int crear_usuario, editar_usuario, eliminar_usuario, consultar_accesos;
         int crear_sede, consultar_sede, eliminar_sede, editar_sede;
         int reportes;
         int gestion_permisos;
@@ -261,15 +261,16 @@ public class JFrame_principal extends javax.swing.JFrame {
         crear_usuario = permisos.get(1);
         editar_usuario = permisos.get(2);
         eliminar_usuario = permisos.get(3);
+        consultar_accesos = permisos.get(4);
         
-        crear_sede = permisos.get(4);
-        consultar_sede = permisos.get(5);
-        eliminar_sede = permisos.get(6);
-        editar_sede = permisos.get(7);
+        crear_sede = permisos.get(5);
+        consultar_sede = permisos.get(6);
+        eliminar_sede = permisos.get(7);
+        editar_sede = permisos.get(8);
         
-        reportes = permisos.get(8);
+        reportes = permisos.get(9);
         
-        gestion_permisos = permisos.get(9);
+        gestion_permisos = permisos.get(10);
         
         
         switch(terminal_ventas){
@@ -283,7 +284,7 @@ public class JFrame_principal extends javax.swing.JFrame {
                 break;
         }
         
-        if(crear_usuario == 1 || editar_usuario == 1 || eliminar_usuario == 1){
+        if(crear_usuario == 1 || editar_usuario == 1 || eliminar_usuario == 1  || consultar_accesos == 1){
             gestionUsuario = new GestionUsuario(permisos);
             jButton1.setVisible(true);
         }else{

@@ -531,7 +531,7 @@ public class Funciones3  extends Conexion2{
     public void editarUsuario(String cedula, String nombre, String apellido1, String apellido2, String telefono, 
                           String correo, String barrio, String direccion, String ciudad, String rol, String estado) {
         try {
-            sql = "SELECT actualizar_usuario('"+cedula+"','"+nombre.toUpperCase()+"','" + apellido1.toUpperCase() + "','" + apellido2.toUpperCase() + "','" + telefono.toUpperCase() + "','" + correo.toUpperCase() + "','" + barrio.toUpperCase()+"','"+ direccion.toUpperCase() +"','"+ciudad.toUpperCase()+ "','" + rol+"','"+estado.toUpperCase()+"')";
+            sql = "SELECT actualizar_usuario('"+cedula+"','"+nombre.toUpperCase()+"','" + apellido1.toUpperCase() + "','" + apellido2.toUpperCase() + "','" + telefono.toUpperCase() + "','" + correo.toUpperCase() + "','" + barrio.toUpperCase()+"','"+ direccion +"','"+ciudad.toUpperCase()+ "','" + rol+"','"+estado.toUpperCase()+"')";
             statement.executeQuery(sql);
             JOptionPane.showMessageDialog(null,"Usuario editado con éxito");
 
