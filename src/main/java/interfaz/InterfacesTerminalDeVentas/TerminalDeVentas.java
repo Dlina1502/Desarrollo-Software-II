@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.HashSet;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -32,16 +33,23 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
     /**
      * Creates new customizer GestionSede
      */
-    public TerminalDeVentas() {
+    public TerminalDeVentas(ArrayList<Integer> permisos) {
         initComponents();
         crearBotones();
-        jPanel4.add(formularioDeEnvio);
+        actualizarInterfaz(permisos);
         repaint();
         
     }
     
     public void setObject(Object bean) {
         this.bean = bean;
+    }
+    public void actualizarInterfaz(ArrayList<Integer> permisos){
+        if (permisos.get(0) == 1){
+            formulario.setVisible(true);
+        }else{
+            formulario.setVisible(false);
+        }
     }
 
     /**
