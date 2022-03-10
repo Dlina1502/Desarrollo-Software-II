@@ -25,7 +25,9 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
     
     private Object bean;
     private JPanel formulario;
+    private JPanel consulta_envio;
     private Formulario_de_envio formularioDeEnvio = new Formulario_de_envio();
+    private ConsultaEnvio formularioconsulta = new ConsultaEnvio();
     
     /**
      * Creates new customizer GestionSede
@@ -147,12 +149,36 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
      aux1.setText("Llenar formulario");
      aux1.setHorizontalAlignment(SwingConstants.CENTER);
      formulario.add(aux1);
-     jPanel5.add(formulario);
+      jPanel5.add(formulario);
     //******************BOTON CONSULTAR******************************
 
+    
+     //******************BOTON REGISTRAR******************************
+      consulta_envio = new javax.swing.JPanel();
+     consulta_envio.setPreferredSize(new Dimension(301, 50));
+     consulta_envio.setBackground(new java.awt.Color(247, 247, 247));
+     consulta_envio.setBackground(new java.awt.Color(249, 152, 103));
+     consulta_envio.setLayout(new FlowLayout());
+     
+     consulta_envio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                consultaMouseReleased(evt);
+            }
+     });
+     
+     JLabel aux2 = new JLabel();
+     aux2.setText("Consultar envio");
+     aux2.setHorizontalAlignment(SwingConstants.CENTER);
+     consulta_envio.add(aux2);
+     jPanel5.add(consulta_envio);
+    //******************BOTON CONSULTAR******************************
+     
      
      ////////////////////////////////////////////////////////////////////
      repaint();
+     
+     
+     
  }
  
  private void formularioMouseReleased(java.awt.event.MouseEvent evt) {                                      
@@ -167,7 +193,19 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
         jPanel4.setVisible(false);
         jPanel4.setVisible(true);
     }             
-   
+ private void consultaMouseReleased(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        formulario.setBackground(new java.awt.Color(249, 152, 103));
+
+        jPanel4.removeAll();
+        jPanel4.add(formularioconsulta);
+        
+        repaint();
+        
+        jPanel4.setVisible(false);
+        jPanel4.setVisible(true);
+    }
+ 
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
