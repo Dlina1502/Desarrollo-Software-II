@@ -60,6 +60,7 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -72,14 +73,15 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(183, 182, 181));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(230, 98, 31));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel3.setPreferredSize(new java.awt.Dimension(301, 95));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel5.setFont(new java.awt.Font("Malgun Gothic Semilight", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Gestion de Usuarios");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -87,19 +89,25 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(0, 9, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
 
-        jPanel5.setBackground(new java.awt.Color(183, 182, 181));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setMaximumSize(new java.awt.Dimension(301, 32767));
         jPanel5.setMinimumSize(new java.awt.Dimension(301, 400));
         jPanel5.setPreferredSize(new java.awt.Dimension(301, 400));
@@ -110,10 +118,9 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,8 +143,8 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
      
      //******************BOTON REGISTRAR******************************
      registrar_usuario = new javax.swing.JPanel();
-     registrar_usuario.setPreferredSize(new Dimension(301, 50));
-     registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+     registrar_usuario.setPreferredSize(new Dimension(301, 45));
+     registrar_usuario.setBackground(new java.awt.Color(255, 255, 255));
      registrar_usuario.setLayout(new FlowLayout());
      
      registrar_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,8 +160,8 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
      jPanel5.add(registrar_usuario);
     //******************BOTON CONSULTAR******************************
      consultar_usuario = new javax.swing.JPanel();
-     consultar_usuario.setPreferredSize(new Dimension(301, 50));
-     consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+     consultar_usuario.setPreferredSize(new Dimension(301, 45));
+     consultar_usuario.setBackground(new java.awt.Color(255, 255, 255));
      
      
      consultar_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,8 +177,8 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
      jPanel5.add(consultar_usuario);
      //******************BOTON EDITAR******************************
      editar_usuario = new javax.swing.JPanel();
-     editar_usuario.setPreferredSize(new Dimension(301, 50));
-     editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+     editar_usuario.setPreferredSize(new Dimension(301, 45));
+     editar_usuario.setBackground(new java.awt.Color(255, 255, 255));
      
      editar_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -186,8 +193,8 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
      jPanel5.add(editar_usuario);
      //******************BOTON CONSULTAR REGISTROS******************************
      consultar_registros = new javax.swing.JPanel();
-     consultar_registros.setPreferredSize(new Dimension(301, 50));
-     consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
+     consultar_registros.setPreferredSize(new Dimension(301, 45));
+     consultar_registros.setBackground(new java.awt.Color(255, 255, 255));
      
      consultar_registros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -260,9 +267,9 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
  private void registrar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
         registrar_usuario.setBackground(new java.awt.Color(249, 152, 103));
-        consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
-        editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        editar_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        consultar_registros.setBackground(new java.awt.Color(255, 255, 255));
         
         jPanel4.removeAll();
         jPanel4.add(registrar_usuario_panel);
@@ -275,9 +282,9 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
  
  private void consultar_registrosMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
-        editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        consultar_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        editar_usuario.setBackground(new java.awt.Color(255, 255, 255));
         consultar_registros.setBackground(new java.awt.Color(249, 152, 103));
         
         jPanel4.removeAll();
@@ -291,10 +298,10 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
  
  private void consultar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_usuario.setBackground(new java.awt.Color(255, 255, 255));
         consultar_usuario.setBackground(new java.awt.Color(249, 152, 103));
-        editar_usuario.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
+        editar_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        consultar_registros.setBackground(new java.awt.Color(255, 255, 255));
         
         jPanel4.removeAll();
         jPanel4.add(consultar_usuario_panel);
@@ -307,10 +314,10 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
  
  private void editar_usuarioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_usuario.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_usuario.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        consultar_usuario.setBackground(new java.awt.Color(255, 255, 255));
         editar_usuario.setBackground(new java.awt.Color(249, 152, 103));
-        consultar_registros.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_registros.setBackground(new java.awt.Color(255, 255, 255));
         repaint();
         
         jPanel4.removeAll();
@@ -330,6 +337,7 @@ public class GestionUsuario extends javax.swing.JPanel implements java.beans.Cus
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables

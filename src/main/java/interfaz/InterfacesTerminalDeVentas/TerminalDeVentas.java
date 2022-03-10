@@ -132,9 +132,9 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
      
         //******************BOTON FORMULARIO******************************
      formulario = new javax.swing.JPanel();
-     formulario.setPreferredSize(new Dimension(301, 50));
-     formulario.setBackground(new java.awt.Color(247, 247, 247));
-     formulario.setBackground(new java.awt.Color(249, 152, 103));
+     formulario.setPreferredSize(new Dimension(301, 45));
+     formulario.setBackground(new java.awt.Color(255, 255, 255));
+     formulario.setBackground(new java.awt.Color(255, 255, 255));
      formulario.setLayout(new FlowLayout());
      
      formulario.addMouseListener(new java.awt.event.MouseAdapter() {
