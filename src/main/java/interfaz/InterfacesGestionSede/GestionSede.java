@@ -65,6 +65,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -77,34 +78,41 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(183, 182, 181));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(230, 98, 31));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel3.setPreferredSize(new java.awt.Dimension(301, 95));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Malgun Gothic Semilight", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Gestion de Sedes");
+
+        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel5)
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(183, 182, 181));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setMaximumSize(new java.awt.Dimension(301, 32767));
         jPanel5.setMinimumSize(new java.awt.Dimension(301, 400));
         jPanel5.setPreferredSize(new java.awt.Dimension(301, 400));
@@ -124,9 +132,9 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 205, Short.MAX_VALUE))
+                .addGap(0, 195, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1, java.awt.BorderLayout.LINE_START);
@@ -157,8 +165,8 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      
      //******************BOTON REGISTRAR******************************
      registrar_sede = new javax.swing.JPanel();
-     registrar_sede.setPreferredSize(new Dimension(301, 50));
-     registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     registrar_sede.setPreferredSize(new Dimension(301, 45));
+     registrar_sede.setBackground(new java.awt.Color(255, 255, 255));
      registrar_sede.setLayout(new FlowLayout());
      registrar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
@@ -175,8 +183,8 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      jPanel5.add(registrar_sede);
     //******************BOTON CONSULTAR******************************
      consultar_sede = new javax.swing.JPanel();
-     consultar_sede.setPreferredSize(new Dimension(301, 50));
-     consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     consultar_sede.setPreferredSize(new Dimension(301, 45));
+     consultar_sede.setBackground(new java.awt.Color(255, 255, 255));
      consultar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
      
@@ -193,8 +201,8 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      jPanel5.add(consultar_sede);
      //******************BOTON EDITAR******************************
      editar_sede = new javax.swing.JPanel();
-     editar_sede.setPreferredSize(new Dimension(301, 50));
-     editar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     editar_sede.setPreferredSize(new Dimension(301, 45));
+     editar_sede.setBackground(new java.awt.Color(255, 255, 255));
      editar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
      editar_sede.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -210,8 +218,8 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
      jPanel5.add(editar_sede);
      //******************BOTON ELIMINAR******************************
      eliminar_sede = new javax.swing.JPanel();
-     eliminar_sede.setPreferredSize(new Dimension(301, 50));
-     eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+     eliminar_sede.setPreferredSize(new Dimension(301, 45));
+     eliminar_sede.setBackground(new java.awt.Color(255, 255, 255));
      editar_sede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
      
      
@@ -291,9 +299,9 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
  private void registrar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
         registrar_sede.setBackground(new java.awt.Color(249, 152, 103));
-        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        consultar_sede.setBackground(new java.awt.Color(255, 255, 255));
+        editar_sede.setBackground(new java.awt.Color(255, 255, 255));
+        eliminar_sede.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.removeAll();
         registrar_sede_panel.setVisible(true);
         jPanel4.add(registrar_sede_panel);
@@ -304,10 +312,10 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
  
  private void consultar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_sede.setBackground(new java.awt.Color(255, 255, 255));
         consultar_sede.setBackground(new java.awt.Color(249, 152, 103));
-        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        editar_sede.setBackground(new java.awt.Color(255, 255, 255));
+        eliminar_sede.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.removeAll();
         consultar_sede_panel.setVisible(true);
         jPanel4.add(consultar_sede_panel);
@@ -316,10 +324,10 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
  
  private void editar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_sede.setBackground(new java.awt.Color(255, 255, 255));
+        consultar_sede.setBackground(new java.awt.Color(255, 255, 255));
         editar_sede.setBackground(new java.awt.Color(249, 152, 103));
-        eliminar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        eliminar_sede.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.removeAll();
         editar_sede_panel.setVisible(true);
         jPanel4.add(editar_sede_panel);
@@ -330,9 +338,9 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
  
  private void eliminar_sedeMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        registrar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        consultar_sede.setBackground(new java.awt.Color(247, 247, 247));
-        editar_sede.setBackground(new java.awt.Color(247, 247, 247));
+        registrar_sede.setBackground(new java.awt.Color(255, 255, 255));
+        consultar_sede.setBackground(new java.awt.Color(255, 255, 255));
+        editar_sede.setBackground(new java.awt.Color(255, 255, 255));
         eliminar_sede.setBackground(new java.awt.Color(249, 152, 103));
         jPanel4.removeAll();
         eliminar_sede_panel.setVisible(true);
@@ -349,6 +357,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables

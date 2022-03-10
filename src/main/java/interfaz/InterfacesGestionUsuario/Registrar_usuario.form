@@ -52,49 +52,47 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField38" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparator62" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField37" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparator61" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField39" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparator63" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField40" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparator64" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField41" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparator65" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jSeparator67" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparator66" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBox13" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBox14" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextField38" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator62" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextField37" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator61" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextField39" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator63" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextField40" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator64" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextField41" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator65" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jSeparator67" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator66" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jComboBox13" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jComboBox14" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="51" max="32767" attributes="0"/>

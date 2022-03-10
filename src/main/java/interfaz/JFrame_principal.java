@@ -66,15 +66,18 @@ public class JFrame_principal extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setMaximumSize(new java.awt.Dimension(180, 32767));
         jPanel1.setPreferredSize(new java.awt.Dimension(180, 500));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/logo2.png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+
+        jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("GESTIÓN DE USUARIOS");
+        jButton1.setBorder(null);
         jButton1.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -88,9 +91,10 @@ public class JFrame_principal extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1);
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
+        jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("GESTIÓN DE SEDES");
+        jButton3.setBorder(null);
         jButton3.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -104,9 +108,10 @@ public class JFrame_principal extends javax.swing.JFrame {
         });
         jPanel2.add(jButton3);
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
+        jButton6.setBackground(new java.awt.Color(51, 51, 51));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("TERMINAL DE VENTAS");
+        jButton6.setBorder(null);
         jButton6.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -115,9 +120,10 @@ public class JFrame_principal extends javax.swing.JFrame {
         });
         jPanel2.add(jButton6);
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
+        jButton5.setBackground(new java.awt.Color(51, 51, 51));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("PERMISOS DE USUSARIO");
+        jButton5.setText("PERMISOS DE USUARIO");
+        jButton5.setBorder(null);
         jButton5.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,9 +132,10 @@ public class JFrame_principal extends javax.swing.JFrame {
         });
         jPanel2.add(jButton5);
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setBackground(new java.awt.Color(51, 51, 51));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("REPORTES");
+        jButton4.setBorder(null);
         jButton4.setPreferredSize(new java.awt.Dimension(210, 56));
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

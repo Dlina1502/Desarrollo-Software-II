@@ -56,9 +56,10 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
         jTextField1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
 
         jToggleButton1.setText("jToggleButton1");
@@ -70,14 +71,21 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(183, 182, 181));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(230, 98, 31));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setMaximumSize(new java.awt.Dimension(301, 32767));
+        jPanel5.setMinimumSize(new java.awt.Dimension(301, 400));
+        jPanel5.setPreferredSize(new java.awt.Dimension(301, 400));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel3.setPreferredSize(new java.awt.Dimension(301, 95));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 3, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel5.setFont(new java.awt.Font("Malgun Gothic Semilight", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Terminal de ventas");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -85,23 +93,23 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(0, 26, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
-
-        jPanel5.setBackground(new java.awt.Color(183, 182, 181));
-        jPanel5.setMaximumSize(new java.awt.Dimension(301, 32767));
-        jPanel5.setMinimumSize(new java.awt.Dimension(301, 400));
-        jPanel5.setPreferredSize(new java.awt.Dimension(301, 400));
-        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,7 +117,7 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -134,9 +142,9 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
      
         //******************BOTON FORMULARIO******************************
      formulario = new javax.swing.JPanel();
-     formulario.setPreferredSize(new Dimension(301, 50));
-     formulario.setBackground(new java.awt.Color(247, 247, 247));
-     formulario.setBackground(new java.awt.Color(249, 152, 103));
+     formulario.setPreferredSize(new Dimension(301, 45));
+     formulario.setBackground(new java.awt.Color(255, 255, 255));
+     formulario.setBackground(new java.awt.Color(255, 255, 255));
      formulario.setLayout(new FlowLayout());
      
      formulario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,13 +159,10 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
      formulario.add(aux1);
       jPanel5.add(formulario);
     //******************BOTON CONSULTAR******************************
-
-    
-     //******************BOTON REGISTRAR******************************
-      consulta_envio = new javax.swing.JPanel();
-     consulta_envio.setPreferredSize(new Dimension(301, 50));
-     consulta_envio.setBackground(new java.awt.Color(247, 247, 247));
-     consulta_envio.setBackground(new java.awt.Color(249, 152, 103));
+     consulta_envio = new javax.swing.JPanel();
+     consulta_envio.setPreferredSize(new Dimension(301, 45));
+     consulta_envio.setBackground(new java.awt.Color(255, 255, 255));
+     consulta_envio.setBackground(new java.awt.Color(255, 255, 255));
      consulta_envio.setLayout(new FlowLayout());
      
      consulta_envio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,7 +189,7 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
  private void formularioMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
         formulario.setBackground(new java.awt.Color(249, 152, 103));
-
+        consulta_envio.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.removeAll();
         jPanel4.add(formularioDeEnvio);
         
@@ -195,8 +200,8 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
     }             
  private void consultaMouseReleased(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        formulario.setBackground(new java.awt.Color(249, 152, 103));
-
+        consulta_envio.setBackground(new java.awt.Color(249, 152, 103));
+        formulario.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.removeAll();
         jPanel4.add(formularioconsulta);
         
@@ -215,6 +220,7 @@ public class TerminalDeVentas extends javax.swing.JPanel implements java.beans.C
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables

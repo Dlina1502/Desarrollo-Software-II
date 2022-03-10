@@ -43,12 +43,9 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
         jPanel3 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jSeparator61 = new javax.swing.JSeparator();
-        jSeparator62 = new javax.swing.JSeparator();
         jSeparator63 = new javax.swing.JSeparator();
         jTextField39 = new javax.swing.JTextField();
         jTextField40 = new javax.swing.JTextField();
-        jSeparator64 = new javax.swing.JSeparator();
         jButton10 = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         jSeparator65 = new javax.swing.JSeparator();
@@ -61,6 +58,7 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setPreferredSize(new java.awt.Dimension(580, 500));
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/iconoSede.png"))); // NOI18N
 
@@ -74,6 +72,11 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jTextField39MouseExited(evt);
+            }
+        });
+        jTextField39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField39ActionPerformed(evt);
             }
         });
 
@@ -127,78 +130,53 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(107, 145, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                            .addComponent(jLabel37)
-                            .addGap(100, 100, 100))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel9Layout.createSequentialGroup()
-                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSeparator65, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel9Layout.createSequentialGroup()
-                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSeparator62, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSeparator64, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(200, 200, 200)))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jSeparator61, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jSeparator63, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel47)
-                .addGap(0, 499, Short.MAX_VALUE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addComponent(jLabel37))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jSeparator63, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator65, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel47)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jLabel37)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel47)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator62, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator64, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jSeparator63, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jSeparator61, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator65, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator63, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator65, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
 
         jPanel3.add(jPanel9);
@@ -206,35 +184,52 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
         add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField39MouseClicked
-        jTextField39.setText(null);
-        jTextField39.setForeground(Color.BLACK);
-    }//GEN-LAST:event_jTextField39MouseClicked
-
-    private void jTextField39MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField39MouseExited
-        String a = jTextField39.getText();
-        if (a.equals("")){
-            jTextField39.setForeground(Color.GRAY);
-            jTextField39.setText("Número de teléfono");
-        }
-    }//GEN-LAST:event_jTextField39MouseExited
-
-    private void jTextField40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField40MouseClicked
-        jTextField40.setText(null);
-        jTextField40.setForeground(Color.BLACK);
-    }//GEN-LAST:event_jTextField40MouseClicked
-
-    private void jTextField40MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField40MouseExited
-        String a = jTextField40.getText();
-        if (a.equals("")){
-            jTextField40.setForeground(Color.GRAY);
-            jTextField40.setText("Direccion");
-        }
-    }//GEN-LAST:event_jTextField40MouseExited
-
-    private void jTextField40jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField40jTextField4ActionPerformed
+    private void jComboBox3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox3ItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField40jTextField4ActionPerformed
+
+        if(evt.getItem().equals("NUEVO BARRIO") && (evt.getStateChange() == ItemEvent.SELECTED)){
+            String getMessage = JOptionPane.showInputDialog(null, "Ingrese el barrio");
+            jComboBox3.addItem(getMessage.toUpperCase());
+            jComboBox3.setSelectedItem(getMessage.toUpperCase());
+        }
+    }//GEN-LAST:event_jComboBox3ItemStateChanged
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        // TODO add your handling code here:
+        if(evt.getItem().equals("NUEVA CIUDAD") && (evt.getStateChange() == ItemEvent.SELECTED)){
+            String getMessage = JOptionPane.showInputDialog(null, "Ingrese la ciudad");
+            jComboBox2.addItem(getMessage.toUpperCase());
+            jComboBox2.setSelectedItem(getMessage.toUpperCase());
+        }
+
+        if ((!evt.getItem().equals("SELECCIONE UNA CIUDAD")) && (evt.getStateChange() == ItemEvent.SELECTED))
+        {
+            String departamento = (String) jComboBox1.getSelectedItem();
+            String ciudad = (String) jComboBox2.getSelectedItem();
+            jComboBox3.removeAllItems();
+            funciones.boxBarrio(jComboBox3, departamento, ciudad);
+        }
+
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+
+        if(evt.getItem().equals("NUEVO DEPARTAMENTO") && (evt.getStateChange() == ItemEvent.SELECTED)){
+            String getMessage = JOptionPane.showInputDialog(null, "Ingrese el departamento");
+            jComboBox1.addItem(getMessage.toUpperCase());
+            jComboBox1.setSelectedItem(getMessage.toUpperCase());
+        }
+
+        if ((!evt.getItem().equals("SELECCIONE UN DEPARTAMENTO")) && (evt.getStateChange() == ItemEvent.SELECTED))
+        {
+            String departamento = (String) jComboBox1.getSelectedItem();
+            jComboBox2.removeAllItems();
+            funciones.boxCiudad(jComboBox2, departamento);
+        }
+
+        this.repaint();
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         String departamento = (String) jComboBox1.getSelectedItem();
@@ -245,55 +240,39 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
         funciones.registrarSede(departamento.toUpperCase(), ciudad.toUpperCase(), barrio.toUpperCase(), direccion, telefono.toUpperCase());
     }//GEN-LAST:event_jButton10MouseClicked
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    private void jTextField40jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField40jTextField4ActionPerformed
         // TODO add your handling code here:
-        
-        if(evt.getItem().equals("NUEVO DEPARTAMENTO") && (evt.getStateChange() == ItemEvent.SELECTED)){
-            String getMessage = JOptionPane.showInputDialog(null, "Ingrese el departamento"); 
-            jComboBox1.addItem(getMessage.toUpperCase());
-            jComboBox1.setSelectedItem(getMessage.toUpperCase());
-        }
-        
-        
-                
-        if ((!evt.getItem().equals("SELECCIONE UN DEPARTAMENTO")) && (evt.getStateChange() == ItemEvent.SELECTED))
-        {
-            String departamento = (String) jComboBox1.getSelectedItem();
-            jComboBox2.removeAllItems();
-            funciones.boxCiudad(jComboBox2, departamento);
-        }
-        
-        
-        this.repaint();
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_jTextField40jTextField4ActionPerformed
 
-    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
-        // TODO add your handling code here:
-        if(evt.getItem().equals("NUEVA CIUDAD") && (evt.getStateChange() == ItemEvent.SELECTED)){
-            String getMessage = JOptionPane.showInputDialog(null, "Ingrese la ciudad"); 
-            jComboBox2.addItem(getMessage.toUpperCase());
-            jComboBox2.setSelectedItem(getMessage.toUpperCase());
+    private void jTextField40MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField40MouseExited
+        String a = jTextField40.getText();
+        if (a.equals("")){
+            jTextField40.setForeground(Color.GRAY);
+            jTextField40.setText("Direccion");
         }
-        
-        if ((!evt.getItem().equals("SELECCIONE UNA CIUDAD")) && (evt.getStateChange() == ItemEvent.SELECTED))
-        {
-            String departamento = (String) jComboBox1.getSelectedItem();
-            String ciudad = (String) jComboBox2.getSelectedItem();
-            jComboBox3.removeAllItems();
-            funciones.boxBarrio(jComboBox3, departamento, ciudad);
-        }
-        
-    }//GEN-LAST:event_jComboBox2ItemStateChanged
+    }//GEN-LAST:event_jTextField40MouseExited
 
-    private void jComboBox3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox3ItemStateChanged
+    private void jTextField40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField40MouseClicked
+        jTextField40.setText(null);
+        jTextField40.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextField40MouseClicked
+
+    private void jTextField39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField39ActionPerformed
         // TODO add your handling code here:
-        
-        if(evt.getItem().equals("NUEVO BARRIO") && (evt.getStateChange() == ItemEvent.SELECTED)){
-            String getMessage = JOptionPane.showInputDialog(null, "Ingrese el barrio"); 
-            jComboBox3.addItem(getMessage.toUpperCase());
-            jComboBox3.setSelectedItem(getMessage.toUpperCase());
+    }//GEN-LAST:event_jTextField39ActionPerformed
+
+    private void jTextField39MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField39MouseExited
+        String a = jTextField39.getText();
+        if (a.equals("")){
+            jTextField39.setForeground(Color.GRAY);
+            jTextField39.setText("Número de teléfono");
         }
-    }//GEN-LAST:event_jComboBox3ItemStateChanged
+    }//GEN-LAST:event_jTextField39MouseExited
+
+    private void jTextField39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField39MouseClicked
+        jTextField39.setText(null);
+        jTextField39.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextField39MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,10 +284,7 @@ public class Registrar_sede extends javax.swing.JPanel implements java.beans.Cus
     private javax.swing.JLabel jLabel47;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator61;
-    private javax.swing.JSeparator jSeparator62;
     private javax.swing.JSeparator jSeparator63;
-    private javax.swing.JSeparator jSeparator64;
     private javax.swing.JSeparator jSeparator65;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField40;
