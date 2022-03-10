@@ -42,9 +42,7 @@ public class GestionSede extends javax.swing.JPanel implements java.beans.Custom
         adaptar_interfaz(permisos);
         
         
-        Funciones3 funciones= new Funciones3();
-        ImageIcon[] imagenes=funciones.readImage(4);
-        Slider slider = new Slider(imagenes);
+        
         repaint();
         
     }

@@ -1068,6 +1068,41 @@ public class Funciones3  extends Conexion2{
         return images;
 
     }
+    public Marker[] readUbicacion(int envio) throws IOException {
+
+        String query0 = "SELECT count(*)  FROM public.statusenvio WHERE id_envio=" + envio + " and latitud is not null";
+        String query1 = "SELECT fecha,latitud,longitud  FROM public.statusenvio WHERE id_envio=" + envio + " and latitud is not null order by fecha";
+        String fecha;
+        String latitud;
+        String longitud;
+        int rows=0;
+        Marker marker[] = null;
+        int contador;
+        try {
+           resultSet = statement.executeQuery(query0);
+            while (resultSet.next()) {
+                rows = resultSet.getInt(1);
+            }
+            marker = new Marker[rows];
+            resultSet = statement.executeQuery(query1);
+            contador=0;
+            while (resultSet.next()) {
+                fecha = resultSet.getString(1);
+                latitud = resultSet.getString(2);
+                longitud = resultSet.getString(3);
+                marker[contador]=new Marker(latitud, longitud, "Direccion","Nombre","Reporte Realizado a las "+fecha);
+                contador++;
+            }
+
+            
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Funciones3.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+
+        return marker;
+
+    }
     
 
 //==============================================================================================================================================================
@@ -1418,7 +1453,7 @@ public class Funciones3  extends Conexion2{
     }
     
         
-        public void consultaVentasSedes(ArrayList ventas, ArrayList sedes, int anio){
+    public void consultaVentasSedes(ArrayList ventas, ArrayList sedes, int anio){
         try{
             sql = "select count(id_factura), np.id_sede,np.concat from (select facturas.id_sede,facturas.fecha ,CONCAT(sedes.barrio,'//',sedes.direccion,'//',ciudad_sede.ciudad), facturas.id_factura\n" +
                   " from facturas inner join sedes on facturas.id_sede = sedes.id_sede\n" +
@@ -1437,7 +1472,35 @@ public class Funciones3  extends Conexion2{
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada");
         }
-    }    
+    }
+
+    public String[] informacionenvio(String envio){
+        String arregloEnvio[] = new String[4];
+        try{
+            sql = "SELECT E.id_envio,E.fecha_envio,E.valor_paquete,E.descripcion_mercancia,E.cantidad,\n" +
+                  " C.documento_cliente,C.nombre||' '||C.apellido as nombrecliente,C.celular as celularcliente,C.direccion as direccioncliente,\n" +
+                  " CC.ciudad as ciudadcliente,CC.departamento as departamentocliente,\n" +
+                  " D.documento_destinatario,D.nombre||' '||D.apellido as nombredestinatario,D.celular as celulardestinatario,D.direccion as direcciondestinatario,\n" +
+                  " Cd.ciudad as ciudaddestintario,Cd.departamento as departamentodestinatario\n" +
+                  " FROM envios E, cliente C, destinatario D,ciudad_sede Cc,ciudad_sede Cd \n" +
+                  " WHERE E.id_cliente=C.id_cliente AND E.id_destinatario=D.id_destinatario AND C.id_ciudad=Cc.id_ciudad AND \n" +
+                  " D.id_ciudad=Cd.id_ciudad\n" +
+                  " AND id_envio='"+envio+"'";
+            System.out.println(sql);
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                arregloEnvio[0]=resultSet.getString(1);
+                arregloEnvio[1]="Documento : "+resultSet.getString(6)+"\nNombre: "+resultSet.getString(7)+"\nCelular: "+resultSet.getString(8)+"\nDirección :"+resultSet.getString(9)+"\nCiudad :"+resultSet.getString(10)+"-"+resultSet.getString(11);
+                arregloEnvio[2]="Documento : "+resultSet.getString(12)+"\nNombre: "+resultSet.getString(13)+"\nCelular: "+resultSet.getString(14)+"\nDirección :"+resultSet.getString(15)+"\nCiudad :"+resultSet.getString(16)+"-"+resultSet.getString(17);
+                arregloEnvio[3]="Fecha :"+resultSet.getString(2)+"\nValor :"+resultSet.getString(3)+"\nDescripción :"+resultSet.getString(4)+"\nCantidad :"+resultSet.getString(5);   
+            }                 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error en el proceso, no se consultó nada ");
+            System.out.println(e.getMessage());
+        }
+        return arregloEnvio;
+    }
+    
 }
 
 
