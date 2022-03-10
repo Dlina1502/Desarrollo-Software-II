@@ -166,7 +166,7 @@ public class Funciones3  extends Conexion2{
     
     public void insertarActualizarPermisos(ArrayList<Integer> permisos){
         try{
-            sql = "INSERT INTO permisos_rol (terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos,id_tipo_empleado) "
+            sql = "INSERT INTO permisos_rol (terminal_ventas, registrar_usuario, consultar_usuario, editar_usuario, crear_sede, consultar_sede, eliminar_sede, editar_sede, reportes, gestion_permisos, id_tipo_empleado) "
                     + "values(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id_tipo_empleado) DO "
                     + "UPDATE SET terminal_ventas = ?, registrar_usuario = ?, consultar_usuario = ?, editar_usuario = ?, crear_sede = ?, consultar_sede = ?, eliminar_sede = ?, editar_sede = ?, reportes = ?, gestion_permisos = ?";
             PreparedStatement pstmt = conexion.prepareStatement(sql);

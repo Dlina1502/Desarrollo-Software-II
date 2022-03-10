@@ -148,6 +148,7 @@ public class GestionRoles extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jCheckBox31 = new javax.swing.JCheckBox();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -191,7 +192,7 @@ public class GestionRoles extends javax.swing.JPanel {
         jCheckBox25.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jCheckBox25.setForeground(new java.awt.Color(51, 51, 51));
-        jCheckBox25.setText("Editar Usuario");
+        jCheckBox25.setText("Editar usuario");
         jCheckBox25.setPreferredSize(new java.awt.Dimension(226, 26));
         jCheckBox25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,6 +293,17 @@ public class GestionRoles extends javax.swing.JPanel {
 
         jSeparator1.setBackground(new java.awt.Color(51, 51, 51));
 
+        jCheckBox31.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jCheckBox31.setForeground(new java.awt.Color(51, 51, 51));
+        jCheckBox31.setText("Consultar registros");
+        jCheckBox31.setPreferredSize(new java.awt.Dimension(226, 26));
+        jCheckBox31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox31jCheckBox3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -339,7 +351,8 @@ public class GestionRoles extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jCheckBox25, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox24, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                    .addComponent(jCheckBox24, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox31, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                 .addGap(62, 62, 62)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jCheckBox29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -379,7 +392,9 @@ public class GestionRoles extends javax.swing.JPanel {
                         .addComponent(jCheckBox24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jCheckBox26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox29, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox29, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -429,6 +444,7 @@ public class GestionRoles extends javax.swing.JPanel {
         int registrarUsuario = 0;
         int consultarUsuario = 0;
         int editarUsuario = 0;
+        int consultarAccesos= 0;
 
         int registrarSede = 0;
         int consultarSede = 0;
@@ -467,6 +483,9 @@ public class GestionRoles extends javax.swing.JPanel {
         if (jCheckBox30.isSelected()){
             gestionRoles = 1;
         }
+        if (jCheckBox31.isSelected()){
+            consultarAccesos = 1;
+        }
 
         if (permisos != null && !permisos.isEmpty()) {
             permisos.set(0, terminalVentas);
@@ -479,6 +498,7 @@ public class GestionRoles extends javax.swing.JPanel {
             permisos.set(7, editarSede);
             permisos.set(8, reportes);
             permisos.set(9, gestionRoles);
+            permisos.set(10, consultarAccesos);
         }else{
             permisos.add(terminalVentas);
             permisos.add(registrarUsuario);
@@ -490,6 +510,7 @@ public class GestionRoles extends javax.swing.JPanel {
             permisos.add(editarSede);
             permisos.add(reportes);
             permisos.add(gestionRoles);
+            permisos.add(consultarAccesos);
         }
         String rol = (String)jComboBox4.getSelectedItem();
         funciones.buscarCrearRol(rol);
@@ -552,6 +573,10 @@ public class GestionRoles extends javax.swing.JPanel {
             System.out.println(permisos);
         }
     }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jCheckBox31jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox31jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox31jCheckBox3ActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -567,6 +592,7 @@ public class GestionRoles extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckBox28;
     private javax.swing.JCheckBox jCheckBox29;
     private javax.swing.JCheckBox jCheckBox30;
+    private javax.swing.JCheckBox jCheckBox31;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
